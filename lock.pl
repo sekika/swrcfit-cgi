@@ -4,7 +4,7 @@
 
 package plab;
 
-# 引数 (ディレクトリ名)
+# Parameter (Directory)
 sub lock
 {
 	local $ok;
@@ -35,7 +35,7 @@ sub lock
 	return $ok;
 }
 
-# 引数 (ディレクトリ名)
+# Parameter (Directory)
 sub unlock
 {
 	rmdir($_[0]);
