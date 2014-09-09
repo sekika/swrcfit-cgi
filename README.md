@@ -37,7 +37,7 @@ Currently it is running with developing code available from GitHub repository. O
 git clone git://github.com/sekika/swrcfit
 ``` 
 
-SWRC Fit requires GNU Octave and some packages. Please see user's manual of SWRC Fit for detail.
+SWRC Fit requires GNU Octave and some packages from octave forge, as described in user's manual of SWRC Fit.
 If you do not have root access to your server, you might have to install these programs in your
 home directory.
 
