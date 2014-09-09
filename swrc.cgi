@@ -1,7 +1,10 @@
 #!/usr/bin/perl --
 #
 # swrc.cgi - SWRC Fit web interface
-# http://seki.webmasters.gr.jp/swrc/
+#
+# Web: http://seki.webmasters.gr.jp/swrc/
+# Purl: http://purl.org/net/swrc/
+# Source: https://github.com/sekika/swrcfit-cgi
 # Author: Katsutoshi Seki
 #
 # This program requires SWRC Fit: http://swrcfit.sourceforge.net/
