@@ -6,9 +6,10 @@ swrcfit-cgi - SWRC Fit web interface
 * Source: https://github.com/sekika/swrcfit-cgi
 * Author: Katsutoshi Seki
 
-This program requires SWRC Fit: http://swrcfit.sourceforge.net/
-SWRC Fit requires GNU Octave and some packages
-See user's manual of SWRC Fit for detail.
+## How to use the web insterface
+
+It is documented here.
+https://github.com/sekika/swrcfit/blob/master/README.md#web-interface-of-the-swrc-fit
 
 ## Setting up alternative site
 
@@ -17,3 +18,8 @@ certain group of people by access control, and proper credit is clearly indicate
 
 To set up alternative site on servers where anyone can access, please get permission
 from the author. Detail will be written here.
+
+
+This program requires SWRC Fit: http://swrcfit.sourceforge.net/
+SWRC Fit requires GNU Octave and some packages.
+
