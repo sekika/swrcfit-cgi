@@ -5,7 +5,7 @@ This is a source code of web interface of [SWRC Fit](http://swrcfit.sourceforge.
 * Web: http://seki.webmasters.gr.jp/swrc/
 * Purl: http://purl.org/net/swrc/
 * Source: https://github.com/sekika/swrcfit-cgi
-* Author: Katsutoshi Seki
+* Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 
 ## How to use the web insterface
 
