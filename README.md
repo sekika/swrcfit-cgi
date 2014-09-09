@@ -20,7 +20,7 @@ certain group of people by access control, and proper credit is clearly indicate
 
 To set up alternative site on servers where anyone can access, please get permission
 from the author. You can just send me request as a question from [here](https://github.com/sekika/swrcfit-cgi/issues?q=is%3Aissue+label%3Aquestion).
-After you get permission and you setup a server, post the address in the thread.
+After you get permission and you setup a server, post URL of the site in the thread.
 I will make a list of alternative servers of SWRC Fit [here](http://swrcfit.sourceforge.net/).
 This way, when the main site is not available for some reason, people can use the alternative site.
 If you do not get permission within 2 weeks after you send the request as written above,
