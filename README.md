@@ -30,7 +30,13 @@ Alternative servers should have proper credit and link to the main site of SWRC 
 
 ### Technical note on setting up alternative site
 
-This program requires SWRC Fit: http://swrcfit.sourceforge.net/
+This program requires [SWRC Fit](http://swrcfit.sourceforge.net/).
+Currently it is running with developing code available from GitHub repository. Obtain the code with
+
+```
+git clone git://github.com/sekika/swrcfit
+``` 
+
 SWRC Fit requires GNU Octave and some packages. Please see user's manual of SWRC Fit for detail.
 If you do not have root access to your server, you might have to install these programs in your
 home directory.
