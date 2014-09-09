@@ -1,5 +1,6 @@
 swrcfit-cgi - SWRC Fit web interface
 ===========
+This is a source code of web interface of [SWRC Fit](http://swrcfit.sourceforge.net/).
 
 * Web: http://seki.webmasters.gr.jp/swrc/
 * Purl: http://purl.org/net/swrc/
