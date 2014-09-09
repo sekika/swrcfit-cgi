@@ -8,8 +8,7 @@ swrcfit-cgi - SWRC Fit web interface
 
 ## How to use the web insterface
 
-It is documented here.
-https://github.com/sekika/swrcfit/blob/master/README.md#web-interface-of-the-swrc-fit
+It is documented in [user's manual of SWRC Fit](https://github.com/sekika/swrcfit/blob/master/README.md#web-interface-of-the-swrc-fit).
 
 ## Setting up alternative site
 
