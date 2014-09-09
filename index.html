@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;CHARSET=UTF-8">
+  <title>SWRC Fit</title>
+  <meta name="author" content="Katsutoshi Seki">
+  <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
+</head>
+<body>
+<h1>SWRC Fit</h1>
+
+<p>SWRC Fit can fit several soil hydraulic models to measured soil water retention data. Copy your soil water retention data in the textbox below and press "Calculate" button. Before you use your original data you can see how it works by selecting a sample data from the pulldown menu.</p>
+
+<div align="center">
+<form action="swrc.cgi" method="post">
+<table>
+<tr>
+<td align="top">
+  <p>Description of the soil sample<br>
+   <input type="text" name="soil" size="30" maxsize="100" value="NS"> <br>
+   Soil texture<br>
+   <input type="text" name="texture" size="20" maxsize="50" value="NS"> <br>
+   Your name<br>
+   <input type="text" name="name" size="20" maxsize="50" value="NS"> <br>
+   (NS: Not Specified)<br>
+  </p>
+  <p>Calculation options<br>
+  <input type="checkbox" name="thetaR" value="on">&theta;<sub>r</sub> = 0<br>
+  <INPUT TYPE="CHECKBOX" name="DB" value="on">Bimodal models
+  </p>
+</td>
+<td>
+  <p>Soil Water Retention Curve<br>
+
+  <select onChange="location.href=this.options[this.selectedIndex].value;">
+  <option value="#">Select from sample data
+<option value="unsoda1270.html">Tuffaceous Rock
+<option value="unsoda4440.html">Sand
+<option value="unsoda2243.html">Sandy loam
+<option value="unsoda1015.html">Loamy sand
+<option value="unsoda2760.html">Silty loam
+<option value="unsoda4800.html">Loam
+<option value="unsoda3033.html">Clay loam
+<option value="unsoda2362.html">Clay
+  </select>
+  <p> <textarea name="swrc" rows="15" cols="20" wrap="OFF">
+# Paste your data here
+</textarea> </p>
+</td>
+</tr>
+</table>
+  <p><input type="submit" value="Calculate">
+  <input type="button" value="Clear" onClick="window.location='index.html'"></p>
+</form>
+</div>
+
+<h2>Citation</h2>
+
+<p>Please cite this paper when you publish your work using SWRC Fit. <a href="http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046">Researches conducted with SWRC Fit</a>.</p>
+
+<ul>
+<li>Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4: 407-437. <a href="http://dx.doi.org/10.5194/hessd-4-407-2007">doi:10.5194/hessd-4-407-2007</a></li>
+</ul>
+
+<p><a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib">BibTeX</a> and <a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris">EndNote</a> files are also available.</p>
+
+<h2>Download / Document</h2>
+
+<ul>
+<li><a href="http://swrcfit.sourceforge.net/">Downloadble program with a user's manual</a> is available.</li>
+<li>If you cannot access sourceforge.net, please use <a href="download/">alternative download</a>. Iranian user reported that sourceforge.net is not accessible from Iran.</li>
+</ul>
+
+<h2>Acknowledgement</h2>
+<ul>
+<li>Sample data is from <a href="http://www.ars.usda.gov/Services/docs.htm?docid
+=8967">UNSODA database</a> of unsaturated soil hydraulic properties developed by
+ US Salinity Laboratory.</li>
+</ul>
+
+<h2>Question</h2>
+
+<p><a href="https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion">Here</a> you can find a list of questions and answers about SWRC Fit. You can submit your own question by getting the accout of GitHub (use the green "Sign up" button) and pressing the green "New Issue" button. Please select the label of "question". It is preferable to send your question publicly this way, because other people having the same question can find answer on the web. However, if your question is confidential, please contact me by email. Tou can find my email address in <a href="http://file.scirp.org/Html/2-1660128_33490.htm">this paper</a>.</p>
+
+<hr>
+<p>Persistent URL of this page is <a href="http://purl.org/net/swrc/">http://purl.org/net/swrc/</a>. (<a href="http://purl.org/">What is Persistent URL?</a>)
+</p>
+<p>
+Author: <a href="http://www2.toyo.ac.jp/~seki_k/en/">Katsutoshi Seki</a>
+</p>
+<p align="right"><img src="npc.cgi?L=http://purl.org/net/swrc/"></p>
+</body>
+</html>
+
