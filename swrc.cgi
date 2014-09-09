@@ -14,7 +14,8 @@
 # You can set up SWRC Fit web interface anywhere if the access is restricted to
 # certain group of people by access control, and proper credit is clearly indicated.
 # To set up this program on servers where anyone can access, please get permission
-# from the author. Detail will be written in the document.
+# from the author. See document for detail.
+# https://github.com/sekika/swrcfit-cgi/blob/master/README.md
 
 # Include 2 perl codes obtained from PERL-LABO
 # http://www.perl-labo.org/
