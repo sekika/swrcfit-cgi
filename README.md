@@ -64,7 +64,7 @@ and $validreferrer variable
 ```
 $validreferrer = "http://seki.webmasters.gr.jp/swrc/";
 ```
-of `swrc.cgi`. If you are using apache 2, make sure that mod_cgi is loaded and you may also have to set up `.htaccess` file of something like
+of `swrc.cgi`. If you are using apache 2, make sure that [mod_cgi](http://httpd.apache.org/docs/current/en/mod/mod_cgi.html) is enabled and you may also have to set up `.htaccess` file of something like
 
 ```
 Options +ExecCGI
