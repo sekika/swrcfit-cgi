@@ -60,7 +60,6 @@ EOF
 $referrer=$ENV{'HTTP_REFERER'};
 
 $file = $referrer;
-$referrer =~ s/unsoda.*html//g;
 $referrer =~ s/index\.html//g;
 $file =~ s/http.*jp\///g;
 
