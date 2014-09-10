@@ -118,7 +118,7 @@ else {
 
 # If no result is obtained, something is wrong with input data
 if ($result[0] eq "") {
-cat << EOF
+print << "EOF";
 <p>Invalid input data.</p>
 
 <p>The input data, i.e., the soil water retention curve, should be numbers with two columns.
