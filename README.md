@@ -7,6 +7,8 @@ This is a source code of web interface of [SWRC Fit](http://swrcfit.sourceforge.
 * Source: https://github.com/sekika/swrcfit-cgi
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 
+This document can be read here. https://github.com/sekika/swrcfit-cgi/blob/master/README.md
+
 ## How to use the web insterface
 
 It is documented in [user's manual of SWRC Fit](https://github.com/sekika/swrcfit/blob/master/README.md#web-interface-of-the-swrc-fit).
