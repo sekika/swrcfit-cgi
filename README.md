@@ -71,4 +71,4 @@ Options +ExecCGI
 AddHandler cgi-script cgi
 ```
 
-Read (Apache Tutorial: Dynamic Content with CGI)[http://httpd.apache.org/docs/current/en/howto/cgi.html] if you have trouble setting up cgi.
+Read [Apache Tutorial: Dynamic Content with CGI](http://httpd.apache.org/docs/current/en/howto/cgi.html) if you have trouble setting up cgi.
