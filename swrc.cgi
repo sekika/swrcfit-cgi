@@ -91,14 +91,12 @@ print "<li>Texture: $texture</li>";
 print "<li>Name: $name</li>";
 print "</ul>";
 
-##### Start of unimodal model #####
-
 # Write data file
 open FILE, "> $fswrc";
 print FILE $swrc;
 close FILE;
 
-### Calculation ###
+##### Start of calculation; unimodal model #####
 
 # Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
 # Therefore, the output parameter can directoly be stored to $result.
