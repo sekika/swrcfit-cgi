@@ -3,6 +3,10 @@
 # and $HOME/.swrcfit is not in your home directory when executed.
 
 simple=1;
+
+# See setting for figure here
+# https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot
+
 fig=1;
 figure="img/swrc.png";
 figure2="img/bimodal.png";
