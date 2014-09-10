@@ -47,9 +47,9 @@ Content-type: text/html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content=\"text/html;CHARSET=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html;CHARSET=UTF-8">
   <title>SWRC Fit - Result -</title>
-  <meta name="author" content=\"Katsutoshi Seki">
+  <meta name="author" content="Katsutoshi Seki">
   <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
 </head>
 <body>
