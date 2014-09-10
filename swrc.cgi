@@ -117,15 +117,8 @@ else {
 }
 
 if ($result[0] eq "") {
-print << "EOF";
-<hr>
-<p>Invalid input parameter.</p>
-<p><a href="http://purl.org/net/swrc/">SWRC Fit</a></p>
-</body>
-</html>
-EOF
-return 0;
-}
+print "<p>Invalid input parameter.</p>";
+} else {
 
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup></tr>";
 print "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
@@ -223,6 +216,7 @@ print << "EOF";
 having unimodal and bimodal pore structure. <i>Hydrol. Earth Syst. Sci. Discuss.</i>, 4: 407-437.</li>
 </ul>
 EOF
+}
 }
 }
 
