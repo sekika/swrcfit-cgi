@@ -60,7 +60,7 @@ EOF
 $referrer=$ENV{'HTTP_REFERER'};
 
 $file = $referrer;
-$referrer =~ s/index\.html//g;
+$referrer =~ s/index.*\.html//g;
 $file =~ s/http.*jp\///g;
 
 if ($referrer eq $validreferrer) {
