@@ -47,7 +47,6 @@ The source code of the web interface can be obtained from GitHub by
 git clone git://github.com/sekika/swrcfit-cgi
 ``` 
 
-All the necessary files are included, except ./data directory (permission 777) and
-unsoda----.html files. Read the source code of `swrc.cgi` and `setting.txt` and edit some
+All the necessary files are included, except empty ./data directory (permission 777). Read the source code of `swrc.cgi` and `setting.txt` and edit some
 settings to meet your server's environment.
 
