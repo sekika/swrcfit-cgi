@@ -142,7 +142,7 @@ where space is used as a delimiter. For example;</p>
 <p>Lines beginning with "#" are regarded as comment and neglected.
 Any unit can be used as the input data, and the calculated data depends on the unit used as the input data.</p>
 
-<p>Optionally, the data file can have the third column. When it has the third column,
+<p>Optionally, the input data can have the third column. When it has the third column,
 it is interpreted as a weight for each parameter.</p>
 
 <p>For example,</p>
