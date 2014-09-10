@@ -238,6 +238,9 @@ sending correct referrer.</p>
 EOF
 }
 
+# Delete data file
+unlink $fswrc;
+
 # Unlock
 plab::unlock($lockdir);
 
