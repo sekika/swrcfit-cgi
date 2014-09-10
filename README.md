@@ -9,7 +9,7 @@ This is a source code of web interface of [SWRC Fit](http://swrcfit.sourceforge.
 
 This document can be read here. https://github.com/sekika/swrcfit-cgi/blob/master/README.md
 
-## How to use the web insterface
+## How to use the web interface
 
 It is documented in [user's manual of SWRC Fit](https://github.com/sekika/swrcfit/blob/master/README.md#web-interface-of-the-swrc-fit).
 
