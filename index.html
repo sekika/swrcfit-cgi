@@ -5,14 +5,60 @@
   <title>SWRC Fit</title>
   <meta name="author" content="Katsutoshi Seki">
   <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
+
+  <script type="text/javascript"><!--
+    function a(){
+        if(document.getElementById("unsoda").value == "unsoda1270"){
+            document.getElementById("soil").value = "Superior, AZ, USA (UNSODA 1270)";
+            document.getElementById("texture").value = "Tuffaceous Rock";
+            document.getElementById("name").value = "Rasmussen et al.";
+            document.getElementById("swrc").value = "100 0.167\n250 0.158\n500 0.147\n1000 0.123\n3000 0.098\n5000 0.086\n10000 0.083\n50000 0.07\n";
+        }else if(document.getElementById("unsoda").value == "unsoda4440"){
+            document.getElementById("soil").value = "Grenoble, France (UNSODA 4440)";
+            document.getElementById("texture").value = "Sand";
+            document.getElementById("name").value = "Haverkamp and Parlange, 1986";
+            document.getElementById("swrc").value = "11 0.35\n13 0.35\n14 0.355\n16 0.35\n23 0.341\n28 0.3365\n33 0.33\n36 0.3225\n37 0.31\n38 0.32\n40 0.312\n42 0.2908\n44 0.284\n45 0.282\n47 0.2608\n48 0.25\n49 0.242\n50 0.235\n51 0.2288\n52 0.205\n53 0.206\n54 0.1996\n55 0.2\n56 0.1819\n59 0.164\n60 0.17\n61 0.178\n62 0.1549\n64 0.155\n65 0.145\n66 0.16\n67 0.14\n68 0.134\n69 0.146\n70 0.138\n74 0.134\n77 0.126\n79 0.124\n84 0.119\n89 0.114\n94 0.1\n104 0.1\n";
+        }else if(document.getElementById("unsoda").value == "unsoda2243"){
+            document.getElementById("soil").value = "Hanford, WA, USA (UNSODA 2243)";
+            document.getElementById("texture").value = "Sandy loam";
+            document.getElementById("name").value = "Laliberte et al., 1966";
+            document.getElementById("swrc").value = "3 0.518\n7 0.517\n14 0.516\n21 0.516\n29 0.515\n33 0.513\n40 0.442\n44 0.401\n46 0.38\n47 0.367\n51 0.34\n54 0.315\n59 0.291\n66 0.263\n72 0.249\n87 0.212\n105 0.186\n123 0.17\n134 0.165\n146 0.157\n157 0.152\n171 0.145\n";
+        }else if(document.getElementById("unsoda").value == "unsoda1015"){
+            document.getElementById("soil").value = "Union Springs, AL, USA (UNSODA 1015)";
+            document.getElementById("texture").value = "Loamy sand";
+            document.getElementById("name").value = "Dane et al., 1983";
+            document.getElementById("swrc").value = "0 0.2628\n20 0.237\n30 0.223\n40 0.211\n50 0.2035\n70 0.1855\n100 0.169\n200 0.151\n430 0.1399\n640 0.131\n1050 0.1159\n";
+        }else if(document.getElementById("unsoda").value == "unsoda2760"){
+            document.getElementById("soil").value = "Lyss, Switzerland (UNSODA 2760)";
+            document.getElementById("texture").value = "Silty loam";
+            document.getElementById("name").value = "Richard et al., 1983";
+            document.getElementById("swrc").value = "1 0.502\n5 0.497\n10 0.484\n20 0.458\n40 0.434\n80 0.414\n160 0.406\n345 0.395\n690 0.391\n2000 0.354\n5000 0.304\n10000 0.268\n15000 0.248\n";
+        }else if(document.getElementById("unsoda").value == "unsoda4800"){
+            document.getElementById("soil").value = "Tukabaru, Miyazaki, Japan (UNSODA 4800)";
+            document.getElementById("texture").value = "Loam";
+            document.getElementById("name").value = "S. Shiozawa";
+            document.getElementById("swrc").value = "9 0.648\n12 0.632\n16 0.63\n20 0.63\n26 0.63\n32 0.629\n39 0.6112\n46 0.576\n53 0.557\n62 0.535\n74 0.509\n97 0.487\n129 0.462\n165 0.445\n224 0.425\n288 0.407\n366 0.394\n476 0.378\n";
+        }else if(document.getElementById("unsoda").value == "unsoda3033"){
+            document.getElementById("soil").value = "Orenburg region, Russia (UNSODA 3033)";
+            document.getElementById("texture").value = "Clay loam";
+            document.getElementById("name").value = "Suhanova";
+            document.getElementById("swrc").value = "0 0.571\n25 0.521\n50 0.485\n100 0.407\n150 0.377\n200 0.353\n300 0.338\n400 0.328\n500 0.319\n600 0.31\n700 0.31\n800 0.295\n";
+        }else if(document.getElementById("unsoda").value == "unsoda2362"){
+            document.getElementById("soil").value = "Seelow, Germany (UNSODA 2362)";
+            document.getElementById("texture").value = "Clay";
+            document.getElementById("name").value = "Schindler et al., 1985";
+            document.getElementById("swrc").value = "0 0.557\n10 0.555\n30 0.554\n50 0.552\n100 0.548\n300 0.542\n500 0.536\n800 0.528\n1500 0.513\n3000 0.486\n5000 0.458\n8000 0.448\n15000 0.414\n";
+        }else{
+            document.getElementById("swrc").value = "# Paste your data here";
+        }
+    }
+--></script>
+
 </head>
 <body>
 <h1>SWRC Fit</h1>
 
-<p>SWRC Fit can fit several soil hydraulic models to measured soil water retention data.
-Copy your soil water retention data in the textbox below and press "Calculate" button.
-Before you use your original data you can see how it works by selecting a sample data
-from the pulldown menu.</p>
+<p>SWRC Fit can fit several soil hydraulic models to measured soil water retention data. Copy your soil water retention data in the textbox below and press "Calculate" button. Before you use your original data you can see how it works by selecting a sample data from the pulldown menu.</p>
 
 <div align="center">
 <form action="swrc.cgi" method="post">
@@ -20,11 +66,11 @@ from the pulldown menu.</p>
 <tr>
 <td align="top">
   <p>Description of the soil sample<br>
-   <input type="text" name="soil" size="30" maxsize="100" value="NS"> <br>
+   <input type="text" name="soil" id="soil" size="30" maxsize="100" value="NS"> <br>
    Soil texture<br>
-   <input type="text" name="texture" size="20" maxsize="50" value="NS"> <br>
+   <input type="text" name="texture" id="texture" size="20" maxsize="50" value="NS"> <br>
    Your name<br>
-   <input type="text" name="name" size="20" maxsize="50" value="NS"> <br>
+   <input type="text" name="name" id="name" size="20" maxsize="50" value="NS"> <br>
    (NS: Not Specified)<br>
   </p>
   <p>Calculation options<br>
@@ -35,20 +81,20 @@ from the pulldown menu.</p>
 <td>
   <p>Soil Water Retention Curve<br>
 
-  <select onChange="location.href=this.options[this.selectedIndex].value;">
-  <option value="#">Select from sample data
-<option value="unsoda1270.html">Tuffaceous Rock
-<option value="unsoda4440.html">Sand
-<option value="unsoda2243.html">Sandy loam
-<option value="unsoda1015.html">Loamy sand
-<option value="unsoda2760.html">Silty loam
-<option value="unsoda4800.html">Loam
-<option value="unsoda3033.html">Clay loam
-<option value="unsoda2362.html">Clay
+<select name="unsoda" id="unsoda" onChange="a()">
+  <option value="">Select from sample data
+<option value="unsoda1270">Tuffaceous Rock
+<option value="unsoda4440">Sand
+<option value="unsoda2243">Sandy loam
+<option value="unsoda1015">Loamy sand
+<option value="unsoda2760">Silty loam
+<option value="unsoda4800">Loam
+<option value="unsoda3033">Clay loam
+<option value="unsoda2362">Clay
   </select>
-  <p> <textarea name="swrc" rows="15" cols="20" wrap="OFF">
+  <p> <textarea name="swrc" id="swrc" rows="15" cols="20" wrap="OFF">
 # Paste your data here
-</textarea> </p>
+  </textarea> </p>
 </td>
 </tr>
 </table>
@@ -59,25 +105,19 @@ from the pulldown menu.</p>
 
 <h2>Citation</h2>
 
-<p>Please cite this paper when you publish your work using SWRC Fit.
-<a href="http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046">Researches conducted with SWRC Fit</a>.</p>
+<p>Please cite this paper when you publish your work using SWRC Fit. <a href="http://scholar.google.com/scholar?oi=bibs&hl=en&cites=7295614925292719046">Researches conducted with SWRC Fit</a>.</p>
 
 <ul>
-<li>Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having
-unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4: 407-437.
-<a href="http://dx.doi.org/10.5194/hessd-4-407-2007">doi:10.5194/hessd-4-407-2007</a></li>
+<li>Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4: 407-437. <a href="http://dx.doi.org/10.5194/hessd-4-407-2007">doi:10.5194/hessd-4-407-2007</a></li>
 </ul>
 
-<p><a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib">BibTeX</a> and
-<a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris">EndNote</a>
-files are also available.</p>
+<p><a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib">BibTeX</a> and <a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris">EndNote</a> files are also available.</p>
 
 <h2>Download / Document</h2>
 
 <ul>
 <li><a href="http://swrcfit.sourceforge.net/">Downloadble program with a user's manual</a> is available.</li>
-<li>If you cannot access sourceforge.net, please use <a href="download/">alternative download</a>.
-Iranian user reported that sourceforge.net is not accessible from Iran.</li>
+<li>If you cannot access sourceforge.net, please use <a href="download/">alternative download</a>. Iranian user reported that sourceforge.net is not accessible from Iran.</li>
 </ul>
 
 <h2>Acknowledgement</h2>
@@ -89,17 +129,10 @@ Iranian user reported that sourceforge.net is not accessible from Iran.</li>
 
 <h2>Question</h2>
 
-<p><a href="https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion">Here</a> you can find
-a list of questions and answers about SWRC Fit. You can submit your own question by getting the accout of
-GitHub (use the green "Sign up" button) and pressing the green "New Issue" button.
-Please select the label of "question". It is preferable to send your question publicly this way,
-because other people having the same question can find answer on the web.
-However, if your question is confidential, please contact me by email.
-Tou can find my email address in <a href="http://file.scirp.org/Html/2-1660128_33490.htm">this paper</a>.</p>
+<p><a href="https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion">Here</a> you can find a list of questions and answers about SWRC Fit. You can submit your own question by getting the accout of GitHub (use the green "Sign up" button) and pressing the green "New Issue" button. Please select the label of "question". It is preferable to send your question publicly this way, because other people having the same question can find answer on the web. However, if your question is confidential, please contact me by email. Tou can find my email address in <a href="http://file.scirp.org/Html/2-1660128_33490.htm">this paper</a>.</p>
 
 <hr>
-<p>Persistent URL of this page is <a href="http://purl.org/net/swrc/">http://purl.org/net/swrc/</a>.
-(<a href="http://purl.org/">What is Persistent URL?</a>)
+<p>Persistent URL of this page is <a href="http://purl.org/net/swrc/">http://purl.org/net/swrc/</a>. (<a href="http://purl.org/">What is Persistent URL?</a>)
 </p>
 <p>
 Author: <a href="http://www2.toyo.ac.jp/~seki_k/en/">Katsutoshi Seki</a>
