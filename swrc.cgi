@@ -148,7 +148,7 @@ defined by Q(x)=1-&Phi;(x), in which &Phi;(x) is a normalized form of the
 EOF
 
 # Random number is added to refresh the browzer cash
-print "<img src=\"img/swrc.png?", int(rand(1000000)), "\">";
+print "<img src=\"img/swrc.png?", int(rand(1000000)), " alt="graph"\">";
 
 # Show reference
 
@@ -203,7 +203,7 @@ print "<br>&sigma;<sub>2</sub> = ", $result[14];
 print "<td>", $result[15];
 print "</tr>";
 print "</table>";
-print "<img src=\"img/bimodal.png?", int(rand(1000000)), "\">";
+print "<img src=\"img/bimodal.png?", int(rand(1000000)), " alt="graph"\">";
 
 print << "EOF";
 <ul>
