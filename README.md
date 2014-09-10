@@ -68,7 +68,7 @@ of `swrc.cgi`. If you are using apache 2, make sure that [mod_cgi](http://httpd.
 
 ```
 Options +ExecCGI
-AddType application/x-httpd-cgi .cgi
 AddHandler cgi-script cgi
 ```
 
+Read (Apache Tutorial: Dynamic Content with CGI)[http://httpd.apache.org/docs/current/en/howto/cgi.html] if you have trouble setting up cgi.
