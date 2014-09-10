@@ -93,8 +93,6 @@ print "</ul>";
 
 ##### Start of unimodal model #####
 
-print "<h2>Unimodal models</h2>";
-
 # Write data file
 open FILE, "> $fswrc";
 print FILE $swrc;
@@ -119,7 +117,7 @@ else {
 # If no result is obtained, something is wrong with input data
 if ($result[0] eq "") {
 print << "EOF";
-<p>Invalid input data.</p>
+print "<h2>Invalid input data</h2>";
 
 <p>The input data, i.e., the soil water retention curve, should be numbers with two columns.
 The first column is the suction head and the second column is the volumetric water content,
@@ -161,6 +159,7 @@ it is interpreted as a weight for each parameter.</p>
 EOF
 } else {
 
+print "<h2>Unimodal models</h2>";
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup></tr>";
 print "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
 print "<td>&theta;<sub>s</sub> = ", $result[0];
