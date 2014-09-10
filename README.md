@@ -52,9 +52,13 @@ All the necessary files are included. Change the permissions of data and img dir
 chmod 777 data img
 ```
 Read the source code of `swrc.cgi` and `setting.txt` and edit some
-settings to meet your server's environment. Especially, pay attention to the first line (path of perl)
+settings to meet your server's environment. Especially, pay attention to the first line (path of perl installation)
 ```
 #!/usr/bin/perl --
+```
+path of swrcfit installation
+```
+$swrcfit = "/usr/local/bin/swrcfit"; # swrcfit program
 ```
 and $validreferrer variable
 ```
