@@ -47,7 +47,11 @@ The source code of the web interface can be obtained from GitHub by
 git clone git://github.com/sekika/swrcfit-cgi
 ``` 
 
-All the necessary files are included, except empty ./data directory (permission 777). Make sure that permission of img directory is 777. Read the source code of `swrc.cgi` and `setting.txt` and edit some
+All the necessary files are included. Change the permissions of data and img directory by
+```
+chmod 777 data img
+```
+Read the source code of `swrc.cgi` and `setting.txt` and edit some
 settings to meet your server's environment. Especially, pay attention to the first line (path of perl) and $validreferrer variable of `swrc.cgi`. You may also have to set up `.htaccess` file of something like if you are using apache 2 (make sure that mod_cgi is loaded).
 
 ```
