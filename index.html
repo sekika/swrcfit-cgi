@@ -7,6 +7,9 @@
   <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
 
   <script type="text/javascript"><!--
+    function eraseTA(obj){
+        if (obj.value == obj.defaultValue) obj.value = "";
+    }
     function a(){
         if(document.getElementById("unsoda").value == "unsoda1270"){
             document.getElementById("soil").value = "Superior, AZ, USA (UNSODA 1270)";
@@ -107,7 +110,8 @@ Before you use your original data you can see how it works by selecting a sample
   <option value="unsoda3033">Clay loam
   <option value="unsoda2362">Clay
 </select>
-<p><textarea name="swrc" id="swrc" rows="15" cols="23" wrap="off"># Paste your data here
+<p><textarea name="swrc" id="swrc" rows="15" cols="23" wrap="off" onMousedown="eraseTA(this)">
+# Paste your data here
 </textarea></p>
 </td>
 </tr>
