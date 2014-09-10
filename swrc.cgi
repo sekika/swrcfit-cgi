@@ -118,7 +118,47 @@ else {
 
 # If no result is obtained, something is wrong with input data
 if ($result[0] eq "") {
-print "<p>Invalid input data.</p>";
+cat << EOF
+<p>Invalid input data.</p>
+
+<p>The input data, i.e., the soil water retention curve, should be numbers with two columns.
+The first column is the suction head and the second column is the volumetric water content,
+where space is used as a delimiter. For example;</p>
+
+<pre>
+0 0.2628
+20 0.237
+30 0.223
+40 0.211
+50 0.2035
+70 0.1855
+100 0.169
+200 0.151
+430 0.1399
+640 0.131
+1050 0.1159
+</pre>
+
+<p>Lines beginning with "#" are regarded as comment and neglected.
+Any unit can be used as the input data, and the calculated data depends on the unit used as the input data.</p>
+
+<p>Optionally, the data file can have the third column. When it has the third column,
+it is interpreted as a weight for each parameter.</p>
+
+<p>For example,</p>
+
+<pre>
+0 0.2628 1
+20 0.237 1
+40 0.211 1
+70 0.1855 1
+100 0.169 1
+1050 0.1159 3
+</pre>
+
+<p>This data has weight of 1 for the suction of 0, 20, 40, 70, 100 and 3 for the suction of 1050.</p>
+
+EOF
 } else {
 
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup></tr>";
