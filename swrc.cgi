@@ -116,8 +116,9 @@ else {
   @result = `($swrcfit $fswrc) 2> /dev/null | grep -v "CON"`;
 }
 
+# If no result is obtained, something is wrong with input data
 if ($result[0] eq "") {
-print "<p>Invalid input parameter.</p>";
+print "<p>Invalid input data.</p>";
 } else {
 
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup></tr>";
