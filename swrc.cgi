@@ -116,9 +116,15 @@ else {
   @result = `($swrcfit $fswrc) 2> /dev/null | grep -v "CON"`;
 }
 
-if ($result[0] eq NULL) {
-  print "Invalid input parameter.";
-  return 0;
+if ($result[0] eq "") {
+print << "EOF";
+<hr>
+<p>Invalid input parameter.</p>
+<p><a href="http://purl.org/net/swrc/">SWRC Fit</a></p>
+</body>
+</html>
+EOF
+return 0;
 }
 
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup></tr>";
