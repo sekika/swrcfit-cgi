@@ -283,9 +283,11 @@ plab::unlock($lockdir);
 
 # Print footer
 
+$version = `($swrcfit -v) 2> /dev/null`;
+
 print << "EOF";
 <hr>
-<p><a href="http://purl.org/net/swrc/">SWRC Fit</a></p>
+<p><a href="http://purl.org/net/swrc/">SWRC Fit</a> $version</p>
 </body>
 </html>
 EOF
