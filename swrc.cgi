@@ -283,7 +283,7 @@ plab::unlock($lockdir);
 
 # Print footer
 
-$version = `($swrcfit -v) 2> /dev/null`;
+$version = `($swrcfit -v) 2> /dev/null | sed -e 's/swrcfit //`;
 
 print << "EOF";
 <hr>
