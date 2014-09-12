@@ -1,1 +1,2 @@
 This directory should be writable by the owner of httpd.
+As git doen't preserve writable permission, you have to manually set permission.
