@@ -244,7 +244,7 @@ print "<br>&sigma;<sub>2</sub> = ", $result[14];
 print "<td>", $result[15];
 print "</tr>";
 print "</table>";
-print "<img src=\"img/bimodal.png?", int(rand(1000000)), " alt=\"graph\">";
+print "<img src=\"img/bimodal.png?", int(rand(1000000)), "\" alt=\"graph\">";
 
 print << "EOF";
 <ul>
