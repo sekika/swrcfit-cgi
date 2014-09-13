@@ -26,7 +26,7 @@ After you get permission and you setup a server, post URL of the site in the thr
 I will make a list of alternative servers of SWRC Fit [here](http://swrcfit.sourceforge.net/).
 This way, when the main site is not available for some reason, people can use the alternative site.
 If you do not get permission within 2 weeks after you send the request as written above,
-you can set up the alternative server. Please post the address in the thread.
+you can set up the alternative server. Please post URL of the site in the thread.
 
 Alternative servers should have proper credit and link to the main site of SWRC Fit web interface.
 
