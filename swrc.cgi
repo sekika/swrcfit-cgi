@@ -104,7 +104,7 @@ close FILE;
 # To supress this message, the output is piped to `grep -v "CON"`.
 
 if ($thetaR eq "on") {
-  @result = `($swrcfit $fswrc qrin=0; cqr=0) 2> /dev/null | grep -v "CON"`;
+  @result = `($swrcfit $fswrc qrin=0 cqr=0) 2> /dev/null | grep -v "CON"`;
 }
 else {
   @result = `($swrcfit $fswrc) 2> /dev/null | grep -v "CON"`;
