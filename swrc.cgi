@@ -26,8 +26,6 @@ require 'lock.pl';
 $swrcfit = "/usr/local/bin/swrcfit"; # swrcfit program
 $lockdir    = "data/lock"; # lock directory
 $fswrc = "data/swrc.txt"; # data file
-$bimodal = "bimodal.txt"; # setting for bimodal model
-$qr0 = "qr0.txt"; # setting for theta_r = 0
 
 # This should be modified when using at different server
 $validreferrer = "http://seki.webmasters.gr.jp/swrc/";
@@ -106,7 +104,7 @@ close FILE;
 # To supress this message, the output is piped to `grep -v "CON"`.
 
 if ($thetaR eq "on") {
-  @result = `($swrcfit $fswrc $qr0) 2> /dev/null | grep -v "CON"`;
+  @result = `($swrcfit $fswrc qrin=0; cqr=0) 2> /dev/null | grep -v "CON"`;
 }
 else {
   @result = `($swrcfit $fswrc) 2> /dev/null | grep -v "CON"`;
@@ -209,10 +207,10 @@ EOF
 if ($DB eq "on") {
   print "<h2>Bimodal models</h2>";
 if ($thetaR eq "on") {
-  @result = `($swrcfit $fswrc $bimodal $qr0) 2> /dev/null | grep -v "CON"`;
+  @result = `($swrcfit $fswrc mode=2 qrin=0 cqr=0) 2> /dev/null | grep -v "CON"`;
 }
 else {
-  @result = `($swrcfit $fswrc $bimodal) 2> /dev/null | grep -v "CON"`;
+  @result = `($swrcfit $fswrc mode=2) 2> /dev/null | grep -v "CON"`;
 }
 
 if (substr($result[0],0,3) eq "Not") {
