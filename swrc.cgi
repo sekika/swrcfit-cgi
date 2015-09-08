@@ -111,7 +111,7 @@ else {
 }
 
 # If no result is obtained, something is wrong with input data
-if ($result[0] eq "") {
+if ($result[0] eq "" or $result[0] == "0") {
 print << "EOF";
 <h2>Invalid input data</h2>
 
