@@ -282,10 +282,12 @@ plab::unlock($lockdir);
 # Print footer
 
 $version = `($swrcfit -v) 2> /dev/null | sed -e 's/swrcfit //'`;
+$oct = `(octave -v | grep version) 2> /dev/null | sed -e 's/, version//'`;
+$gnuplot = `(gnuplot -V) 2> /dev/null | sed -e 's/ patchlevel /./'`;
 
 print << "EOF";
 <hr>
-<p><a href="http://purl.org/net/swrc/">SWRC Fit</a> $version</p>
+<p><a href="http://purl.org/net/swrc/">SWRC Fit</a> $version with $oct, $gnuplot and <a href="https://github.com/sekika/swrcfit-cgi">swrcfit-cgi</a>.</p>
 </body>
 </html>
 EOF
