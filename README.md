@@ -34,8 +34,8 @@ Alternative servers should have proper credit and link to the main site of SWRC 
 
 This program requires [SWRC Fit](http://swrcfit.sourceforge.net/) version 2.0 or higher.
 Install SWRC Fit first, as described in the user's manual.
-If you do not have root access to your server, you might have to install SWRC Fit and necessary
-programs (gnuplot, GNU Octave, some struct and optim packages of octave forge) in your home directory.
+If you do not have root access to your server, install SWRC Fit and necessary programs
+(gnuplot, GNU Octave, some struct and optim packages of octave forge) in your home directory.
 
 The source code of the web interface can be obtained from GitHub by
 
