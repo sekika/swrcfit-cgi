@@ -53,7 +53,7 @@ Edit the first line of swrc.cgi
 ```
 #!/usr/bin/perl --
 ```
-to path of perl installation (such as `#!/usr/local/bin/perl --`) if necessary. Edit `setting.pl` (required) and `setting.txt` (optional).
+to path of perl (such as `#!/usr/local/bin/perl --`) if necessary. Edit `setting.pl` (required) and `setting.txt` (optional).
 
 If you are using apache 2, make sure that [mod_cgi](http://httpd.apache.org/docs/current/en/mod/mod_cgi.html) is enabled and you may also have to set up `.htaccess` file of something like
 
