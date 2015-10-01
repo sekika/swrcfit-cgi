@@ -17,7 +17,7 @@ It is documented in [user's manual of SWRC Fit](https://github.com/sekika/swrcfi
 
 ### Getting permission
 
-You can set up SWRC Fit web interface anywhere if the access is restricted to
+You can set up SWRC Fit web interface anywhere if the access is restricted to a
 certain group of people by access control, and proper credit is clearly indicated.
 
 To set up alternative site on servers where anyone can access, please get permission
