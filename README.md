@@ -32,6 +32,9 @@ Alternative servers should have proper credit and link to the main site of SWRC 
 
 ### Technical note on setting up alternative site
 
+I assume that you have a shell access to your server. Without shell access, the installation
+is quite difficult, if not possible.
+
 This program requires [SWRC Fit](http://swrcfit.sourceforge.net/) version 2.0 or higher.
 Install the latest version of SWRC Fit as described in the user's manual.
 If you do not have root access to your server, install SWRC Fit and necessary programs
