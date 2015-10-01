@@ -22,13 +22,10 @@
 require 'getformdata.pl';
 require 'lock.pl';
 
-# Initial setting
-$swrcfit = "/usr/local/bin/swrcfit"; # swrcfit program
+# Load setting
+require 'setting.pl';
 $lockdir    = "data/lock"; # lock directory
 $fswrc = "data/swrc.txt"; # data file
-
-# This should be modified when using at different server
-$validreferrer = "http://seki.webmasters.gr.jp/swrc/";
 
 # Lock
 

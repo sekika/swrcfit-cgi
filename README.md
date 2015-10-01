@@ -49,20 +49,13 @@ All the necessary files are included. Change the permissions of data and img dir
 ```
 chmod 777 data img
 ```
-Read the source code of `swrc.cgi` and `setting.txt` and edit some
-settings to meet your server's environment. Especially, pay attention to the first line (path of perl installation)
+Edit the first line of swrc.cgi
 ```
 #!/usr/bin/perl --
 ```
-path of swrcfit installation
-```
-$swrcfit = "/usr/local/bin/swrcfit"; # swrcfit program
-```
-and $validreferrer variable
-```
-$validreferrer = "http://seki.webmasters.gr.jp/swrc/";
-```
-of `swrc.cgi`. If you are using apache 2, make sure that [mod_cgi](http://httpd.apache.org/docs/current/en/mod/mod_cgi.html) is enabled and you may also have to set up `.htaccess` file of something like
+to path of swrcfit installation. Edit `setting.pl` (required) and `setting.txt` (optinal).
+
+If you are using apache 2, make sure that [mod_cgi](http://httpd.apache.org/docs/current/en/mod/mod_cgi.html) is enabled and you may also have to set up `.htaccess` file of something like
 
 ```
 Options +ExecCGI
