@@ -64,4 +64,5 @@ Options +ExecCGI
 AddHandler cgi-script cgi
 ```
 
+Please make sure that this is allowed on your system (check AllowOverride in the directory).
 Read [Apache Tutorial: Dynamic Content with CGI](http://httpd.apache.org/docs/current/en/howto/cgi.html) if you have trouble setting up cgi.
