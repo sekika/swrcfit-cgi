@@ -40,7 +40,7 @@ of this program is very difficult, if not possible.
 This program requires version 2.0 or higher.
 
 If you do not have root access to your server, install SWRC Fit and necessary programs
-(perl, gnuplot, GNU Octave, some struct and optim packages of octave forge) in your home directory;
+(perl, gnuplot, GNU Octave, struct and optim packages of octave forge) in your home directory;
 compile the programs from source by changing the path setting.
 
 The source code of the web interface can be obtained from GitHub by
