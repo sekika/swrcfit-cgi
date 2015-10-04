@@ -1,3 +1,5 @@
+# Setting file for swrc.cgi.
+
 # Full path of swrcfit program
 $swrcfit = "/usr/local/bin/swrcfit";
 

@@ -1,4 +1,4 @@
-# Basic setting for output.
+# Setting file for swrcfit.
 # Please note that normally cgi is executed by another user account
 # and $HOME/.swrcfit is not in your home directory when executed.
 
