@@ -1,4 +1,4 @@
-#!/usr/bin/perl --
+#!/usr/bin/env perl
 #
 # swrc.cgi - SWRC Fit web interface
 #
