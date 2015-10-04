@@ -35,6 +35,8 @@ Alternative servers should have proper credit and link to the main site of SWRC 
 I assume that you have a shell access to your web server. Without the shell access, installation
 of this program is very difficult, if not possible.
 
+Please install perl if it is not installed on your system.
+
 This program requires [SWRC Fit](http://swrcfit.sourceforge.net/) version 2.0 or higher.
 Install the latest version of SWRC Fit as described in the user's manual.
 If you do not have root access to your server, install SWRC Fit and necessary programs
@@ -53,7 +55,8 @@ chmod 777 data img
 ```
 Edit `setting.pl` (required) and `setting.txt` (optional).
 
-If you are using apache 2, make sure that [mod_cgi](http://httpd.apache.org/docs/current/en/mod/mod_cgi.html) is enabled and you may also have to set up `.htaccess` file of something like
+If you are using apache 2, make sure that [mod_cgi](http://httpd.apache.org/docs/current/en/mod/mod_cgi.html)
+is enabled and you may also have to set up `.htaccess` file of something like
 
 ```
 Options +ExecCGI
@@ -61,4 +64,5 @@ AddHandler cgi-script cgi
 ```
 
 Please make sure that this is allowed on your system (check AllowOverride in the directory).
-Read [Apache Tutorial: Dynamic Content with CGI](http://httpd.apache.org/docs/current/en/howto/cgi.html) if you have trouble setting up cgi.
+Read [Apache Tutorial: Dynamic Content with CGI](http://httpd.apache.org/docs/current/en/howto/cgi.html)
+if you have trouble setting up cgi.
