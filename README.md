@@ -35,7 +35,7 @@ Alternative servers should have proper credit and link to the main site of SWRC 
 I assume that you have a shell access to your web server. Without the shell access, installation
 of this program is very difficult, if not possible.
 
-Please install perl if it is not installed on your system.
+Please install Perl if it is not installed on your system.
 
 This program requires [SWRC Fit](http://swrcfit.sourceforge.net/) version 2.0 or higher.
 Install the latest version of SWRC Fit as described in the user's manual.
