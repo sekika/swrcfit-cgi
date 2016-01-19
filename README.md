@@ -51,7 +51,7 @@ git clone git://github.com/sekika/swrcfit-cgi
 ```
 
 Please note that you are using appropriate version of swrcfig-cgi that corresponds to the version
-of swrcfit. Older release can be obtained from [Reelases](https://github.com/sekika/swrcfit-cgi/releases).
+of swrcfit. Older releases can be obtained from [Releases](https://github.com/sekika/swrcfit-cgi/releases).
 
 All the necessary files are included. Change the permissions of data and img directory by
 ```
