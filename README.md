@@ -5,8 +5,8 @@ This is a source code of web interface of [SWRC Fit](http://swrcfit.sourceforge.
 * Web: http://seki.webmasters.gr.jp/swrc/
 * Purl: http://purl.org/net/swrc/
 * Source: https://github.com/sekika/swrcfit-cgi
-* Version: 2.0
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
+* Version: 2.0
 
 This document can be read here. https://github.com/sekika/swrcfit-cgi/blob/master/README.md
 
