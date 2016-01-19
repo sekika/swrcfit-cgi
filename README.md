@@ -5,6 +5,7 @@ This is a source code of web interface of [SWRC Fit](http://swrcfit.sourceforge.
 * Web: http://seki.webmasters.gr.jp/swrc/
 * Purl: http://purl.org/net/swrc/
 * Source: https://github.com/sekika/swrcfit-cgi
+* Version: 2.0
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
 
 This document can be read here. https://github.com/sekika/swrcfit-cgi/blob/master/README.md
@@ -43,11 +44,14 @@ If you do not have root access to your server, install SWRC Fit and necessary pr
 (perl, gnuplot, GNU Octave, struct and optim packages of octave forge) in your home directory;
 compile the programs from source by changing the path setting.
 
-The source code of the web interface can be obtained from GitHub by
+The latest source code of the web interface can be obtained from GitHub by
 
 ```
 git clone git://github.com/sekika/swrcfit-cgi
-``` 
+```
+
+Please note that you are using appropriate version of swrcfig-cgi that corresponds to the version
+of swrcfit. Older release can be obtained from [Reelases](https://github.com/sekika/swrcfit-cgi/releases).
 
 All the necessary files are included. Change the permissions of data and img directory by
 ```
