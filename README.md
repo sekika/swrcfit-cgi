@@ -50,8 +50,8 @@ The latest source code of the web interface can be obtained from GitHub by
 git clone git://github.com/sekika/swrcfit-cgi
 ```
 
-Please note that you are using appropriate version of swrcfig-cgi that corresponds to the version
-of swrcfit. Older releases can be obtained from [Releases](https://github.com/sekika/swrcfit-cgi/releases).
+Please note that you are using appropriate version of swrcfig-cgi that corresponding to the version
+of swrcfit that you are using. Older releases can be obtained from [Releases](https://github.com/sekika/swrcfit-cgi/releases).
 
 All the necessary files are included. Change the permissions of data and img directory by
 ```
