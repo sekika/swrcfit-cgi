@@ -53,6 +53,10 @@ git clone git://github.com/sekika/swrcfit-cgi
 Please note that you are using appropriate version of swrcfig-cgi that corresponding to the version
 of swrcfit that you are using. Older releases can be obtained from [Releases](https://github.com/sekika/swrcfit-cgi/releases).
 
+|Version of swrcfit-cgi| Version of swrcfit|
+|--------|-----------|
+|2.0     |2.0, 2.1   |
+
 All the necessary files are included. Change the permissions of data and img directory by
 ```
 chmod 777 data img
