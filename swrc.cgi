@@ -172,6 +172,13 @@ print "<br>&theta;<sub>r</sub> = ", $result[11];
 print "<br>h<sub>m</sub> = ", $result[12];
 print "<br>&sigma; = ", $result[13];
 print "<td>", $result[14];
+print "<tr><td>Fredlund and Xing<td>
+print "<td>&theta;<sub>s</sub> = ", $result[15];
+print "<br>&theta;<sub>r</sub> = ", $result[16];
+print "<br>a = ", $result[17];
+print "<br>m = ", $result[18];
+print "<br>n = ", $result[19];
+print "<td>", $result[20], "</tr>";
 
 print <<"EOF";
 </tr>
