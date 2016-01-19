@@ -6,7 +6,7 @@ This is a source code of web interface of [SWRC Fit](http://swrcfit.sourceforge.
 * Purl: http://purl.org/net/swrc/
 * Source: https://github.com/sekika/swrcfit-cgi
 * Author: [Katsutoshi Seki](http://researchmap.jp/sekik/)
-* Version of this release: 2.0
+* Version: 3.0 (Under development)
 
 This document can be read here. https://github.com/sekika/swrcfit-cgi/blob/master/README.md
 
@@ -56,6 +56,9 @@ of swrcfit that you are using. Older releases can be obtained from [Releases](ht
 |Version of swrcfit-cgi| Version of swrcfit|
 |--------|-----------|
 |2.0     |2.0, 2.1   |
+|3.0 (HEAD) |3.0 (HEAD) |
+
+HEAD means that it is not released yet and should be obtained from GitHub as written above.
 
 All the necessary files are included. Change the permissions of data and img directory by
 ```
