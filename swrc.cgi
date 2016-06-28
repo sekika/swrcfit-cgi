@@ -211,7 +211,6 @@ print "<pre>";
 $swrc  = replacecontrolchars($swrc);
 print $swrc;
 print "</pre>";
-}
 
 # Show reference
 print "<h2>Reference</h2>";
