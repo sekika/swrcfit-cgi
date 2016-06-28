@@ -186,25 +186,6 @@ if ($FX eq "on") {
 }
 print "</ul>";
 
-# Select best model
-
-print "<h2>Figure</h2>";
-
-if ($AIC eq "on") {
-  print "<p>Figure is shown for selected 2 models with lowest AIC.</p>";
-  @aicsort = sort {$a <=> $b} @aic;
-  if (@aic[1] <= @aicsort[1]) { $BC="on"; } else { $BC=""; }
-  if (@aic[2] <= @aicsort[1]) { $VG="on"; } else { $VG=""; }
-  if (@aic[3] <= @aicsort[1]) { $LN="on"; } else { $LN=""; }
-  if (@aic[4] <= @aicsort[1]) { $FX="on"; } else { $FX=""; }
-  if (@aic[5] <= @aicsort[1]) { $DB="on"; } else { $DB=""; }
-  if (@aic[6] <= @aicsort[1]) { $BL="on"; } else { $BL=""; }
-  &calc;
-}
-
-# Random number is added to refresh the browzer cash
-print "<img src=\"img/swrc.png?", int(rand(1000000)), "\" alt=\"graph\">";
-
 # Show reference
 
 print "<ul>";
@@ -228,6 +209,26 @@ if ($BL eq "on") {
   print "<li>Seki, K. (2007): SWRC Fit - A nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. <i>Hydrol. Earth Syst. Sci. Discuss.</i>, 4: 407-437.</li>";
 }
 print "</ul>";
+
+# Select best model
+
+print "<h2>Figure</h2>";
+
+if ($AIC eq "on") {
+  print "<p>Figure is shown for selected 2 models with lowest AIC.</p>";
+  @aicsort = sort {$a <=> $b} @aic;
+  if (@aic[1] <= @aicsort[1]) { $BC="on"; } else { $BC=""; }
+  if (@aic[2] <= @aicsort[1]) { $VG="on"; } else { $VG=""; }
+  if (@aic[3] <= @aicsort[1]) { $LN="on"; } else { $LN=""; }
+  if (@aic[4] <= @aicsort[1]) { $FX="on"; } else { $FX=""; }
+  if (@aic[5] <= @aicsort[1]) { $DB="on"; } else { $DB=""; }
+  if (@aic[6] <= @aicsort[1]) { $BL="on"; } else { $BL=""; }
+  &calc;
+}
+
+# Random number is added to refresh the browzer cash
+print "<img src=\"img/swrc.png?", int(rand(1000000)), "\" alt=\"graph\">";
+
 }
 
 # Print input data
