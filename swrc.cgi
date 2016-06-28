@@ -31,8 +31,8 @@ $fswrc = "data/swrc.txt"; # data file
 # Lock
 
 if (! plab::lock($lockdir)) {
-        plab::printlockerror();
-        exit;
+   plab::printlockerror();
+   exit;
 }
 
 # Print header
@@ -282,15 +282,15 @@ sub getdata {
   @m[2] = $formdata{'VG'};
   @m[3] = $formdata{'LN'};
   @m[4] = $formdata{'FX'};
-  @m[5]  = $formdata{'DB'};
+  @m[5] = $formdata{'DB'};
   @m[6] = $formdata{'BL'};
   $thetaR = $formdata{'thetaR'};
+  print @m;
 }
 
 ##### Calculation routine #####
 
 sub calc {
-
   # Set calculation options
 
   if (@m[1] eq "on") { $opt="bc=1"; } else { $opt="bc=0"; }
