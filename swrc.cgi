@@ -194,7 +194,7 @@ EOF
     
 $model=1;
 if ($BC eq "on") {
-  $label[$model] = "<tr><td>Model name<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
+  $label[$model] = "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
   $p1n[$model] = "h<sub>b</sub>";
   $p2n[$model] = "&lambda;";
   $qs[$model] = $result[$k];
