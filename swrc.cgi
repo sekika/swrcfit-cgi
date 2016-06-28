@@ -293,7 +293,7 @@ $models=$model-1;
 
 # Select best model
 
-if ($AIC eq "on) {
+if ($AIC eq "on") {
     print min($aic);
     
 }
