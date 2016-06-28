@@ -191,6 +191,77 @@ it is interpreted as a weight for each parameter.</p>
 
 EOF
 } else {
+    
+$model=1;
+if ($BC eq "on") {
+  $p1[$model] = $result[$k];
+  $p2[$model] = $result[$k+1];
+  $p3[$model] = $result[$k+2];
+  $p4[$model] = $result[$k+3];
+  $r2[$model] = $result[$k+4];
+  $aic[$model] = $result[$k+5];
+  $k = $k+6; $model = $model + 1;
+}
+if ($VG eq "on") {
+  $p1[$model] = $result[$k];
+  $p2[$model] = $result[$k+1];
+  $p3[$model] = $result[$k+2];
+  $p4[$model] = $result[$k+3];
+  $r2[$model] = $result[$k+4];
+  $aic[$model] = $result[$k+5];
+  $k = $k+6; $model = $model + 1;
+}
+if ($LN eq "on") {
+  $p1[$model] = $result[$k];
+  $p2[$model] = $result[$k+1];
+  $p3[$model] = $result[$k+2];
+  $p4[$model] = $result[$k+3];
+  $r2[$model] = $result[$k+4];
+  $aic[$model] = $result[$k+5];
+  $k = $k+6; $model = $model + 1;
+}
+if ($FX eq "on") {
+  $p1[$model] = $result[$k];
+  $p2[$model] = $result[$k+1];
+  $p3[$model] = $result[$k+2];
+  $p4[$model] = $result[$k+3];
+  $p5[$model] = $result[$k+4];
+  $r2[$model] = $result[$k+5];
+  $aic[$model] = $result[$k+6];
+  $k = $k+7; $model = $model + 1;
+}
+if (substr($result[$k],0,3) eq "Not") {
+  $DB=""; BL="";  
+} elsif (substr($result[$k],0,3) eq "Too") {
+  $DB=""; BL="";  
+} else {
+  if ($DB eq "on") {
+    $p1[$model] = $result[$k];
+    $p2[$model] = $result[$k+1];
+    $p3[$model] = $result[$k+2];
+    $p4[$model] = $result[$k+3];
+    $p5[$model] = $result[$k+4];
+    $p6[$model] = $result[$k+5];
+    $p7[$model] = $result[$k+6];
+    $r2[$model] = $result[$k+7];
+    $aic[$model] = $result[$k+8];
+    $k = $k+9; $model = $model + 1;
+  }
+  if ($BL eq "on") {
+    $p1[$model] = $result[$k];
+    $p2[$model] = $result[$k+1];
+    $p3[$model] = $result[$k+2];
+    $p4[$model] = $result[$k+3];
+    $p5[$model] = $result[$k+4];
+    $p6[$model] = $result[$k+5];
+    $p7[$model] = $result[$k+6];
+    $r2[$model] = $result[$k+7];
+    $aic[$model] = $result[$k+8];
+    $k = $k+9; $model = $model + 1;
+  }
+}
+$model=$model-1;
+
 $k=0;
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup><td>AIC</tr>";
 if ($BC eq "on") {
