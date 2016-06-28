@@ -6,6 +6,7 @@
 # Purl: http://purl.org/net/swrc/
 # Source: https://github.com/sekika/swrcfit-cgi
 # Author: Katsutoshi Seki
+   $cgi-version="3.0";
 #
 # This program requires SWRC Fit: http://swrcfit.sourceforge.net/
 # SWRC Fit requires GNU Octave and some packages
@@ -136,19 +137,12 @@ if ($thetaR eq "on") {
     $opt=$opt . " qrin=0 cqr=0";
 }
 
-##### Start of calculation; unimodal model #####
+##### Start of calculation #####
 
-# Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
-# Therefore, the output parameter can directoly be stored to $result.
-# Difference in the calculation option is specified by setting files.
-# Error message from octave is discarded to /dev/null.
-# Sometimes learsqr.m output message of "CONVERGENCE NOT ACHIEVED!".
-# To supress this message, the output is piped to `grep -v "CON"`.
-
-@result = `($swrcfit $fswrc $opt) 2> /dev/null | grep -v "CON"`;
+&calc;
 
 # If no result is obtained, something is wrong with input data
-if ($result[0] eq "" or $result[0] == "0") {
+if ($models == 0) {
 print << "EOF";
 <h2>Invalid input data</h2>
 
@@ -191,106 +185,6 @@ it is interpreted as a weight for each parameter.</p>
 
 EOF
 } else {
-    
-$k=0; $model=1;
-if ($BC eq "on") {
-  @label[$model] = "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
-  @p1n[$model] = "h<sub>b</sub>";
-  @p2n[$model] = "&lambda;";
-  @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
-  @qs[$model] = $result[$k];
-  @qr[$model] = $result[$k+1];
-  @p1[$model] = $result[$k+2];
-  @p2[$model] = $result[$k+3];
-  @r2[$model] = $result[$k+4];
-  @aic[$model] = $result[$k+5];
-  $k = $k+6; $model = $model + 1;
-}
-if ($VG eq "on") {
-  @label[$model] = "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
-  @p1n[$model] = "&alpha;";
-  @p2n[$model] = "n";
-  @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
-  @qs[$model] = $result[$k];
-  @qr[$model] = $result[$k+1];
-  @p1[$model] = $result[$k+2];
-  @p2[$model] = $result[$k+3];
-  @r2[$model] = $result[$k+4];
-  @aic[$model] = $result[$k+5];
-  $k = $k+6; $model = $model + 1;
-}
-if ($LN eq "on") {
-  @label[$model] = "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
-  @p1n[$model] = "h<sub>m</sub>";
-  @p2n[$model] = "&sigma;";
-  @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
-  @qs[$model] = $result[$k];
-  @qr[$model] = $result[$k+1];
-  @p1[$model] = $result[$k+2];
-  @p2[$model] = $result[$k+3];
-  @r2[$model] = $result[$k+4];
-  @aic[$model] = $result[$k+5];
-  $k = $k+6; $model = $model + 1;
-}
-if ($FX eq "on") {
-  @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
-  @p1n[$model] = "a";
-  @p2n[$model] = "m";
-  @p3n[$model] = "n";
-  @p4n[$model] = ""; @p5n[$model] = "";
-  @qs[$model] = $result[$k];
-  @qr[$model] = $result[$k+1];
-  @p1[$model] = $result[$k+2];
-  @p2[$model] = $result[$k+3];
-  @p3[$model] = $result[$k+4];
-  @r2[$model] = $result[$k+5];
-  @aic[$model] = $result[$k+6];
-  $k = $k+7; $model = $model + 1;
-}
-if (substr($result[$k],0,3) eq "Not") {
-  $DB=""; $BL="";  
-} elsif (substr($result[$k],0,3) eq "Too") {
-  $DB=""; $BL="";  
-} else {
-  if ($DB eq "on") {
-    @label[$model] = "<tr><td>Durner<td><img src=\"img/DB.png\" width=292 height=52 alt=DB><br>";
-    @p1n[$model] = "w<sub>1</sub>";
-    @p2n[$model] = "&alpha;<sub>1</sub>";
-    @p3n[$model] = "n<sub>1</sub>";
-    @p4n[$model] = "&alpha;<sub>2</sub>";
-    @p5n[$model] = "n<sub>2</sub>";
-    @qs[$model] = $result[$k];
-    @qr[$model] = $result[$k+1];
-    @p1[$model] = $result[$k+2];
-    @p2[$model] = $result[$k+3];
-    @p3[$model] = $result[$k+4];
-    @p4[$model] = $result[$k+5];
-    @p5[$model] = $result[$k+6];
-    @r2[$model] = $result[$k+7];
-    @aic[$model] = $result[$k+8];
-    $k = $k+9; $model = $model + 1;
-  }
-  if ($BL eq "on") {
-    @label[$model] = "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
-    @p1n[$model] = "w<sub>1</sub>";
-    @p2n[$model] = "h<sub>m1</sub>";
-    @p3n[$model] = "&sigma;<sub>1</sub>";
-    @p4n[$model] = "h<sub>m2</sub>";
-    @p5n[$model] = "&sigma;<sub>2</sub>";
-    @qs[$model] = $result[$k];
-    @qr[$model] = $result[$k+1];
-    @p1[$model] = $result[$k+2];
-    @p2[$model] = $result[$k+3];
-    @p3[$model] = $result[$k+4];
-    @p4[$model] = $result[$k+5];
-    @p5[$model] = $result[$k+6];
-    @r2[$model] = $result[$k+7];
-    @aic[$model] = $result[$k+8];
-    $k = $k+9; $model = $model + 1;
-  }
-}
-$models=$model-1;
-
 # Select best model
 
 if ($AIC eq "on") {
@@ -394,10 +288,12 @@ $gnuplot = `(gnuplot -V) 2> /dev/null | sed -e 's/ patchlevel /./'`;
 
 print << "EOF";
 <hr>
-<p><a href="http://purl.org/net/swrc/">SWRC Fit</a> $version with $oct, $gnuplot and <a href="https://github.com/sekika/swrcfit-cgi">swrcfit-cgi</a>.</p>
+<p><a href="http://purl.org/net/swrc/">SWRC Fit</a> $version with $oct, $gnuplot and <a href="https://github.com/sekika/swrcfit-cgi">swrcfit-cgi</a> $cgi-veresion.</p>
 </body>
 </html>
 EOF
+
+######################################### Finish
 
 # Function to replace control charactrers
 
@@ -416,3 +312,122 @@ sub replacecontrolchars
         $s =~ s/\n/<br>/g;
         return $s;
 }
+
+##### Calculation routine #####
+
+sub calc {
+
+# Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
+# Therefore, the output parameter can directoly be stored to $result.
+# Difference in the calculation option is specified by setting files.
+# Error message from octave is discarded to /dev/null.
+# Sometimes learsqr.m output message of "CONVERGENCE NOT ACHIEVED!".
+# To supress this message, the output is piped to `grep -v "CON"`.
+
+@result = `($swrcfit $fswrc $opt) 2> /dev/null | grep -v "CON"`;
+
+# If no result is obtained, something is wrong with input data
+if ($result[0] eq "" or $result[0] == "0") {
+  $models=0;
+else {
+$k=0; $model=1;
+if ($BC eq "on") {
+  @label[$model] = "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
+  @p1n[$model] = "h<sub>b</sub>";
+  @p2n[$model] = "&lambda;";
+  @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
+  @qs[$model] = $result[$k];
+  @qr[$model] = $result[$k+1];
+  @p1[$model] = $result[$k+2];
+  @p2[$model] = $result[$k+3];
+  @r2[$model] = $result[$k+4];
+  @aic[$model] = $result[$k+5];
+  $k = $k+6; $model = $model + 1;
+}
+if ($VG eq "on") {
+  @label[$model] = "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
+  @p1n[$model] = "&alpha;";
+  @p2n[$model] = "n";
+  @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
+  @qs[$model] = $result[$k];
+  @qr[$model] = $result[$k+1];
+  @p1[$model] = $result[$k+2];
+  @p2[$model] = $result[$k+3];
+  @r2[$model] = $result[$k+4];
+  @aic[$model] = $result[$k+5];
+  $k = $k+6; $model = $model + 1;
+}
+if ($LN eq "on") {
+  @label[$model] = "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
+  @p1n[$model] = "h<sub>m</sub>";
+  @p2n[$model] = "&sigma;";
+  @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
+  @qs[$model] = $result[$k];
+  @qr[$model] = $result[$k+1];
+  @p1[$model] = $result[$k+2];
+  @p2[$model] = $result[$k+3];
+  @r2[$model] = $result[$k+4];
+  @aic[$model] = $result[$k+5];
+  $k = $k+6; $model = $model + 1;
+}
+if ($FX eq "on") {
+  @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
+  @p1n[$model] = "a";
+  @p2n[$model] = "m";
+  @p3n[$model] = "n";
+  @p4n[$model] = ""; @p5n[$model] = "";
+  @qs[$model] = $result[$k];
+  @qr[$model] = $result[$k+1];
+  @p1[$model] = $result[$k+2];
+  @p2[$model] = $result[$k+3];
+  @p3[$model] = $result[$k+4];
+  @r2[$model] = $result[$k+5];
+  @aic[$model] = $result[$k+6];
+  $k = $k+7; $model = $model + 1;
+}
+if (substr($result[$k],0,3) eq "Not") {
+  $DB=""; $BL="";  
+} elsif (substr($result[$k],0,3) eq "Too") {
+  $DB=""; $BL="";  
+} else {
+  if ($DB eq "on") {
+    @label[$model] = "<tr><td>Durner<td><img src=\"img/DB.png\" width=292 height=52 alt=DB><br>";
+    @p1n[$model] = "w<sub>1</sub>";
+    @p2n[$model] = "&alpha;<sub>1</sub>";
+    @p3n[$model] = "n<sub>1</sub>";
+    @p4n[$model] = "&alpha;<sub>2</sub>";
+    @p5n[$model] = "n<sub>2</sub>";
+    @qs[$model] = $result[$k];
+    @qr[$model] = $result[$k+1];
+    @p1[$model] = $result[$k+2];
+    @p2[$model] = $result[$k+3];
+    @p3[$model] = $result[$k+4];
+    @p4[$model] = $result[$k+5];
+    @p5[$model] = $result[$k+6];
+    @r2[$model] = $result[$k+7];
+    @aic[$model] = $result[$k+8];
+    $k = $k+9; $model = $model + 1;
+  }
+  if ($BL eq "on") {
+    @label[$model] = "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
+    @p1n[$model] = "w<sub>1</sub>";
+    @p2n[$model] = "h<sub>m1</sub>";
+    @p3n[$model] = "&sigma;<sub>1</sub>";
+    @p4n[$model] = "h<sub>m2</sub>";
+    @p5n[$model] = "&sigma;<sub>2</sub>";
+    @qs[$model] = $result[$k];
+    @qr[$model] = $result[$k+1];
+    @p1[$model] = $result[$k+2];
+    @p2[$model] = $result[$k+3];
+    @p3[$model] = $result[$k+4];
+    @p4[$model] = $result[$k+5];
+    @p5[$model] = $result[$k+6];
+    @r2[$model] = $result[$k+7];
+    @aic[$model] = $result[$k+8];
+    $k = $k+9; $model = $model + 1;
+  }
+}
+$models=$model-1;
+}
+}
+
