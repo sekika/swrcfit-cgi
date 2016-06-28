@@ -62,7 +62,7 @@ $file =~ s/http.*jp\///g;
 if ($referrer eq $validreferrer) {
 print "<h1>SWRC Fit - Result -</h1>\n";
 
-&getformdata;
+&getdata;
 
 # Escape control characters before output for security
 
@@ -86,8 +86,6 @@ close FILE;
 ##### Calculation #####
 
 &calc;
-
-print @result;
 
 # If no result is obtained, something is wrong with input data
 if ($models == 0) {
@@ -199,7 +197,7 @@ print $swrc;
 print "</pre>";
 
 # Show reference
-&getformdata;
+&getdata;
 print "<h2>Reference</h2>";
 
 print "<ul>";
@@ -274,7 +272,7 @@ sub replacecontrolchars
 
 ##### Get form data
 
-sub getformdata {
+sub getdata {
   %formdata = plab::getformdata();
 
   $soil = $formdata{'soil'};
