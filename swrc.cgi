@@ -297,13 +297,13 @@ if ($BC eq "on") {
 Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA.</li>";
 }
 if ($VG eq "on") {
-  print "<li>van Genuchten, M. (1980): A closed-form equation for predicting the hydraulic conductivity of unsaturated soils.<i>Soil Sci. Soc. Am. J.</i> 44:892-898.</li>";
+  print "<li>van Genuchten, M. (1980): A closed-form equation for predicting the hydraulic conductivity of unsaturated soils. <i>Soil Sci. Soc. Am. J.</i>, 44:892-898.</li>";
 }
 if ($LN eq "on") {
-  print "<li>Kosugi, K. (1996): Lognormal distribution model for unsaturated soil hydraulic properties. <i>Water Resour. Res.</i> 32: 2697-2703.</li>";
+  print "<li>Kosugi, K. (1996): Lognormal distribution model for unsaturated soil hydraulic properties. <i>Water Resour. Res. </i>, 32: 2697-2703.</li>";
 }
 if ($FX eq "on") {
-  print "<li>Fredlund, D.G. and Xing, A.: Equations for the soil-water characteristic curve. Can. Geotech. J. 31: 521-532.</li>";
+  print "<li>Fredlund, D.G. and Xing, A.: Equations for the soil-water characteristic curve. <i>Can. Geotech. J.</i>, 31: 521-532.</li>";
 }
 if ($DB eq "on") {
   print "<li>Durner, W. (1994): Hydraulic conductivity estimation for soils with heterogeneous pore structure. <i>Water Resour. Res.</i>, 30(2): 211-223.</li>";
