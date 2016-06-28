@@ -108,32 +108,32 @@ if ($BC eq "on") {
     $opt="bc=0";
 }
 if ($VG eq "on") {
-    $opt=$opt + " vg=1";
+    $opt=$opt . " vg=1";
 } else {
-    $opt=$opt + " vg=0";
+    $opt=$opt . " vg=0";
 }
 if ($LN eq "on") {
-    $opt=$opt + " ln=1";
+    $opt=$opt . " ln=1";
 } else {
-    $opt=$opt + " ln=0";
+    $opt=$opt . " ln=0";
 }
 if ($FX eq "on") {
-    $opt=$opt + " fx=1";
+    $opt=$opt . " fx=1";
 } else {
-    $opt=$opt + " fx=0";
+    $opt=$opt . " fx=0";
 }
 if ($DB eq "on") {
-    $opt=$opt + " db=1";
+    $opt=$opt . " db=1";
 } else {
-    $opt=$opt + " db=0";
+    $opt=$opt . " db=0";
 }
 if ($BL eq "on") {
-    $opt=$opt + " bl=1";
+    $opt=$opt . " bl=1";
 } else {
-    $opt=$opt + " bl=0";
+    $opt=$opt . " bl=0";
 }
 if ($thetaR eq "on") {
-    $opt=$opt + " qrin=0 cqr=0";
+    $opt=$opt . " qrin=0 cqr=0";
 }
 
 ##### Start of calculation; unimodal model #####
