@@ -44,3 +44,7 @@ ul {
 	list-style-image: url("dot.png") 
 }
 
+strong {
+	color: red;
+	font-weight: bold;
+}
