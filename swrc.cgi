@@ -274,7 +274,6 @@ EOF
 
 }
 }
-}
 
 # Print input data
 print "<h2>Original Data</h2>";
