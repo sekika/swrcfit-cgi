@@ -194,38 +194,40 @@ EOF
     
 $model=1;
 if ($BC eq "on") {
-  $p1[$model] = $result[$k];
-  $p2[$model] = $result[$k+1];
-  $p3[$model] = $result[$k+2];
-  $p4[$model] = $result[$k+3];
+  $p1n[$model] = "<br>h<sub>b</sub>";
+  $p2n[$model] = "&lambda;";
+  $qs[$model] = $result[$k];
+  $qr[$model] = $result[$k+1];
+  $p1[$model] = $result[$k+2];
+  $p2[$model] = $result[$k+3];
   $r2[$model] = $result[$k+4];
   $aic[$model] = $result[$k+5];
   $k = $k+6; $model = $model + 1;
 }
 if ($VG eq "on") {
-  $p1[$model] = $result[$k];
-  $p2[$model] = $result[$k+1];
-  $p3[$model] = $result[$k+2];
-  $p4[$model] = $result[$k+3];
+  $qs[$model] = $result[$k];
+  $qr[$model] = $result[$k+1];
+  $p1[$model] = $result[$k+2];
+  $p2[$model] = $result[$k+3];
   $r2[$model] = $result[$k+4];
   $aic[$model] = $result[$k+5];
   $k = $k+6; $model = $model + 1;
 }
 if ($LN eq "on") {
-  $p1[$model] = $result[$k];
-  $p2[$model] = $result[$k+1];
-  $p3[$model] = $result[$k+2];
-  $p4[$model] = $result[$k+3];
+  $qs[$model] = $result[$k];
+  $qr[$model] = $result[$k+1];
+  $p1[$model] = $result[$k+2];
+  $p2[$model] = $result[$k+3];
   $r2[$model] = $result[$k+4];
   $aic[$model] = $result[$k+5];
   $k = $k+6; $model = $model + 1;
 }
 if ($FX eq "on") {
-  $p1[$model] = $result[$k];
-  $p2[$model] = $result[$k+1];
-  $p3[$model] = $result[$k+2];
-  $p4[$model] = $result[$k+3];
-  $p5[$model] = $result[$k+4];
+  $qs[$model] = $result[$k];
+  $qr[$model] = $result[$k+1];
+  $p1[$model] = $result[$k+2];
+  $p2[$model] = $result[$k+3];
+  $p3[$model] = $result[$k+4];
   $r2[$model] = $result[$k+5];
   $aic[$model] = $result[$k+6];
   $k = $k+7; $model = $model + 1;
@@ -236,44 +238,46 @@ if (substr($result[$k],0,3) eq "Not") {
   $DB=""; $BL="";  
 } else {
   if ($DB eq "on") {
-    $p1[$model] = $result[$k];
-    $p2[$model] = $result[$k+1];
-    $p3[$model] = $result[$k+2];
-    $p4[$model] = $result[$k+3];
-    $p5[$model] = $result[$k+4];
-    $p6[$model] = $result[$k+5];
-    $p7[$model] = $result[$k+6];
+    $qs[$model] = $result[$k];
+    $qr[$model] = $result[$k+1];
+    $p1[$model] = $result[$k+2];
+    $p2[$model] = $result[$k+3];
+    $p3[$model] = $result[$k+4];
+    $p4[$model] = $result[$k+5];
+    $p5[$model] = $result[$k+6];
     $r2[$model] = $result[$k+7];
     $aic[$model] = $result[$k+8];
     $k = $k+9; $model = $model + 1;
   }
   if ($BL eq "on") {
-    $p1[$model] = $result[$k];
-    $p2[$model] = $result[$k+1];
-    $p3[$model] = $result[$k+2];
-    $p4[$model] = $result[$k+3];
-    $p5[$model] = $result[$k+4];
-    $p6[$model] = $result[$k+5];
-    $p7[$model] = $result[$k+6];
+    $qs[$model] = $result[$k];
+    $qr[$model] = $result[$k+1];
+    $p1[$model] = $result[$k+2];
+    $p2[$model] = $result[$k+3];
+    $p3[$model] = $result[$k+4];
+    $p4[$model] = $result[$k+5];
+    $p5[$model] = $result[$k+6];
     $r2[$model] = $result[$k+7];
     $aic[$model] = $result[$k+8];
     $k = $k+9; $model = $model + 1;
   }
 }
-$model=$model-1;
+$models=$model-1;
 
 $k=0;
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup><td>AIC</tr>";
-if ($BC eq "on") {
-  print "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
+$model = 0;
+while ($model < models ){
+  $model++;
+  print "<tr><td>Model name<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
   print "<td>&theta;<sub>s</sub> = ", $result[$k];
   print "<br>&theta;<sub>r</sub> = ", $result[$k+1];
-  print "<br>h<sub>b</sub> = ",, $result[$k+2];
-  print "<br>&lambda; = ", $result[$k+3];
+  print "<br>", $p1n, " = ",, $result[$k+2];
+  print "<br>", $p2n, " = ", $result[$k+3];
   print "<td>", $result[$k+4];
   print "<td>", $result[$k+5], "</tr>";
-  $k = $k+6;
 }
+
 if ($VG eq "on") {
   print "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
   print "<td>&theta;<sub>s</sub> = ", $result[$k];
