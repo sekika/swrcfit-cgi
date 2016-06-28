@@ -188,12 +188,9 @@ EOF
 # Select best model
 
 if ($AIC eq "on") {
-    print @aic[1];
     @aicsort = sort {$a <=> $b} @aic;
-    print @aicsort[0];
-    print @aicsort[1];
-    print @aicsort[2];
-    
+    if (@aic[1] <= @aicsort[1]) { $opt="bc=1"; } else { $opt="bc=0"; }
+    }    
 }
 
 # Show result
