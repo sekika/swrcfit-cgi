@@ -152,18 +152,6 @@ it is interpreted as a weight for each parameter.</p>
 
 EOF
 } else {
-# Select best model
-
-if ($AIC eq "on") {
-  @aicsort = sort {$a <=> $b} @aic;
-  if (@aic[1] <= @aicsort[2]) { $BC="on"; } else { $BC=""; }
-  if (@aic[2] <= @aicsort[2]) { $VG="on"; } else { $VG=""; }
-  if (@aic[3] <= @aicsort[2]) { $LN="on"; } else { $LN=""; }
-  if (@aic[4] <= @aicsort[2]) { $FX="on"; } else { $FX=""; }
-  if (@aic[5] <= @aicsort[2]) { $DB="on"; } else { $DB=""; }
-  if (@aic[6] <= @aicsort[2]) { $BL="on"; } else { $BL=""; }
-  &calc;
-}
 
 # Show result
 
@@ -197,6 +185,22 @@ if ($FX eq "on") {
   print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>. For modifying the correction function C(h), please use offline version of SWRC Fit.</li>"
 }
 print "</ul>";
+
+# Select best model
+
+print "<h2>Figure</h2>";
+
+if ($AIC eq "on") {
+  print "<p>Figure is shown for selected 2 models with lowest AIC.</p>";
+  @aicsort = sort {$a <=> $b} @aic;
+  if (@aic[1] <= @aicsort[1]) { $BC="on"; } else { $BC=""; }
+  if (@aic[2] <= @aicsort[1]) { $VG="on"; } else { $VG=""; }
+  if (@aic[3] <= @aicsort[1]) { $LN="on"; } else { $LN=""; }
+  if (@aic[4] <= @aicsort[1]) { $FX="on"; } else { $FX=""; }
+  if (@aic[5] <= @aicsort[1]) { $DB="on"; } else { $DB=""; }
+  if (@aic[6] <= @aicsort[1]) { $BL="on"; } else { $BL=""; }
+  &calc;
+}
 
 # Random number is added to refresh the browzer cash
 print "<img src=\"img/swrc.png?", int(rand(1000000)), "\" alt=\"graph\">";
