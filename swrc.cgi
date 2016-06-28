@@ -294,7 +294,9 @@ $models=$model-1;
 # Select best model
 
 if ($AIC eq "on") {
-    print min($aic);
+    print $aic;
+    @aic = sort {$a <=> $b} @aic;
+    print $aic;
     
 }
 
