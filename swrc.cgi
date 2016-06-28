@@ -192,7 +192,6 @@ it is interpreted as a weight for each parameter.</p>
 EOF
 } else {
 $k=0;
-print "<h2>Unimodal models</h2>";
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup><td>AIC</tr>";
 if ($BC eq "on") {
   print "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
@@ -274,12 +273,15 @@ if (substr($result[$k],0,3) eq "Not") {
 print <<"EOF";
 </tr>
 </table>
-where <img src="img/Se.png" width=76 height=42 alt=Se>, i.e., <img src="img/Se2.png" alt=theta>
-and Q(x) is the complementary cumulative normal distribution function,
-defined by Q(x)=1-&Phi;(x), in which &Phi;(x) is a normalized form of the
-<a href="http://mathworld.wolfram.com/NormalDistributionFunction.html">cumulative normal distribution function</a>
-<br><br>
+<ul>
+<li><img src="img/Se.png" width=76 height=42 alt=Se>, i.e., <img src="img/Se2.png" alt=theta></li>
 EOF
+if ($LN eq "on") {
+  print "For Kosugi model, Q(x) is the complementary cumulative normal distribution function,
+defined by Q(x)=1-&Phi;(x), in which &Phi;(x) is a normalized form of the
+<a href=\"http://mathworld.wolfram.com/NormalDistributionFunction.html\">cumulative normal distribution function</a>"
+}
+print "</ul>";
 
 # Random number is added to refresh the browzer cash
 print "<img src=\"img/swrc.png?", int(rand(1000000)), "\" alt=\"graph\">";
