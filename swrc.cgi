@@ -83,13 +83,11 @@ open FILE, "> $fswrc";
 print FILE $swrc;
 close FILE;
 
-if ($AIC eq "on") {
-    $BC="on"; $VG="on"; $LN="on"; $FX="on"; $DB="on"; $BL="on";
-}
-
-##### Start of calculation #####
+##### Calculation #####
 
 &calc;
+
+print @result;
 
 # If no result is obtained, something is wrong with input data
 if ($models == 0) {
