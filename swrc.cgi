@@ -231,9 +231,9 @@ if ($FX eq "on") {
   $k = $k+7; $model = $model + 1;
 }
 if (substr($result[$k],0,3) eq "Not") {
-  $DB=""; BL="";  
+  $DB=""; $BL="";  
 } elsif (substr($result[$k],0,3) eq "Too") {
-  $DB=""; BL="";  
+  $DB=""; $BL="";  
 } else {
   if ($DB eq "on") {
     $p1[$model] = $result[$k];
