@@ -156,7 +156,12 @@ EOF
 
 if ($AIC eq "on") {
   @aicsort = sort {$a <=> $b} @aic;
-  if (@aic[1] <= @aicsort[1]) { $BC="on"; } else { $BC=""; }
+  if (@aic[1] <= @aicsort[2]) { $BC="on"; } else { $BC=""; }
+  if (@aic[2] <= @aicsort[2]) { $VG="on"; } else { $VG=""; }
+  if (@aic[3] <= @aicsort[2]) { $LN="on"; } else { $LN=""; }
+  if (@aic[4] <= @aicsort[2]) { $FX="on"; } else { $FX=""; }
+  if (@aic[5] <= @aicsort[2]) { $DB="on"; } else { $DB=""; }
+  if (@aic[6] <= @aicsort[2]) { $BL="on"; } else { $BL=""; }
   &calc;
 }
 
