@@ -178,9 +178,9 @@ if ($models > 3) {
   while ($model < $models){
     $model++;
     if (@aic[$model] <= @aicsort[2]) {
-      @m[$model]="on";
+      @m[@index[$model]]="on";
     } else {
-      @m[$model]="";
+      @m[@index[$model]]="";
     }
   }
   &calc;
@@ -316,6 +316,7 @@ sub calc {
   } else {
     $k=0; $model=1;
     if (@m[1] eq "on") {
+      @index[$model] = 1;
       @label[$model] = "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
       @p1n[$model] = "h<sub>b</sub>";
       @p2n[$model] = "&lambda;";
@@ -329,6 +330,7 @@ sub calc {
       $k = $k+6; $model++;
     }
     if (@m[2] eq "on") {
+      @index[$model] = 2;
       @label[$model] = "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
       @p1n[$model] = "&alpha;";
       @p2n[$model] = "n";
@@ -342,6 +344,7 @@ sub calc {
       $k = $k+6; $model++;
     }
     if (@m[3] eq "on") {
+      @index[$model] = 3;
       @label[$model] = "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
       @p1n[$model] = "h<sub>m</sub>";
       @p2n[$model] = "&sigma;";
@@ -355,6 +358,7 @@ sub calc {
       $k = $k+6; $model++;
     }
     if (@m[4] eq "on") {
+      @index[$model] = 4;
       @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
       @p1n[$model] = "a";
       @p2n[$model] = "m";
@@ -375,6 +379,7 @@ sub calc {
       @m[5]=""; @m[6]="";  
     } else {
       if (@m[5] eq "on") {
+        @index[$model] = 5;
         @label[$model] = "<tr><td>Durner<td><img src=\"img/DB.png\" width=292 height=52 alt=DB><br>";
         @p1n[$model] = "w<sub>1</sub>";
         @p2n[$model] = "&alpha;<sub>1</sub>";
@@ -393,6 +398,7 @@ sub calc {
         $k = $k+9; $model++;
       }
       if (@m[6] eq "on") {
+        @index[$model] = 6;
         @label[$model] = "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
         @p1n[$model] = "w<sub>1</sub>";
         @p2n[$model] = "h<sub>m1</sub>";
