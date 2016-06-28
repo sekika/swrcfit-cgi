@@ -6,7 +6,7 @@
 # Purl: http://purl.org/net/swrc/
 # Source: https://github.com/sekika/swrcfit-cgi
 # Author: Katsutoshi Seki
-   $cgi-version="3.0";
+   $version="3.0";
 #
 # This program requires SWRC Fit: http://swrcfit.sourceforge.net/
 # SWRC Fit requires GNU Octave and some packages
@@ -282,13 +282,13 @@ plab::unlock($lockdir);
 
 # Print footer
 
-$version = `($swrcfit -v) 2> /dev/null | sed -e 's/swrcfit //'`;
+$swrcfitversion = `($swrcfit -v) 2> /dev/null | sed -e 's/swrcfit //'`;
 $oct = `(octave -v | grep version) 2> /dev/null | sed -e 's/, version//'`;
 $gnuplot = `(gnuplot -V) 2> /dev/null | sed -e 's/ patchlevel /./'`;
 
 print << "EOF";
 <hr>
-<p><a href="http://purl.org/net/swrc/">SWRC Fit</a> $version with $oct, $gnuplot and <a href="https://github.com/sekika/swrcfit-cgi">swrcfit-cgi</a> $cgi-veresion.</p>
+<p><a href="http://purl.org/net/swrc/">SWRC Fit</a> $swrcfitversion with $oct, $gnuplot and <a href="https://github.com/sekika/swrcfit-cgi">swrcfit-cgi</a> $veresion.</p>
 </body>
 </html>
 EOF
