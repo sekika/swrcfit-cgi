@@ -197,6 +197,7 @@ if ($BC eq "on") {
   $label[$model] = "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
   $p1n[$model] = "h<sub>b</sub>";
   $p2n[$model] = "&lambda;";
+  $p3n[$model] = "";
   $qs[$model] = $result[$k];
   $qr[$model] = $result[$k+1];
   $p1[$model] = $result[$k+2];
@@ -209,6 +210,7 @@ if ($VG eq "on") {
   $label[$model] = "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
   $p1n[$model] = "&alpha;";
   $p2n[$model] = "n";
+  $p3n[$model] = "";
   $qs[$model] = $result[$k];
   $qr[$model] = $result[$k+1];
   $p1[$model] = $result[$k+2];
@@ -218,6 +220,10 @@ if ($VG eq "on") {
   $k = $k+6; $model = $model + 1;
 }
 if ($LN eq "on") {
+  $label[$model] = "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
+  $p1n[$model] = "h<sub>m</sub>";
+  $p2n[$model] = "&sigma;";
+  $p3n[$model] = "";
   $qs[$model] = $result[$k];
   $qr[$model] = $result[$k+1];
   $p1[$model] = $result[$k+2];
@@ -227,6 +233,10 @@ if ($LN eq "on") {
   $k = $k+6; $model = $model + 1;
 }
 if ($FX eq "on") {
+  $label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
+  $p1n[$model] = "a";
+  $p2n[$model] = "m";
+  $p3n[$model] = "n";
   $qs[$model] = $result[$k];
   $qr[$model] = $result[$k+1];
   $p1[$model] = $result[$k+2];
@@ -242,6 +252,7 @@ if (substr($result[$k],0,3) eq "Not") {
   $DB=""; $BL="";  
 } else {
   if ($DB eq "on") {
+    $label[$model] = "<tr><td>Durner<td><img src=\"img/DB.png\" width=292 height=52 alt=DB><br>";
     $qs[$model] = $result[$k];
     $qr[$model] = $result[$k+1];
     $p1[$model] = $result[$k+2];
@@ -254,6 +265,7 @@ if (substr($result[$k],0,3) eq "Not") {
     $k = $k+9; $model = $model + 1;
   }
   if ($BL eq "on") {
+    $label[$model] = "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
     $qs[$model] = $result[$k];
     $qr[$model] = $result[$k+1];
     $p1[$model] = $result[$k+2];
@@ -274,70 +286,14 @@ $model = 0;
 while ($model < $models ){
   $model++;
   print $label[$model];
-  print "<td>&theta;<sub>s</sub> = ", $result[$k];
-  print "<br>&theta;<sub>r</sub> = ", $result[$k+1];
-  print "<br>", $p1n[$model], " = ",, $result[$k+2];
-  print "<br>", $p2n[$model], " = ", $result[$k+3];
-  print "<td>", $result[$k+4];
-  print "<td>", $result[$k+5], "</tr>";
+  print "<td>&theta;<sub>s</sub> = ", $qs[$model];
+  print "<br>&theta;<sub>r</sub> = ", $qr[$model];
+  print "<br>", $p1n[$model], " = ",, $p1[$model];
+  print "<br>", $p2n[$model], " = ",, $p2[$model];
+  print "<br>", $p3n[$model], " = ",, $p3[$model];
+  print "<td>", $r2[$model];
+  print "<td>", $aic[$model], "</tr>";
 }
-
-if ($LN eq "on") {
-  print "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
-  print "<td>&theta;<sub>s</sub> = ", $result[$k];
-  print "<br>&theta;<sub>r</sub> = ", $result[$k+1];
-  print "<br>h<sub>m</sub> = ", $result[$k+2];
-  print "<br>&sigma; = ", $result[$k+3];
-  print "<td>", $result[$k+4];
-  print "<td>", $result[$k+5], "</tr>";
-  $k = $k+6;
-}
-if ($FX eq "on") {
-  print "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
-  print "<td>&theta;<sub>s</sub> = ", $result[$k];
-  print "<br>&theta;<sub>r</sub> = ", $result[$k+1];
-  print "<br>a = ", $result[$k+2];
-  print "<br>m = ", $result[$k+3];
-  print "<br>n = ", $result[$k+4];
-  print "<td>", $result[$k+5];
-  print "<td>", $result[$k+6], "</tr>";
-  $k = $k+7;
-}
-if (substr($result[$k],0,3) eq "Not") {
-  print "<tr><td>Bimodal model<td>";
-  print "<td>Not bimodal.<td><td></tr>";
-} elsif (substr($result[$k],0,3) eq "Too") {
-  print "<tr><td>Bimodal model<td>";
-  print "<td>Too few points for bimodal analysis.<td><td></tr>";
-} else {
-  if ($DB eq "on") {
-    print "<tr><td>Durner<td><img src=\"img/DB.png\" width=292 height=52 alt=DB><br>";
-    print "(m<sub>i</sub>=1-1/n<sub>i</sub>)";
-    print "<td>&theta;<sub>s</sub> = ", $result[$k];
-    print "<br>&theta;<sub>r</sub> = ", $result[$k+1];
-    print "<br>w<sub>1</sub> = ", $result[$k+2];
-    print "<br>&alpha;<sub>1</sub> = ", $result[$k+3];
-    print "<br>n<sub>1</sub> = ", $result[$k+4];
-    print "<br>&alpha;<sub>2</sub> = ", $result[$k+5];
-    print "<br>n<sub>2</sub> = ", $result[$k+6];
-    print "<td>", $result[$k+7];
-    print "<td>", $result[$k+8];
-    print "</tr>";
-    $k = $k+9;
-  }
-  if ($BL eq "on") {
-    print "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
-    print "<td>&theta;<sub>s</sub> = ", $result[$k];
-    print "<br>&theta;<sub>r</sub> = ", $result[$k+1];
-    print "<br>w<sub>1</sub> = ", $result[$k+2];
-    print "<br>h<sub>m1</sub> = ", $result[$k+3];
-    print "<br>&sigma;<sub>1</sub> = ", $result[$k+4];
-    print "<br>h<sub>m2</sub> = ", $result[$k+5];
-    print "<br>&sigma;<sub>2</sub> = ", $result[$k+6];
-    print "<td>", $result[$k+7];
-    print "<td>", $result[$k+8];
-    print "</tr>";
-  }
 }
 print <<"EOF";
 </tr>
