@@ -163,7 +163,7 @@ defined by Q(x)=1-&Phi;(x), in which &Phi;(x) is a normalized form of the
 <a href=\"http://mathworld.wolfram.com/NormalDistributionFunction.html\">cumulative normal distribution function</a></li>"
 }
 if (@m[4] eq "on") {
-  print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>. For modifying the correction function C(h), please use <a href="http://swrcfit.sourceforge.net/">offline version</a> of SWRC Fit version 3.0 or higher.</li>"
+  print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>. For modifying the correction function C(h), please use <a href=\"http://swrcfit.sourceforge.net/\">offline version</a> of SWRC Fit version 3.0 or higher.</li>"
 }
 print "</ul>";
 
