@@ -197,7 +197,7 @@ if ($BC eq "on") {
   $label[$model] = "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
   $p1n[$model] = "h<sub>b</sub>";
   $p2n[$model] = "&lambda;";
-  $p3n[$model] = "";
+  $p3n[$model] = ""; $p4n[$model] = ""; $p5n[$model] = "";
   $qs[$model] = $result[$k];
   $qr[$model] = $result[$k+1];
   $p1[$model] = $result[$k+2];
@@ -210,7 +210,7 @@ if ($VG eq "on") {
   $label[$model] = "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
   $p1n[$model] = "&alpha;";
   $p2n[$model] = "n";
-  $p3n[$model] = "";
+  $p3n[$model] = ""; $p4n[$model] = ""; $p5n[$model] = "";
   $qs[$model] = $result[$k];
   $qr[$model] = $result[$k+1];
   $p1[$model] = $result[$k+2];
@@ -223,7 +223,7 @@ if ($LN eq "on") {
   $label[$model] = "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
   $p1n[$model] = "h<sub>m</sub>";
   $p2n[$model] = "&sigma;";
-  $p3n[$model] = "";
+  $p3n[$model] = ""; $p4n[$model] = ""; $p5n[$model] = "";
   $qs[$model] = $result[$k];
   $qr[$model] = $result[$k+1];
   $p1[$model] = $result[$k+2];
@@ -237,6 +237,7 @@ if ($FX eq "on") {
   $p1n[$model] = "a";
   $p2n[$model] = "m";
   $p3n[$model] = "n";
+  $p4n[$model] = ""; $p5n[$model] = "";
   $qs[$model] = $result[$k];
   $qr[$model] = $result[$k+1];
   $p1[$model] = $result[$k+2];
@@ -253,6 +254,11 @@ if (substr($result[$k],0,3) eq "Not") {
 } else {
   if ($DB eq "on") {
     $label[$model] = "<tr><td>Durner<td><img src=\"img/DB.png\" width=292 height=52 alt=DB><br>";
+    $p1n[$model] = "w<sub>1</sub>";
+    $p2n[$model] = "&alpha;<sub>1</sub>";
+    $p3n[$model] = "n<sub>1</sub>";
+    $p4n[$model] = "&alpha;<sub>2</sub>";
+    $p5n[$model] = "n<sub>2</sub>";
     $qs[$model] = $result[$k];
     $qr[$model] = $result[$k+1];
     $p1[$model] = $result[$k+2];
@@ -266,6 +272,11 @@ if (substr($result[$k],0,3) eq "Not") {
   }
   if ($BL eq "on") {
     $label[$model] = "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
+    $p1n[$model] = "w<sub>1</sub>";
+    $p2n[$model] = "h<sub>m1</sub>";
+    $p3n[$model] = "&sigma;<sub>1</sub>";
+    $p4n[$model] = "h<sub>m2</sub>";
+    $p5n[$model] = "&sigma;<sub>2</sub>";
     $qs[$model] = $result[$k];
     $qr[$model] = $result[$k+1];
     $p1[$model] = $result[$k+2];
@@ -291,6 +302,8 @@ while ($model < $models ){
   print "<br>", $p1n[$model], " = ",, $p1[$model];
   print "<br>", $p2n[$model], " = ",, $p2[$model];
   if ($p3n[$model] ne "") { print "<br>", $p3n[$model], " = ",, $p3[$model];}
+  if ($p4n[$model] ne "") { print "<br>", $p4n[$model], " = ",, $p4[$model];}
+  if ($p4n[$model] ne "") { print "<br>", $p5n[$model], " = ",, $p5[$model];}
   print "<td>", $r2[$model];
   print "<td>", $aic[$model], "</tr>";
 }
