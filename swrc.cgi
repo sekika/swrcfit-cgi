@@ -188,9 +188,10 @@ EOF
 # Select best model
 
 if ($AIC eq "on") {
-    @aicsort = sort {$a <=> $b} @aic;
-    if (@aic[1] <= @aicsort[1]) { $opt="bc=1"; } else { $opt="bc=0"; }
-    }    
+  @aicsort = sort {$a <=> $b} @aic;
+  if (@aic[1] <= @aicsort[1]) { $opt="bc=1"; } else { $opt="bc=0"; }
+  if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
+  &calc;
 }
 
 # Show result
