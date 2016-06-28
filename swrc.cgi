@@ -161,7 +161,7 @@ it is interpreted as a weight for each parameter.</p>
 
 EOF
 } else {
-$k=0
+$k=0;
 print "<h2>Unimodal models</h2>";
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup><td>AIC</tr>";
 if ($BC eq "on") {
