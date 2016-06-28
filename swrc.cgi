@@ -277,9 +277,12 @@ print <<"EOF";
 <li><img src="img/Se.png" width=76 height=42 alt=Se>, i.e., <img src="img/Se2.png" alt=theta></li>
 EOF
 if ($LN eq "on") {
-  print "For Kosugi model, Q(x) is the complementary cumulative normal distribution function,
+  print "<li>For Kosugi model, Q(x) is the complementary cumulative normal distribution function,
 defined by Q(x)=1-&Phi;(x), in which &Phi;(x) is a normalized form of the
-<a href=\"http://mathworld.wolfram.com/NormalDistributionFunction.html\">cumulative normal distribution function</a>"
+<a href=\"http://mathworld.wolfram.com/NormalDistributionFunction.html\">cumulative normal distribution function</a></li>"
+}
+if ($FX eq "on") {
+  print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>. For modifying the correction function C(h), please use offline version of SWRC Fit.</li>"
 }
 print "</ul>";
 
@@ -288,22 +291,27 @@ print "<img src=\"img/swrc.png?", int(rand(1000000)), "\" alt=\"graph\">";
 
 # Show reference
 
-print <<"EOF";
-<ul>
-<li>Brooks, R.H., and A.T. Corey (1964): Hydraulic properties of porous media.
-Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA.</li>
-<li>van Genuchten, M. (1980): A closed-form equation for predicting the hydraulic conductivity of unsaturated soils.
-<i>Soil Sci. Soc. Am. J.</i> 44:892-898.</li>
-<li>Kosugi, K. (1996): Lognormal distribution model for unsaturated soil hydraulic properties.
-<i>Water Resour. Res.</i> 32: 2697-2703.</li>
-<li>Fredlund, D.G. and Xing, A.: Equations for the soil-water characteristic curve. Can. Geotech. J. 31: 521-532.</li>
-<li>Durner, W. (1994): Hydraulic conductivity estimation for soils with heterogeneous pore structure.
-<i>Water Resour. Res.</i>, 30(2): 211-223.</li>
-<li>Seki, K. (2007): SWRC Fit - A nonlinear fitting program with a water retention curve for soils
-having unimodal and bimodal pore structure. <i>Hydrol. Earth Syst. Sci. Discuss.</i>, 4: 407-437.</li>
-</ul>
-EOF
-
+print "<ul>";
+if ($BC eq "on") {
+  print "<li>Brooks, R.H., and A.T. Corey (1964): Hydraulic properties of porous media.
+Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA.</li>";
+}
+if ($VG eq "on") {
+  print "<li>van Genuchten, M. (1980): A closed-form equation for predicting the hydraulic conductivity of unsaturated soils.<i>Soil Sci. Soc. Am. J.</i> 44:892-898.</li>";
+}
+if ($LN eq "on") {
+  print "<li>Kosugi, K. (1996): Lognormal distribution model for unsaturated soil hydraulic properties. <i>Water Resour. Res.</i> 32: 2697-2703.</li>";
+}
+if ($FX eq "on") {
+  print "<li>Fredlund, D.G. and Xing, A.: Equations for the soil-water characteristic curve. Can. Geotech. J. 31: 521-532.</li>";
+}
+if ($DB eq "on") {
+  print "<li>Durner, W. (1994): Hydraulic conductivity estimation for soils with heterogeneous pore structure. <i>Water Resour. Res.</i>, 30(2): 211-223.</li>";
+}
+if ($BL eq "on") {
+  print "<li>Seki, K. (2007): SWRC Fit - A nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. <i>Hydrol. Earth Syst. Sci. Discuss.</i>, 4: 407-437.</li>";
+}
+print "</ul>";
 }
 
 # Print input data
