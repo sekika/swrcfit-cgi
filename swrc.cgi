@@ -294,7 +294,6 @@ while ($model < $models ){
   print "<td>", $r2[$model];
   print "<td>", $aic[$model], "</tr>";
 }
-}
 print <<"EOF";
 </tr>
 </table>
