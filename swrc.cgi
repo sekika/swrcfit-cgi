@@ -62,6 +62,7 @@ $file =~ s/http.*jp\///g;
 if ($referrer eq $validreferrer) {
 print "<h1>SWRC Fit - Result -</h1>\n";
 
+%formdata = plab::getformdata();
 &getdata;
 
 # Escape control characters before output for security
@@ -273,8 +274,6 @@ sub replacecontrolchars
 ##### Get form data
 
 sub getdata {
-  %formdata = plab::getformdata();
-
   $soil = $formdata{'soil'};
   $texture = $formdata{'texture'};
   $name = $formdata{'name'};
