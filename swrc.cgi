@@ -243,7 +243,7 @@ if ($BL eq "on") {
 print "</ul>";
 
 # Invalid referrer
-else {
+} else {
 print << "EOF";
 <h1>Error</h1>
 <p>Referrer is invalid. Please check your browser's setting and make sure that your browser is
