@@ -97,14 +97,7 @@ open FILE, "> $fswrc";
 print FILE $swrc;
 close FILE;
 
-##### Start of calculation; unimodal model #####
-
-# Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
-# Therefore, the output parameter can directoly be stored to $result.
-# Difference in the calculation option is specified by setting files.
-# Error message from octave is discarded to /dev/null.
-# Sometimes learsqr.m output message of "CONVERGENCE NOT ACHIEVED!".
-# To supress this message, the output is piped to `grep -v "CON"`.
+# Set calculation options
 
 if ($AIC eq "on") {
     $BC="on"; $VG="on"; $LN="on"; $FX="on"; $DB="on"; $BL="on";
@@ -139,13 +132,20 @@ if ($BL eq "on") {
 } else {
     $opt=$opt + " bl=0";
 }
-
 if ($thetaR eq "on") {
-  @result = `($swrcfit $fswrc $opt qrin=0 cqr=0) 2> /dev/null | grep -v "CON"`;
+    $opt=$opt + " qrin=0 cqr=0";
 }
-else {
-  @result = `($swrcfit $fswrc $opt) 2> /dev/null | grep -v "CON"`;
-}
+
+##### Start of calculation; unimodal model #####
+
+# Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
+# Therefore, the output parameter can directoly be stored to $result.
+# Difference in the calculation option is specified by setting files.
+# Error message from octave is discarded to /dev/null.
+# Sometimes learsqr.m output message of "CONVERGENCE NOT ACHIEVED!".
+# To supress this message, the output is piped to `grep -v "CON"`.
+
+@result = `($swrcfit $fswrc $opt) 2> /dev/null | grep -v "CON"`;
 
 # If no result is obtained, something is wrong with input data
 if ($result[0] eq "" or $result[0] == "0") {
