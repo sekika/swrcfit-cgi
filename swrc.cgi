@@ -290,7 +290,7 @@ while ($model < $models ){
   print "<br>&theta;<sub>r</sub> = ", $qr[$model];
   print "<br>", $p1n[$model], " = ",, $p1[$model];
   print "<br>", $p2n[$model], " = ",, $p2[$model];
-  if ($p3n != "") { print "<br>", $p3n[$model], " = ",, $p3[$model];}
+  if ($p3n[$model] != "") { print "<br>", $p3n[$model], " = ",, $p3[$model];}
   print "<td>", $r2[$model];
   print "<td>", $aic[$model], "</tr>";
 }
