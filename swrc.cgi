@@ -109,12 +109,42 @@ close FILE;
 if ($AIC eq "on") {
     $BC="on"; $VG="on"; $LN="on"; $FX="on"; $DB="on"; $BL="on";
 }
+if ($BC eq "on") {
+    $opt="bc=1";
+} else {
+    $opt="bc=0";
+}
+if ($VG eq "on") {
+    $opt=$opt + " vg=1";
+} else {
+    $opt=$opt + " vg=0";
+}
+if ($LN eq "on") {
+    $opt=$opt + " ln=1";
+} else {
+    $opt=$opt + " ln=0";
+}
+if ($FX eq "on") {
+    $opt=$opt + " fx=1";
+} else {
+    $opt=$opt + " fx=0";
+}
+if ($DB eq "on") {
+    $opt=$opt + " db=1";
+} else {
+    $opt=$opt + " db=0";
+}
+if ($BL eq "on") {
+    $opt=$opt + " bl=1";
+} else {
+    $opt=$opt + " bl=0";
+}
 
 if ($thetaR eq "on") {
-  @result = `($swrcfit $fswrc qrin=0 cqr=0) 2> /dev/null | grep -v "CON"`;
+  @result = `($swrcfit $fswrc $opt qrin=0 cqr=0) 2> /dev/null | grep -v "CON"`;
 }
 else {
-  @result = `($swrcfit $fswrc) 2> /dev/null | grep -v "CON"`;
+  @result = `($swrcfit $fswrc $opt) 2> /dev/null | grep -v "CON"`;
 }
 
 # If no result is obtained, something is wrong with input data
