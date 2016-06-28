@@ -273,7 +273,6 @@ having unimodal and bimodal pore structure. <i>Hydrol. Earth Syst. Sci. Discuss.
 EOF
 
 }
-}
 
 # Print input data
 print "<h2>Original Data</h2>";
