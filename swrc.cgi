@@ -295,8 +295,10 @@ $models=$model-1;
 
 if ($AIC eq "on") {
     print @aic[1];
-    @aic = sort {$a <=> $b} @aic;
-    print @aic[1];
+    @aicsort = sort {$a <=> $b} @aic;
+    print @aicsort[1];
+    print @aicsort[2];
+    print @aicsort[3];
     
 }
 
