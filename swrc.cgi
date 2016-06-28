@@ -69,8 +69,14 @@ $soil = $formdata{'soil'};
 $texture = $formdata{'texture'};
 $name = $formdata{'name'};
 $swrc = $formdata{'swrc'};
+$AIC = $formdata{'AIC'};
+$BC = $formdata{'BC'};
+$VG = $formdata{'VG'};
+$LN = $formdata{'LN'};
+$FX = $formdata{'FX'};
+$DB  = $formdata{'DB'};
+$BL = $formdata{'BL'};
 $thetaR = $formdata{'thetaR'};
-$DB = $formdata{'DB'};
 
 # Escape control characters before output for security
 
@@ -99,6 +105,10 @@ close FILE;
 # Error message from octave is discarded to /dev/null.
 # Sometimes learsqr.m output message of "CONVERGENCE NOT ACHIEVED!".
 # To supress this message, the output is piped to `grep -v "CON"`.
+
+if ($AIC eq "on") {
+    $BC="on"; $VG="on"; $LN="on"; $FX="on"; $DB="on"; $BL="on";
+}
 
 if ($thetaR eq "on") {
   @result = `($swrcfit $fswrc qrin=0 cqr=0) 2> /dev/null | grep -v "CON"`;
@@ -151,39 +161,86 @@ it is interpreted as a weight for each parameter.</p>
 
 EOF
 } else {
-
+$k=0
 print "<h2>Unimodal models</h2>";
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup><td>AIC</tr>";
-print "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
-print "<td>&theta;<sub>s</sub> = ", $result[0];
-print "<br>&theta;<sub>r</sub> = ", $result[1];
-print "<br>h<sub>b</sub> = ",, $result[2];
-print "<br>&lambda; = ", $result[3];
-print "<td>", $result[4];
-print "<td>", $result[5], "</tr>";
-print "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
-print "<td>&theta;<sub>s</sub> = ", $result[6];
-print "<br>&theta;<sub>r</sub> = ", $result[7];
-print "<br>&alpha; = ", $result[8];
-print "<br>n = ", $result[9];
-print "<td>", $result[10];
-print "<td>", $result[11], "</tr>";
-print "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
-print "<td>&theta;<sub>s</sub> = ", $result[12];
-print "<br>&theta;<sub>r</sub> = ", $result[13];
-print "<br>h<sub>m</sub> = ", $result[14];
-print "<br>&sigma; = ", $result[15];
-print "<td>", $result[16];
-print "<td>", $result[17], "</tr>";
-print "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
-print "<td>&theta;<sub>s</sub> = ", $result[18];
-print "<br>&theta;<sub>r</sub> = ", $result[19];
-print "<br>a = ", $result[20];
-print "<br>m = ", $result[21];
-print "<br>n = ", $result[22];
-print "<td>", $result[23];
-print "<td>", $result[24], "</tr>";
-
+if ($BC eq "on") {
+  print "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
+  print "<td>&theta;<sub>s</sub> = ", $result[k];
+  print "<br>&theta;<sub>r</sub> = ", $result[k+1];
+  print "<br>h<sub>b</sub> = ",, $result[k+2];
+  print "<br>&lambda; = ", $result[k+3];
+  print "<td>", $result[k+4];
+  print "<td>", $result[k+5], "</tr>";
+  $k = $k+6;
+}
+if ($VG eq "on") {
+  print "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
+  print "<td>&theta;<sub>s</sub> = ", $result[k];
+  print "<br>&theta;<sub>r</sub> = ", $result[k+1];
+  print "<br>&alpha; = ", $result[k+2];
+  print "<br>n = ", $result[k+3];
+  print "<td>", $result[k+4];
+  print "<td>", $result[k+5], "</tr>";
+  $k = $k+6;
+}
+if ($LN eq "on") {
+  print "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
+  print "<td>&theta;<sub>s</sub> = ", $result[k];
+  print "<br>&theta;<sub>r</sub> = ", $result[k+1];
+  print "<br>h<sub>m</sub> = ", $result[k+2];
+  print "<br>&sigma; = ", $result[k+3];
+  print "<td>", $result[k+4];
+  print "<td>", $result[k+5], "</tr>";
+  $k = $k+6;
+}
+if ($FX eq "on") {
+  print "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
+  print "<td>&theta;<sub>s</sub> = ", $result[k];
+  print "<br>&theta;<sub>r</sub> = ", $result[k+1];
+  print "<br>a = ", $result[k+2];
+  print "<br>m = ", $result[k+3];
+  print "<br>n = ", $result[k+4];
+  print "<td>", $result[k+5];
+  print "<td>", $result[k+6], "</tr>";
+  $k = $k+7;
+}
+if (substr($result[k],0,3) eq "Not") {
+  print "<tr><td>Bimodal model<td>";
+  print "<td>Not bimodal.<td><td></tr>";
+} elsif (substr($result[k],0,3) eq "Too") {
+  print "<tr><td>Bimodal model<td>";
+  print "<td>Too few points for bimodal analysis.<td><td></tr>";
+} else {
+  if ($DB eq "on") {
+    print "<tr><td>Durner<td><img src=\"img/DB.png\" width=292 height=52 alt=DB><br>";
+    print "(m<sub>i</sub>=1-1/n<sub>i</sub>)";
+    print "<td>&theta;<sub>s</sub> = ", $result[k];
+    print "<br>&theta;<sub>r</sub> = ", $result[k+1];
+    print "<br>w<sub>1</sub> = ", $result[k+2];
+    print "<br>&alpha;<sub>1</sub> = ", $result[k+3];
+    print "<br>n<sub>1</sub> = ", $result[k+4];
+    print "<br>&alpha;<sub>2</sub> = ", $result[k+5];
+    print "<br>n<sub>2</sub> = ", $result[k+6];
+    print "<td>", $result[k+7];
+    print "<td>", $result[k+8];
+    print "</tr>";
+    $k = $k+9;
+  }
+  if ($BL eq "on") {
+    print "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
+    print "<td>&theta;<sub>s</sub> = ", $result[k];
+    print "<br>&theta;<sub>r</sub> = ", $result[k+1];
+    print "<br>w<sub>1</sub> = ", $result[k+2];
+    print "<br>h<sub>m1</sub> = ", $result[k+3];
+    print "<br>&sigma;<sub>1</sub> = ", $result[k+4];
+    print "<br>h<sub>m2</sub> = ", $result[k+5];
+    print "<br>&sigma;<sub>2</sub> = ", $result[k+6];
+    print "<td>", $result[k+7];
+    print "<td>", $result[k+8];
+    print "</tr>";
+  }
+}
 print <<"EOF";
 </tr>
 </table>
@@ -208,59 +265,13 @@ Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA.</li>
 <li>Kosugi, K. (1996): Lognormal distribution model for unsaturated soil hydraulic properties.
 <i>Water Resour. Res.</i> 32: 2697-2703.</li>
 <li>Fredlund, D.G. and Xing, A.: Equations for the soil-water characteristic curve. Can. Geotech. J. 31: 521-532.</li>
-</ul>
-EOF
-
-##### Bimodal models #####
-
-if ($DB eq "on") {
-  print "<h2>Bimodal models</h2>";
-if ($thetaR eq "on") {
-  @result = `($swrcfit $fswrc mode=2 qrin=0 cqr=0) 2> /dev/null | grep -v "CON"`;
-}
-else {
-  @result = `($swrcfit $fswrc mode=2) 2> /dev/null | grep -v "CON"`;
-}
-
-if (substr($result[0],0,3) eq "Not") {
-  print "<p>Not bimodal.</p>";
-} elsif (substr($result[0],0,3) eq "Too") {
-  print "<p>Too few points for bimodal analysis.</p>";
-} else {
-
-print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup></tr>";
-print "<tr><td>Durner<td><img src=\"img/DB.png\" width=292 height=52 alt=DB><br>";
-print "(m<sub>i</sub>=1-1/n<sub>i</sub>)";
-print "<td>&theta;<sub>s</sub> = ", $result[0];
-print "<br>&theta;<sub>r</sub> = ", $result[1];
-print "<br>w<sub>1</sub> = ", $result[2];
-print "<br>&alpha;<sub>1</sub> = ", $result[3];
-print "<br>n<sub>1</sub> = ", $result[4];
-print "<br>&alpha;<sub>2</sub> = ", $result[5];
-print "<br>n<sub>2</sub> = ", $result[6];
-print "<td>", $result[7];
-print "</tr>";
-print "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
-print "<td>&theta;<sub>s</sub> = ", $result[8];
-print "<br>&theta;<sub>r</sub> = ", $result[9];
-print "<br>w<sub>1</sub> = ", $result[10];
-print "<br>h<sub>m1</sub> = ", $result[11];
-print "<br>&sigma;<sub>1</sub> = ", $result[12];
-print "<br>h<sub>m2</sub> = ", $result[13];
-print "<br>&sigma;<sub>2</sub> = ", $result[14];
-print "<td>", $result[15];
-print "</tr>";
-print "</table>";
-print "<img src=\"img/swrc.png?", int(rand(1000000)), "\" alt=\"graph\">";
-
-print << "EOF";
-<ul>
 <li>Durner, W. (1994): Hydraulic conductivity estimation for soils with heterogeneous pore structure.
 <i>Water Resour. Res.</i>, 30(2): 211-223.</li>
 <li>Seki, K. (2007): SWRC Fit - A nonlinear fitting program with a water retention curve for soils
 having unimodal and bimodal pore structure. <i>Hydrol. Earth Syst. Sci. Discuss.</i>, 4: 407-437.</li>
 </ul>
 EOF
+
 }
 }
 }

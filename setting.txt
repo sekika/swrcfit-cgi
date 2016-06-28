@@ -2,6 +2,7 @@
 # Please note that normally cgi is executed by another user account
 # and $HOME/.swrcfit is not in your home directory when executed.
 
+mode=3;
 simple=1;
 aic=1;
 
