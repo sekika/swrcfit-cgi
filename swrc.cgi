@@ -194,7 +194,8 @@ EOF
     
 $model=1;
 if ($BC eq "on") {
-  $p1n[$model] = "<br>h<sub>b</sub>";
+  $label[$model] = "<tr><td>Model name<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
+  $p1n[$model] = "h<sub>b</sub>";
   $p2n[$model] = "&lambda;";
   $qs[$model] = $result[$k];
   $qr[$model] = $result[$k+1];
@@ -205,6 +206,9 @@ if ($BC eq "on") {
   $k = $k+6; $model = $model + 1;
 }
 if ($VG eq "on") {
+  $label[$model] = "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
+  $p1n[$model] = "&alpha;";
+  $p2n[$model] = "n";
   $qs[$model] = $result[$k];
   $qr[$model] = $result[$k+1];
   $p1[$model] = $result[$k+2];
@@ -269,7 +273,7 @@ print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</s
 $model = 0;
 while ($model < $models ){
   $model++;
-  print "<tr><td>Model name<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
+  print $label[$model];
   print "<td>&theta;<sub>s</sub> = ", $result[$k];
   print "<br>&theta;<sub>r</sub> = ", $result[$k+1];
   print "<br>", $p1n, " = ",, $result[$k+2];
@@ -278,16 +282,6 @@ while ($model < $models ){
   print "<td>", $result[$k+5], "</tr>";
 }
 
-if ($VG eq "on") {
-  print "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
-  print "<td>&theta;<sub>s</sub> = ", $result[$k];
-  print "<br>&theta;<sub>r</sub> = ", $result[$k+1];
-  print "<br>&alpha; = ", $result[$k+2];
-  print "<br>n = ", $result[$k+3];
-  print "<td>", $result[$k+4];
-  print "<td>", $result[$k+5], "</tr>";
-  $k = $k+6;
-}
 if ($LN eq "on") {
   print "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
   print "<td>&theta;<sub>s</sub> = ", $result[$k];
