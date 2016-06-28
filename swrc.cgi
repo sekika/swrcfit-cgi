@@ -154,15 +154,15 @@ print <<"EOF";
 </tr>
 </table>
 <ul>
-<li>AIC (Akaike's Information Criterion) = n ln(RSS/n)+2k, where n is sample size, RSS is residual sum of squares and k is the number of estimated parameters.</li>
+<li>AIC (<a href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike's Information Criterion</a>) = n ln(RSS/n)+2k, where n is sample size, RSS is residual sum of squares and k is the number of estimated parameters.</li>
 <li><img src="img/Se.png" width=76 height=42 alt=Se>, i.e., <img src="img/Se2.png" alt=theta></li>
 EOF
-if ($LN eq "on") {
+if (@m[3] eq "on") {
   print "<li>For Kosugi model, Q(x) is the complementary cumulative normal distribution function,
 defined by Q(x)=1-&Phi;(x), in which &Phi;(x) is a normalized form of the
 <a href=\"http://mathworld.wolfram.com/NormalDistributionFunction.html\">cumulative normal distribution function</a></li>"
 }
-if ($FX eq "on") {
+if (@m[4] eq "on") {
   print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>. For modifying the correction function C(h), please use offline version of SWRC Fit.</li>"
 }
 print "</ul>";
