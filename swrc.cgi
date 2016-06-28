@@ -276,8 +276,8 @@ while ($model < $models ){
   print $label[$model];
   print "<td>&theta;<sub>s</sub> = ", $result[$k];
   print "<br>&theta;<sub>r</sub> = ", $result[$k+1];
-  print "<br>", $p1n, " = ",, $result[$k+2];
-  print "<br>", $p2n, " = ", $result[$k+3];
+  print "<br>", $p1n[$model], " = ",, $result[$k+2];
+  print "<br>", $p2n[$model], " = ", $result[$k+3];
   print "<td>", $result[$k+4];
   print "<td>", $result[$k+5], "</tr>";
 }
