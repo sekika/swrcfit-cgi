@@ -171,7 +171,7 @@ print "</ul>";
 print "<h2>Figure</h2>";
 
 if ($models > 3) {
-  print "<p>Figure is shown for selected 2 models with lowest AIC.</p>";
+  print "<p>Figure is shown for selected 3 models with lowest AIC.</p>";
   @aicsort = sort {$a <=> $b} @aic;
   $model = 0;
   while ($model < $models){
@@ -179,7 +179,7 @@ if ($models > 3) {
     if (@aic[$model] <= @aicsort[2]) {
       @m[$model]="on";
     } else {
-      @m[@model]="";
+      @m[$model]="";
     }
   }
   &calc;
