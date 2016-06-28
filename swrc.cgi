@@ -103,39 +103,6 @@ close FILE;
 if ($AIC eq "on") {
     $BC="on"; $VG="on"; $LN="on"; $FX="on"; $DB="on"; $BL="on";
 }
-if ($BC eq "on") {
-    $opt="bc=1";
-} else {
-    $opt="bc=0";
-}
-if ($VG eq "on") {
-    $opt=$opt . " vg=1";
-} else {
-    $opt=$opt . " vg=0";
-}
-if ($LN eq "on") {
-    $opt=$opt . " ln=1";
-} else {
-    $opt=$opt . " ln=0";
-}
-if ($FX eq "on") {
-    $opt=$opt . " fx=1";
-} else {
-    $opt=$opt . " fx=0";
-}
-if ($DB eq "on") {
-    $opt=$opt . " db=1";
-} else {
-    $opt=$opt . " db=0";
-}
-if ($BL eq "on") {
-    $opt=$opt . " bl=1";
-} else {
-    $opt=$opt . " bl=0";
-}
-if ($thetaR eq "on") {
-    $opt=$opt . " qrin=0 cqr=0";
-}
 
 ##### Start of calculation #####
 
@@ -189,8 +156,7 @@ EOF
 
 if ($AIC eq "on") {
   @aicsort = sort {$a <=> $b} @aic;
-  if (@aic[1] <= @aicsort[1]) { $opt="bc=1"; } else { $opt="bc=0"; }
-  if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
+  if (@aic[1] <= @aicsort[1]) { $BC="on"; } else { $BC=""; }
   &calc;
 }
 
@@ -314,6 +280,40 @@ sub replacecontrolchars
 ##### Calculation routine #####
 
 sub calc {
+
+if ($BC eq "on") {
+    $opt="bc=1";
+} else {
+    $opt="bc=0";
+}
+if ($VG eq "on") {
+    $opt=$opt . " vg=1";
+} else {
+    $opt=$opt . " vg=0";
+}
+if ($LN eq "on") {
+    $opt=$opt . " ln=1";
+} else {
+    $opt=$opt . " ln=0";
+}
+if ($FX eq "on") {
+    $opt=$opt . " fx=1";
+} else {
+    $opt=$opt . " fx=0";
+}
+if ($DB eq "on") {
+    $opt=$opt . " db=1";
+} else {
+    $opt=$opt . " db=0";
+}
+if ($BL eq "on") {
+    $opt=$opt . " bl=1";
+} else {
+    $opt=$opt . " bl=0";
+}
+if ($thetaR eq "on") {
+    $opt=$opt . " qrin=0 cqr=0";
+}
 
 # Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
 # Therefore, the output parameter can directoly be stored to $result.
