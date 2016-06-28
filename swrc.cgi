@@ -154,7 +154,7 @@ print <<"EOF";
 </tr>
 </table>
 <ul>
-<li>AIC (Akaike's Information Criterion) = n ln(RMSE<sup>2</sup>/n)+2k, where n is sample size, RMSE is root mean square error and k is the number of estimated parameters.</li>
+<li>AIC (Akaike's Information Criterion) = n ln(RSS/n)+2k, where n is sample size, RSS is residual sum of squares and k is the number of estimated parameters.</li>
 <li><img src="img/Se.png" width=76 height=42 alt=Se>, i.e., <img src="img/Se2.png" alt=theta></li>
 EOF
 if ($LN eq "on") {
