@@ -3,6 +3,7 @@
 # and $HOME/.swrcfit is not in your home directory when executed.
 
 simple=1;
+aic=1;
 
 # See setting for figure here
 # https://github.com/sekika/swrcfit/wiki/Drawing-graph-with-gnuplot

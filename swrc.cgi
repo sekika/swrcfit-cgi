@@ -153,32 +153,36 @@ EOF
 } else {
 
 print "<h2>Unimodal models</h2>";
-print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup></tr>";
+print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup><td>AIC</tr>";
 print "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
 print "<td>&theta;<sub>s</sub> = ", $result[0];
 print "<br>&theta;<sub>r</sub> = ", $result[1];
 print "<br>h<sub>b</sub> = ",, $result[2];
 print "<br>&lambda; = ", $result[3];
 print "<td>", $result[4], "</tr>";
+print "<td>", $result[5], "</tr>";
 print "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
-print "<td>&theta;<sub>s</sub> = ", $result[5];
-print "<br>&theta;<sub>r</sub> = ", $result[6];
-print "<br>&alpha; = ", $result[7];
-print "<br>n = ", $result[8];
-print "<td>", $result[9], "</tr>";
+print "<td>&theta;<sub>s</sub> = ", $result[6];
+print "<br>&theta;<sub>r</sub> = ", $result[7];
+print "<br>&alpha; = ", $result[8];
+print "<br>n = ", $result[9];
+print "<td>", $result[10], "</tr>";
+print "<td>", $result[11], "</tr>";
 print "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
-print "<td>&theta;<sub>s</sub> = ", $result[10];
-print "<br>&theta;<sub>r</sub> = ", $result[11];
-print "<br>h<sub>m</sub> = ", $result[12];
-print "<br>&sigma; = ", $result[13];
-print "<td>", $result[14];
-print "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX>";
-print "<td>&theta;<sub>s</sub> = ", $result[15];
-print "<br>&theta;<sub>r</sub> = ", $result[16];
-print "<br>a = ", $result[17];
-print "<br>m = ", $result[18];
-print "<br>n = ", $result[19];
-print "<td>", $result[20], "</tr>";
+print "<td>&theta;<sub>s</sub> = ", $result[12];
+print "<br>&theta;<sub>r</sub> = ", $result[13];
+print "<br>h<sub>m</sub> = ", $result[14];
+print "<br>&sigma; = ", $result[15];
+print "<td>", $result[16];
+print "<td>", $result[17], "</tr>";
+print "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
+print "<td>&theta;<sub>s</sub> = ", $result[18];
+print "<br>&theta;<sub>r</sub> = ", $result[19];
+print "<br>a = ", $result[20];
+print "<br>m = ", $result[21];
+print "<br>n = ", $result[22];
+print "<td>", $result[23], "</tr>";
+print "<td>", $result[24], "</tr>";
 
 print <<"EOF";
 </tr>
@@ -203,6 +207,7 @@ Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA.</li>
 <i>Soil Sci. Soc. Am. J.</i> 44:892-898.</li>
 <li>Kosugi, K. (1996): Lognormal distribution model for unsaturated soil hydraulic properties.
 <i>Water Resour. Res.</i> 32: 2697-2703.</li>
+<li>Fredlund, D.G. and Xing, A.: Equations for the soil-water characteristic curve. Can. Geotech. J. 31: 521-532.</li>
 </ul>
 EOF
 
