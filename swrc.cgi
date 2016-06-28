@@ -194,56 +194,56 @@ EOF
     
 $k=0; $model=1;
 if ($BC eq "on") {
-  $label[$model] = "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
+  @label[$model] = "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
   @p1n[$model] = "h<sub>b</sub>";
   @p2n[$model] = "&lambda;";
   @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
-  $qs[$model] = $result[$k];
-  $qr[$model] = $result[$k+1];
+  @qs[$model] = $result[$k];
+  @qr[$model] = $result[$k+1];
   @p1[$model] = $result[$k+2];
   @p2[$model] = $result[$k+3];
-  $r2[$model] = $result[$k+4];
+  @r2[$model] = $result[$k+4];
   @aic[$model] = $result[$k+5];
   $k = $k+6; $model = $model + 1;
 }
 if ($VG eq "on") {
-  $label[$model] = "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
+  @label[$model] = "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
   @p1n[$model] = "&alpha;";
   @p2n[$model] = "n";
   @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
-  $qs[$model] = $result[$k];
-  $qr[$model] = $result[$k+1];
+  @qs[$model] = $result[$k];
+  @qr[$model] = $result[$k+1];
   @p1[$model] = $result[$k+2];
   @p2[$model] = $result[$k+3];
-  $r2[$model] = $result[$k+4];
+  @r2[$model] = $result[$k+4];
   @aic[$model] = $result[$k+5];
   $k = $k+6; $model = $model + 1;
 }
 if ($LN eq "on") {
-  $label[$model] = "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
+  @label[$model] = "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
   @p1n[$model] = "h<sub>m</sub>";
   @p2n[$model] = "&sigma;";
   @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
-  $qs[$model] = $result[$k];
-  $qr[$model] = $result[$k+1];
+  @qs[$model] = $result[$k];
+  @qr[$model] = $result[$k+1];
   @p1[$model] = $result[$k+2];
   @p2[$model] = $result[$k+3];
-  $r2[$model] = $result[$k+4];
+  @r2[$model] = $result[$k+4];
   @aic[$model] = $result[$k+5];
   $k = $k+6; $model = $model + 1;
 }
 if ($FX eq "on") {
-  $label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
+  @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
   @p1n[$model] = "a";
   @p2n[$model] = "m";
   @p3n[$model] = "n";
   @p4n[$model] = ""; @p5n[$model] = "";
-  $qs[$model] = $result[$k];
-  $qr[$model] = $result[$k+1];
+  @qs[$model] = $result[$k];
+  @qr[$model] = $result[$k+1];
   @p1[$model] = $result[$k+2];
   @p2[$model] = $result[$k+3];
   @p3[$model] = $result[$k+4];
-  $r2[$model] = $result[$k+5];
+  @r2[$model] = $result[$k+5];
   @aic[$model] = $result[$k+6];
   $k = $k+7; $model = $model + 1;
 }
@@ -253,38 +253,38 @@ if (substr($result[$k],0,3) eq "Not") {
   $DB=""; $BL="";  
 } else {
   if ($DB eq "on") {
-    $label[$model] = "<tr><td>Durner<td><img src=\"img/DB.png\" width=292 height=52 alt=DB><br>";
+    @label[$model] = "<tr><td>Durner<td><img src=\"img/DB.png\" width=292 height=52 alt=DB><br>";
     @p1n[$model] = "w<sub>1</sub>";
     @p2n[$model] = "&alpha;<sub>1</sub>";
     @p3n[$model] = "n<sub>1</sub>";
     @p4n[$model] = "&alpha;<sub>2</sub>";
     @p5n[$model] = "n<sub>2</sub>";
-    $qs[$model] = $result[$k];
-    $qr[$model] = $result[$k+1];
+    @qs[$model] = $result[$k];
+    @qr[$model] = $result[$k+1];
     @p1[$model] = $result[$k+2];
     @p2[$model] = $result[$k+3];
     @p3[$model] = $result[$k+4];
     @p4[$model] = $result[$k+5];
     @p5[$model] = $result[$k+6];
-    $r2[$model] = $result[$k+7];
+    @r2[$model] = $result[$k+7];
     @aic[$model] = $result[$k+8];
     $k = $k+9; $model = $model + 1;
   }
   if ($BL eq "on") {
-    $label[$model] = "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
+    @label[$model] = "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
     @p1n[$model] = "w<sub>1</sub>";
     @p2n[$model] = "h<sub>m1</sub>";
     @p3n[$model] = "&sigma;<sub>1</sub>";
     @p4n[$model] = "h<sub>m2</sub>";
     @p5n[$model] = "&sigma;<sub>2</sub>";
-    $qs[$model] = $result[$k];
-    $qr[$model] = $result[$k+1];
+    @qs[$model] = $result[$k];
+    @qr[$model] = $result[$k+1];
     @p1[$model] = $result[$k+2];
     @p2[$model] = $result[$k+3];
     @p3[$model] = $result[$k+4];
     @p4[$model] = $result[$k+5];
     @p5[$model] = $result[$k+6];
-    $r2[$model] = $result[$k+7];
+    @r2[$model] = $result[$k+7];
     @aic[$model] = $result[$k+8];
     $k = $k+9; $model = $model + 1;
   }
@@ -306,15 +306,15 @@ print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</s
 $model = 0;
 while ($model < $models ){
   $model++;
-  print $label[$model];
-  print "<td>&theta;<sub>s</sub> = ", $qs[$model];
-  print "<br>&theta;<sub>r</sub> = ", $qr[$model];
+  print @label[$model];
+  print "<td>&theta;<sub>s</sub> = ", @qs[$model];
+  print "<br>&theta;<sub>r</sub> = ", @qr[$model];
   print "<br>", @p1n[$model], " = ",, @p1[$model];
   print "<br>", @p2n[$model], " = ",, @p2[$model];
   if (@p3n[$model] ne "") { print "<br>", @p3n[$model], " = ",, @p3[$model];}
   if (@p4n[$model] ne "") { print "<br>", @p4n[$model], " = ",, @p4[$model];}
   if (@p4n[$model] ne "") { print "<br>", @p5n[$model], " = ",, @p5[$model];}
-  print "<td>", $r2[$model];
+  print "<td>", @r2[$model];
   print "<td>", @aic[$model], "</tr>";
 }
 print <<"EOF";
