@@ -192,7 +192,7 @@ it is interpreted as a weight for each parameter.</p>
 EOF
 } else {
     
-$model=1;
+$k=0; $model=1;
 if ($BC eq "on") {
   $label[$model] = "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
   $p1n[$model] = "h<sub>b</sub>";
@@ -291,7 +291,15 @@ if (substr($result[$k],0,3) eq "Not") {
 }
 $models=$model-1;
 
-$k=0;
+# Select best model
+
+if ($AIC eq "on) {
+    print min($aic);
+    
+}
+
+# Show result
+
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup><td>AIC</tr>";
 $model = 0;
 while ($model < $models ){
