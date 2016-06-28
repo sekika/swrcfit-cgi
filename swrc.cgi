@@ -203,7 +203,7 @@ if ($BC eq "on") {
   $p1[$model] = $result[$k+2];
   $p2[$model] = $result[$k+3];
   $r2[$model] = $result[$k+4];
-  $aic[$model] = $result[$k+5];
+  @aic[$model] = $result[$k+5];
   $k = $k+6; $model = $model + 1;
 }
 if ($VG eq "on") {
@@ -216,7 +216,7 @@ if ($VG eq "on") {
   $p1[$model] = $result[$k+2];
   $p2[$model] = $result[$k+3];
   $r2[$model] = $result[$k+4];
-  $aic[$model] = $result[$k+5];
+  @aic[$model] = $result[$k+5];
   $k = $k+6; $model = $model + 1;
 }
 if ($LN eq "on") {
@@ -229,7 +229,7 @@ if ($LN eq "on") {
   $p1[$model] = $result[$k+2];
   $p2[$model] = $result[$k+3];
   $r2[$model] = $result[$k+4];
-  $aic[$model] = $result[$k+5];
+  @aic[$model] = $result[$k+5];
   $k = $k+6; $model = $model + 1;
 }
 if ($FX eq "on") {
@@ -244,7 +244,7 @@ if ($FX eq "on") {
   $p2[$model] = $result[$k+3];
   $p3[$model] = $result[$k+4];
   $r2[$model] = $result[$k+5];
-  $aic[$model] = $result[$k+6];
+  @aic[$model] = $result[$k+6];
   $k = $k+7; $model = $model + 1;
 }
 if (substr($result[$k],0,3) eq "Not") {
@@ -267,7 +267,7 @@ if (substr($result[$k],0,3) eq "Not") {
     $p4[$model] = $result[$k+5];
     $p5[$model] = $result[$k+6];
     $r2[$model] = $result[$k+7];
-    $aic[$model] = $result[$k+8];
+    @aic[$model] = $result[$k+8];
     $k = $k+9; $model = $model + 1;
   }
   if ($BL eq "on") {
@@ -285,7 +285,7 @@ if (substr($result[$k],0,3) eq "Not") {
     $p4[$model] = $result[$k+5];
     $p5[$model] = $result[$k+6];
     $r2[$model] = $result[$k+7];
-    $aic[$model] = $result[$k+8];
+    @aic[$model] = $result[$k+8];
     $k = $k+9; $model = $model + 1;
   }
 }
@@ -294,9 +294,9 @@ $models=$model-1;
 # Select best model
 
 if ($AIC eq "on") {
-    print $aic[1];
-    @$aic = sort {$a <=> $b} @$aic;
-    print $aic[1];
+    print @aic[1];
+    @@aic = sort {$a <=> $b} @@aic;
+    print @aic[1];
     
 }
 
@@ -315,7 +315,7 @@ while ($model < $models ){
   if ($p4n[$model] ne "") { print "<br>", $p4n[$model], " = ",, $p4[$model];}
   if ($p4n[$model] ne "") { print "<br>", $p5n[$model], " = ",, $p5[$model];}
   print "<td>", $r2[$model];
-  print "<td>", $aic[$model], "</tr>";
+  print "<td>", @aic[$model], "</tr>";
 }
 print <<"EOF";
 </tr>
