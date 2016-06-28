@@ -98,8 +98,6 @@ open FILE, "> $fswrc";
 print FILE $swrc;
 close FILE;
 
-# Set calculation options
-
 if ($AIC eq "on") {
     $BC="on"; $VG="on"; $LN="on"; $FX="on"; $DB="on"; $BL="on";
 }
@@ -186,30 +184,6 @@ if ($FX eq "on") {
 }
 print "</ul>";
 
-# Show reference
-
-print "<ul>";
-if ($BC eq "on") {
-  print "<li>Brooks, R.H., and A.T. Corey (1964): Hydraulic properties of porous media.
-Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA.</li>";
-}
-if ($VG eq "on") {
-  print "<li>van Genuchten, M. (1980): A closed-form equation for predicting the hydraulic conductivity of unsaturated soils. <i>Soil Sci. Soc. Am. J.</i>, 44:892-898.</li>";
-}
-if ($LN eq "on") {
-  print "<li>Kosugi, K. (1996): Lognormal distribution model for unsaturated soil hydraulic properties. <i>Water Resour. Res. </i>, 32: 2697-2703.</li>";
-}
-if ($FX eq "on") {
-  print "<li>Fredlund, D.G. and Xing, A. (1994): Equations for the soil-water characteristic curve. <i>Can. Geotech. J.</i>, 31: 521-532.</li>";
-}
-if ($DB eq "on") {
-  print "<li>Durner, W. (1994): Hydraulic conductivity estimation for soils with heterogeneous pore structure. <i>Water Resour. Res.</i>, 30(2): 211-223.</li>";
-}
-if ($BL eq "on") {
-  print "<li>Seki, K. (2007): SWRC Fit - A nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. <i>Hydrol. Earth Syst. Sci. Discuss.</i>, 4: 407-437.</li>";
-}
-print "</ul>";
-
 # Select best model
 
 print "<h2>Figure</h2>";
@@ -238,6 +212,35 @@ $swrc  = replacecontrolchars($swrc);
 print $swrc;
 print "</pre>";
 }
+
+# Show reference
+print "<h2>Reference</h2>";
+
+if ($AIC eq "on") {
+    $BC="on"; $VG="on"; $LN="on"; $FX="on"; $DB="on"; $BL="on";
+}
+
+print "<ul>";
+if ($BC eq "on") {
+  print "<li>Brooks, R.H., and A.T. Corey (1964): Hydraulic properties of porous media.
+Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA.</li>";
+}
+if ($VG eq "on") {
+  print "<li>van Genuchten, M. (1980): A closed-form equation for predicting the hydraulic conductivity of unsaturated soils. <i>Soil Sci. Soc. Am. J.</i>, 44:892-898.</li>";
+}
+if ($LN eq "on") {
+  print "<li>Kosugi, K. (1996): Lognormal distribution model for unsaturated soil hydraulic properties. <i>Water Resour. Res. </i>, 32: 2697-2703.</li>";
+}
+if ($FX eq "on") {
+  print "<li>Fredlund, D.G. and Xing, A. (1994): Equations for the soil-water characteristic curve. <i>Can. Geotech. J.</i>, 31: 521-532.</li>";
+}
+if ($DB eq "on") {
+  print "<li>Durner, W. (1994): Hydraulic conductivity estimation for soils with heterogeneous pore structure. <i>Water Resour. Res.</i>, 30(2): 211-223.</li>";
+}
+if ($BL eq "on") {
+  print "<li>Seki, K. (2007): SWRC Fit - A nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. <i>Hydrol. Earth Syst. Sci. Discuss.</i>, 4: 407-437.</li>";
+}
+print "</ul>";
 
 # Invalid referrer
 else {
@@ -290,6 +293,8 @@ sub replacecontrolchars
 ##### Calculation routine #####
 
 sub calc {
+
+# Set calculation options
 
 if ($BC eq "on") {
     $opt="bc=1";
