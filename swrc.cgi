@@ -285,7 +285,6 @@ sub getdata {
   @m[5] = $formdata{'DB'};
   @m[6] = $formdata{'BL'};
   $thetaR = $formdata{'thetaR'};
-  print @m;
 }
 
 ##### Calculation routine #####
@@ -326,7 +325,7 @@ sub calc {
       @p2[$model] = $result[$k+3];
       @r2[$model] = $result[$k+4];
       @aic[$model] = $result[$k+5];
-      $k = $k+6; $model = $model + 1;
+      $k = $k+6; $model++;
     }
     if ($VG eq "on") {
       @label[$model] = "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
@@ -339,7 +338,7 @@ sub calc {
       @p2[$model] = $result[$k+3];
       @r2[$model] = $result[$k+4];
       @aic[$model] = $result[$k+5];
-      $k = $k+6; $model = $model + 1;
+      $k = $k+6; $model++;
     }
     if ($LN eq "on") {
       @label[$model] = "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
@@ -352,7 +351,7 @@ sub calc {
       @p2[$model] = $result[$k+3];
       @r2[$model] = $result[$k+4];
       @aic[$model] = $result[$k+5];
-      $k = $k+6; $model = $model + 1;
+      $k = $k+6; $model++;
     }
     if ($FX eq "on") {
       @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
@@ -367,9 +366,9 @@ sub calc {
       @p3[$model] = $result[$k+4];
       @r2[$model] = $result[$k+5];
       @aic[$model] = $result[$k+6];
-      $k = $k+7; $model = $model + 1;
+      $k = $k+7; $model++;
     }
-      if (substr($result[$k],0,3) eq "Not") {
+    if (substr($result[$k],0,3) eq "Not") {
       $DB=""; $BL="";  
     } elsif (substr($result[$k],0,3) eq "Too") {
       $DB=""; $BL="";  
@@ -390,7 +389,7 @@ sub calc {
         @p5[$model] = $result[$k+6];
         @r2[$model] = $result[$k+7];
         @aic[$model] = $result[$k+8];
-        $k = $k+9; $model = $model + 1;
+        $k = $k+9; $model++;
       }
       if ($BL eq "on") {
         @label[$model] = "<tr><td>Seki<td><img src=\"img/BL.png\" width=282 height=49 alt=BL>";
@@ -408,7 +407,7 @@ sub calc {
         @p5[$model] = $result[$k+6];
         @r2[$model] = $result[$k+7];
         @aic[$model] = $result[$k+8];
-        $k = $k+9; $model = $model + 1;
+        $k = $k+9; $model++;
       }
     }
     $models=$model-1;
