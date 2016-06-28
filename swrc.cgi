@@ -62,22 +62,7 @@ $file =~ s/http.*jp\///g;
 if ($referrer eq $validreferrer) {
 print "<h1>SWRC Fit - Result -</h1>\n";
 
-# Get form data
-
-%formdata = plab::getformdata();
-
-$soil = $formdata{'soil'};
-$texture = $formdata{'texture'};
-$name = $formdata{'name'};
-$swrc = $formdata{'swrc'};
-$AIC = $formdata{'AIC'};
-$BC = $formdata{'BC'};
-$VG = $formdata{'VG'};
-$LN = $formdata{'LN'};
-$FX = $formdata{'FX'};
-$DB  = $formdata{'DB'};
-$BL = $formdata{'BL'};
-$thetaR = $formdata{'thetaR'};
+&getformdata;
 
 # Escape control characters before output for security
 
@@ -188,15 +173,18 @@ print "</ul>";
 
 print "<h2>Figure</h2>";
 
-if ($AIC eq "on") {
+if ($models > 3) {
   print "<p>Figure is shown for selected 2 models with lowest AIC.</p>";
   @aicsort = sort {$a <=> $b} @aic;
-  if (@aic[1] <= @aicsort[1]) { $BC="on"; } else { $BC=""; }
-  if (@aic[2] <= @aicsort[1]) { $VG="on"; } else { $VG=""; }
-  if (@aic[3] <= @aicsort[1]) { $LN="on"; } else { $LN=""; }
-  if (@aic[4] <= @aicsort[1]) { $FX="on"; } else { $FX=""; }
-  if (@aic[5] <= @aicsort[1]) { $DB="on"; } else { $DB=""; }
-  if (@aic[6] <= @aicsort[1]) { $BL="on"; } else { $BL=""; }
+  $model = 0;
+  while ($model < $models){
+    $model++;
+    if (@aic[$model] <= @aicsort[2]) {
+      @m[$model]="on";
+    } else {
+      @m[@model]="";
+    }
+  }
   &calc;
 }
 
@@ -213,11 +201,8 @@ print $swrc;
 print "</pre>";
 
 # Show reference
+&getformdata;
 print "<h2>Reference</h2>";
-
-if ($AIC eq "on") {
-    $BC="on"; $VG="on"; $LN="on"; $FX="on"; $DB="on"; $BL="on";
-}
 
 print "<ul>";
 if ($BC eq "on") {
@@ -289,38 +274,56 @@ sub replacecontrolchars
         return $s;
 }
 
+##### Get form data
+
+sub getformdata {
+  %formdata = plab::getformdata();
+
+  $soil = $formdata{'soil'};
+  $texture = $formdata{'texture'};
+  $name = $formdata{'name'};
+  $swrc = $formdata{'swrc'};
+  @m[1] = $formdata{'BC'};
+  @m[2] = $formdata{'VG'};
+  @m[3] = $formdata{'LN'};
+  @m[4] = $formdata{'FX'};
+  @m[5]  = $formdata{'DB'};
+  @m[6] = $formdata{'BL'};
+  $thetaR = $formdata{'thetaR'};
+}
+
 ##### Calculation routine #####
 
 sub calc {
 
 # Set calculation options
 
-if ($BC eq "on") {
+if (@m[1] eq "on") {
     $opt="bc=1";
 } else {
     $opt="bc=0";
 }
-if ($VG eq "on") {
+if (@m[2] eq "on") {
     $opt=$opt . " vg=1";
 } else {
     $opt=$opt . " vg=0";
 }
-if ($LN eq "on") {
+if (@m[3] eq "on") {
     $opt=$opt . " ln=1";
 } else {
     $opt=$opt . " ln=0";
 }
-if ($FX eq "on") {
+if (@m[4] eq "on") {
     $opt=$opt . " fx=1";
 } else {
     $opt=$opt . " fx=0";
 }
-if ($DB eq "on") {
+if (@m[5] eq "on") {
     $opt=$opt . " db=1";
 } else {
     $opt=$opt . " db=0";
 }
-if ($BL eq "on") {
+if (@m[6] eq "on") {
     $opt=$opt . " bl=1";
 } else {
     $opt=$opt . " bl=0";
