@@ -267,7 +267,7 @@ $models=$model-1;
 $k=0;
 print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup><td>AIC</tr>";
 $model = 0;
-while ($model < models ){
+while ($model < $models ){
   $model++;
   print "<tr><td>Model name<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
   print "<td>&theta;<sub>s</sub> = ", $result[$k];
