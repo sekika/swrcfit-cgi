@@ -257,7 +257,7 @@ $gnuplot = `(gnuplot -V) 2> /dev/null | sed -e 's/ patchlevel /./'`;
 
 print << "EOF";
 <hr>
-<p><a href="http://purl.org/net/swrc/">SWRC Fit</a> $swrcfitversion with $oct, $gnuplot and <a href="https://github.com/sekika/swrcfit-cgi">swrcfit-cgi</a> $veresion.</p>
+<p><a href="http://purl.org/net/swrc/">SWRC Fit</a> $swrcfitversion with $oct, $gnuplot and <a href="https://github.com/sekika/swrcfit-cgi">swrcfit-cgi</a> $version.</p>
 </body>
 </html>
 EOF
