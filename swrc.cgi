@@ -303,7 +303,7 @@ if ($LN eq "on") {
   print "<li>Kosugi, K. (1996): Lognormal distribution model for unsaturated soil hydraulic properties. <i>Water Resour. Res. </i>, 32: 2697-2703.</li>";
 }
 if ($FX eq "on") {
-  print "<li>Fredlund, D.G. and Xing, A.: Equations for the soil-water characteristic curve. <i>Can. Geotech. J.</i>, 31: 521-532.</li>";
+  print "<li>Fredlund, D.G. and Xing, A. (1994): Equations for the soil-water characteristic curve. <i>Can. Geotech. J.</i>, 31: 521-532.</li>";
 }
 if ($DB eq "on") {
   print "<li>Durner, W. (1994): Hydraulic conductivity estimation for soils with heterogeneous pore structure. <i>Water Resour. Res.</i>, 30(2): 211-223.</li>";
