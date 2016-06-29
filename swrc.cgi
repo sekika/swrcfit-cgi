@@ -113,7 +113,7 @@ print << "EOF";
 <h2>Too few points for bimodal analysis</h2>
 <p>At least 8 data points is required for bimodal analysis. Please use unimodal models.</p>
 EOF
-} elsif (m[1] . m[2] . m[3] . m[4] . m[5] . m[6]) {
+} elsif (@m[1] . @m[2] . @m[3] . @m[4] . @m[5] . @m[6]) {
 print << "EOF";
 <h2>No model selected</h2>
 <p>Please select at least one model.</p>
