@@ -62,8 +62,21 @@ $file =~ s/http.*jp\///g;
 if ($referrer eq $validreferrer) {
 print "<h1>SWRC Fit - Result -</h1>\n";
 
+##### Get form data
 %formdata = plab::getformdata();
-&getdata;
+
+$soil = $formdata{'soil'};
+$texture = $formdata{'texture'};
+$name = $formdata{'name'};
+$swrc = $formdata{'swrc'};
+@m[1] = $formdata{'BC'};
+@m[2] = $formdata{'VG'};
+@m[3] = $formdata{'LN'};
+@m[4] = $formdata{'FX'};
+@m[5] = $formdata{'DB'};
+@m[6] = $formdata{'BL'};
+$thetaR = $formdata{'thetaR'};
+$onemodel = $formdata{'onemodel'};
 
 # Escape control characters before output for security
 
@@ -167,23 +180,10 @@ if (@m[4] eq "on") {
 }
 print "</ul>";
 
-# Select best model
-
 print "<h2>Figure</h2>";
 
-if ($models > 3) {
-  print "<p>Figure is shown for selected 3 models with lowest AIC.</p>";
-  @aicsort = sort {$a <=> $b} @aic;
-  $model = 0;
-  while ($model < $models){
-    $model++;
-    if (@aic[$model] <= @aicsort[2]) {
-      @m[@index[$model]]="on";
-    } else {
-      @m[@index[$model]]="";
-    }
-  }
-  &calc;
+if ($onemodel == 1) {
+  print "<p>Showing the model with the minumim AIC value.</p>";
 }
 
 # Random number is added to refresh the browzer cash
@@ -199,7 +199,6 @@ print $swrc;
 print "</pre>";
 
 # Show reference
-&getdata;
 print "<h2>Reference</h2>";
 
 print "<ul>";
@@ -272,22 +271,6 @@ sub replacecontrolchars
         return $s;
 }
 
-##### Get form data
-
-sub getdata {
-  $soil = $formdata{'soil'};
-  $texture = $formdata{'texture'};
-  $name = $formdata{'name'};
-  $swrc = $formdata{'swrc'};
-  @m[1] = $formdata{'BC'};
-  @m[2] = $formdata{'VG'};
-  @m[3] = $formdata{'LN'};
-  @m[4] = $formdata{'FX'};
-  @m[5] = $formdata{'DB'};
-  @m[6] = $formdata{'BL'};
-  $thetaR = $formdata{'thetaR'};
-}
-
 ##### Calculation routine #####
 
 sub calc {
@@ -300,6 +283,7 @@ sub calc {
   if (@m[5] eq "on") { $opt=$opt . " db=1"; } else { $opt=$opt . " db=0"; }
   if (@m[6] eq "on") { $opt=$opt . " bl=1"; } else { $opt=$opt . " bl=0"; }
   if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
+  if ($onemodel eq "on") { $opt=$opt . " onemodel=0"; }
 
   # Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
   # Therefore, the output parameter can directoly be stored to $result.

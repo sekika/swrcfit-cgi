@@ -99,7 +99,7 @@ Before you use your original data you can see how it works by selecting a sample
    (NS: Not Specified)<br>
   </p>
   <p>Model selection<br>
-  <INPUT TYPE="checkbox" name="BC" value="on">Brooks and Corey<br>
+  <INPUT TYPE="checkbox" name="BC" value="on" checked>Brooks and Corey<br>
   <INPUT TYPE="checkbox" name="VG" value="on" checked>van Genuchten<br>
   <INPUT TYPE="checkbox" name="LN" value="on" checked>Kosugi<br>
   <INPUT TYPE="checkbox" name="FX" value="on" checked>Fredlund and Xing <strong>[New!]</strong><br>
@@ -107,6 +107,8 @@ Before you use your original data you can see how it works by selecting a sample
   <INPUT TYPE="checkbox" name="BL" value="on">Seki<br>
   <p>Calculation option<br>
   <input type="checkbox" name="thetaR" value="on">&theta;<sub>r</sub> = 0<br>
+  <p>Figure option<br>
+  <input type="checkbox" name="onemodel" value="on" checked>Show only one model<br>
   </p>
 </td>
 <td>
@@ -129,8 +131,7 @@ Before you use your original data you can see how it works by selecting a sample
 </td>
 </tr>
 </table>
-<p><input type="submit" value="Calculate">
-<input type="button" value="Clear" onClick="window.location='index.html'"></p>
+<p><input type="submit" value="Calculate"></p>
 </form>
 </div>
 
