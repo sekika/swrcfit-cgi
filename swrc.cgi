@@ -283,7 +283,7 @@ sub calc {
   if (@m[5] eq "on") { $opt=$opt . " db=1"; } else { $opt=$opt . " db=0"; }
   if (@m[6] eq "on") { $opt=$opt . " bl=1"; } else { $opt=$opt . " bl=0"; }
   if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
-  if ($onemodel eq "on") { $opt=$opt . " onemodel=0"; }
+  if ($onemodel eq "on") { $opt=$opt . " onemodel=1"; }
 
   # Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
   # Therefore, the output parameter can directoly be stored to $result.
