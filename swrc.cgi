@@ -106,12 +106,12 @@ if ($models == 0) {
 if (substr($result[$k],0,3) eq "Not") {
 print << "EOF";
 <h2>Not bimodal</h2>
-<p>As a result of analysis, this soil is not bimodal.</p>
+<p>As a result of analysis, this soil is not bimodal. Please use unimodal models.</p>
 EOF
 } elsif (substr($result[$k],0,3) eq "Too") {
 print << "EOF";
 <h2>Too few points for bimodal analysis</h2>
-<p>At least 8 data points is required for bimodal analysis.</p>
+<p>At least 8 data points is required for bimodal analysis. Please use unimodal models.</p>
 EOF
 } else {
 print << "EOF";
