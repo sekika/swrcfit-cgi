@@ -299,7 +299,7 @@ EOF
 
 # Show result
 
-print "<table border=\"1\"><tr><td>Model<td>Equation<td>Parameters<td>R<sup>2</sup><td>AIC</tr>";
+print "<table border=\"1\"><tr><th>Model<th>Equation<th>Parameters<th>R<sup>2</sup><th>AIC</tr>";
 $model = 0;
 while ($model < $models ){
   $model++;
