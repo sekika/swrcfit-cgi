@@ -28,6 +28,12 @@ h2 {
   background: rgb(75%, 75%, 100%);
 }
 
+th {
+  font-weight      : bold;
+  color:black;
+  background: rgb(80%, 80%, 100%);
+}
+
 p {
   margin-left: 3%;
 }
