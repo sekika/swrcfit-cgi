@@ -341,7 +341,7 @@ print "</ul>";
 
 print "<h2>Figure</h2>";
 
-if (-e $img) 
+if (-e $img) {
   if ($onemodel eq "on") {
     print "<p>Showing the model with the minumim AIC value.</p>";
   }
