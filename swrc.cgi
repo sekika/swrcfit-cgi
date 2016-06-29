@@ -360,10 +360,10 @@ sub calc {
       @aic[$model] = $result[$k+6];
       $k = $k+7; $model++;
     }
-    if (substr($result[$k],0,3) eq "Not") {
+    if (substr($result[$k],0,3) eq "Not" and @m[5]+@m[6]) {
       @m[5]=""; @m[6]="";
        $bimodalerror="Bimodal model is not shown because the result shows that this soil is not bimdodal."; 
-    } elsif (substr($result[$k],0,3) eq "Too") {
+    } elsif (substr($result[$k],0,3) eq "Too" and @m[5]+@m[6]) {
       @m[5]=""; @m[6]="";
       $bimodalerror="You need to have at least 8 data poitns for bimodal analysis."
     } else {
