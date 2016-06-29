@@ -86,21 +86,21 @@
 <a href="https://github.com/sekika/swrcfit/wiki/SWRC-Fit-%E3%82%A6%E3%82%A7%E3%83%96%E7%89%88">詳しい説明を読む</a>。
 </p>
 
+<form action="swrc.cgi" method="post" onsubmit="disableSubmit(this)">
 <div align="center">
-<form action="swrc.cgi" method="post">
 <table>
 <tr>
-<td>
-  <p>土壌試料の説明<br>
-   <input type="text" name="soil" id="soil" size="30" maxlength="100" value="NS"> <br>
-   土性<br>
-   <input type="text" name="texture" id="texture" size="20" maxlength="50" value="NS"> <br>
-   あなたの名前<br>
-   <input type="text" name="name" id="name" size="20" maxlength="50" value="NS"> <br>
-   (NS: 不明)<br>
-  </p>
+<td colspan="2" align="center">
+説明 (NS: 不明)<br>
+土壌試料 <input type="text" name="soil" id="soil" size="30" maxlength="100" value="NS"><br>
+土性 <input type="text" name="texture" id="texture" size="30" maxlength="50" value="NS"><br>
+あなたの名前 <input type="text" name="name" id="name" size="30" maxlength="50" value="NS">
+</td>
+</tr>
+<tr>
+<td width="240">
   <p>モデル<br>
-  <INPUT TYPE="checkbox" name="BC" value="on">Brooks and Corey<br>
+  <INPUT TYPE="checkbox" name="BC" value="on" checked>Brooks and Corey<br>
   <INPUT TYPE="checkbox" name="VG" value="on" checked>van Genuchten<br>
   <INPUT TYPE="checkbox" name="LN" value="on" checked>Kosugi<br>
   <INPUT TYPE="checkbox" name="FX" value="on" checked>Fredlund and Xing <strong>[New!]</strong><br>
@@ -108,6 +108,8 @@
   <INPUT TYPE="checkbox" name="BL" value="on">Seki<br>
   <p>計算オプション<br>
   <input type="checkbox" name="thetaR" value="on">&theta;<sub>r</sub> = 0<br>
+  <p>グラフオプション<br>
+  <input type="checkbox" name="onemodel" value="on" checked>Show only one model<br>
   </p>
 </td>
 <td>
@@ -130,10 +132,9 @@
 </td>
 </tr>
 </table>
-<p><input type="submit" value="計算">
-<input type="button" value="リセット" onClick="window.location='index.html'"></p>
-</form>
+<p><input type="submit" value="Calculate"></p>
 </div>
+</form>
 
 <h2>引用</h2>
 

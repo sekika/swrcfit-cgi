@@ -82,21 +82,21 @@
 <p>SWRC Fit permet d’ajuster différents modèles de <a href="http://theses.ulaval.ca/archimede/fichiers/24555/ch02.html#d0e767">rétention de l’eau du sol</a> avec des valeurs mesurées.  Copiez vos données mesurées (pression, teneur en eau)  dans la zone de texte ci-dessous et appuyez sur le bouton "Calculer". Vous pouvez choisir des exemples de données dans le menu déroulant. <a href="https://github.com/sekika/swrcfit/wiki/Web-interface-of-SWRC-Fit">Lire la suite (anglais)</a>.
 </p>
 
+<form action="swrc.cgi" method="post" onsubmit="disableSubmit(this)">
 <div align="center">
-<form action="swrc.cgi" method="post">
 <table>
 <tr>
-<td>
-  <p>Description of the soil sample<br>
-   <input type="text" name="soil" id="soil" size="30" maxlength="100" value="NS"> <br>
-   Soil texture<br>
-   <input type="text" name="texture" id="texture" size="20" maxlength="50" value="NS"> <br>
-   Your name<br>
-   <input type="text" name="name" id="name" size="20" maxlength="50" value="NS"> <br>
-   (NS: Not Specified)<br>
-  </p>
+<td colspan="2" align="center">
+Description (NS: Not Specified)<br>
+Soil sample <input type="text" name="soil" id="soil" size="30" maxlength="100" value="NS"><br>
+Soil texture <input type="text" name="texture" id="texture" size="30" maxlength="50" value="NS"><br>
+Your name <input type="text" name="name" id="name" size="30" maxlength="50" value="NS">
+</td>
+</tr>
+<tr>
+<td width="240">
   <p>Model selection<br>
-  <INPUT TYPE="checkbox" name="BC" value="on">Brooks and Corey<br>
+  <INPUT TYPE="checkbox" name="BC" value="on" checked>Brooks and Corey<br>
   <INPUT TYPE="checkbox" name="VG" value="on" checked>van Genuchten<br>
   <INPUT TYPE="checkbox" name="LN" value="on" checked>Kosugi<br>
   <INPUT TYPE="checkbox" name="FX" value="on" checked>Fredlund and Xing <strong>[New!]</strong><br>
@@ -104,6 +104,8 @@
   <INPUT TYPE="checkbox" name="BL" value="on">Seki<br>
   <p>Calculation option<br>
   <input type="checkbox" name="thetaR" value="on">&theta;<sub>r</sub> = 0<br>
+  <p>Figure option<br>
+  <input type="checkbox" name="onemodel" value="on" checked>Show only one model<br>
   </p>
 </td>
 <td>
@@ -126,10 +128,9 @@
 </td>
 </tr>
 </table>
-<p><input type="submit" value="Calculer">
-<input type="button" value="Clear" onClick="window.location='index.html'"></p>
-</form>
+<p><input type="submit" value="Calculate"></p>
 </div>
+</form>
 
 <h2>Citation</h2>
 
