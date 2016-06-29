@@ -171,7 +171,7 @@ print <<"EOF";
 <li>Effective saturation, S<sub>e</sub> = (&theta;-&theta;<sub>r</sub>)/(&theta;<sub>s</sub>-&theta;<sub>r</sub>). Therefore &theta; = &theta;<sub>r</sub> + (&theta;<sub>s</sub>-&theta;<sub>r</sub>)S<sub>e</sub>.</li>
 EOF
 if ($bimodalerror > "") {
-  print "<li>"$bimodalerror"</li>";
+  print "<li>, "$bimodalerror, "</li>";
 }
 if (@m[3] eq "on") {
   print "<li>For Kosugi model, Q(x) is the complementary cumulative normal distribution function,
