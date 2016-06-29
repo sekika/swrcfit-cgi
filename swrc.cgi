@@ -410,9 +410,12 @@ $gnuplot = `(gnuplot -V) 2> /dev/null | sed -e 's/ patchlevel /./'`;
 
 print << "EOF";
 <hr>
-<p><a href="http://purl.org/net/swrc/">SWRC Fit</a> $swrcfitversion with
-<a href="https://github.com/sekika/swrcfit-cgi">swrcfit-cgi</a> $version (author: <a href="http://www2.toyo.ac.jp/~seki_k/en/">Katsutoshi Seki</a>),
-$oct, and $gnuplot.</p>
+<ul>
+<li><a href="http://purl.org/net/swrc/">SWRC Fit</a> $swrcfitversion with
+<a href="https://github.com/sekika/swrcfit-cgi">swrcfit-cgi</a> $version,
+$oct, and $gnuplot.</li>
+<li>Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4: 407-437. <a href="http://dx.doi.org/10.5194/hessd-4-407-2007">doi:10.5194/hessd-4-407-2007</li>
+</ul>
 </body>
 </html>
 EOF
