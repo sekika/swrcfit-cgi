@@ -7,6 +7,15 @@
   <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
 
   <script type="text/javascript"><!--
+    function disableSubmit(form) {
+        var elements = form.elements;
+        for (var i = 0; i < elements.length; i++) {
+             if (elements[i].type == 'submit') {
+                 elements[i].disabled = true;
+                 elements[i].value = "Please wait";
+             }
+        }
+    }
     function eraseTA(obj){
         if (obj.value == obj.defaultValue) obj.value = "";
     }
@@ -86,7 +95,7 @@ Before you use your original data you can see how it works by selecting a sample
 </p>
 
 <div align="center">
-<form action="swrc.cgi" method="post">
+<form action="swrc.cgi" method="post" onsubmit="disableSubmit(this)">
 <table>
 <tr>
 <td>
