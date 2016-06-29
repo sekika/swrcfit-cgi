@@ -362,7 +362,7 @@ sub calc {
     }
     if (substr($result[$k],0,3) eq "Not") {
       @m[5]=""; @m[6]="";
-       $bimodalerror="Bimodal model is not shown because it is not bimdodal."; 
+       $bimodalerror="Bimodal model is not shown because the result shows that this soil is not bimdodal."; 
     } elsif (substr($result[$k],0,3) eq "Too") {
       @m[5]=""; @m[6]="";
       $bimodalerror="You need to have at least 8 data poitns for bimodal analysis."
