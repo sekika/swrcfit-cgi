@@ -97,6 +97,8 @@ open FILE, "> $fswrc";
 print FILE $swrc;
 close FILE;
 
+# Delete old figure
+unlink img/swrc.png;
 
 # Set calculation options
 
@@ -334,6 +336,18 @@ if (@m[4] eq "on") {
 }
 print "</ul>";
 
+# Show Figure
+
+print "<h2>Figure</h2>";
+
+if ($onemodel == "on") {
+  print "<p>Showing the model with the minumim AIC value.</p>";
+}
+
+# Random number is added to refresh the browzer cash
+print "<img src=\"img/swrc.png?", int(rand(1000000)), "\" alt=\"graph\">";
+}
+
 # Show reference
 print "<h2>Reference</h2>";
 
@@ -359,17 +373,6 @@ if (@m[6] eq "on") {
 }
 print "</ul>";
 
-# Show Figure
-
-print "<h2>Figure</h2>";
-
-if ($onemodel == "on") {
-  print "<p>Showing the model with the minumim AIC value.</p>";
-}
-
-# Random number is added to refresh the browzer cash
-print "<img src=\"img/swrc.png?", int(rand(1000000)), "\" alt=\"graph\">";
-}
 ### Finish showing the result
 
 # Print input data
