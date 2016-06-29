@@ -182,7 +182,7 @@ print "</ul>";
 
 print "<h2>Figure</h2>";
 
-if ($onemodel == 1) {
+if ($onemodel == "on") {
   print "<p>Showing the model with the minumim AIC value.</p>";
 }
 
