@@ -341,12 +341,16 @@ print "</ul>";
 
 print "<h2>Figure</h2>";
 
-if ($onemodel == "on") {
-  print "<p>Showing the model with the minumim AIC value.</p>";
-}
+if (-e $img) {
+  if ($onemodel == "on") {
+    print "<p>Showing the model with the minumim AIC value.</p>";
+  }
 
-# Random number is added to refresh the browzer cash
-print "<img src=\"$img?", int(rand(1000000)), "\" alt=\"graph\">";
+  # Random number is added to refresh the browzer cash
+  print "<img src=\"$img?", int(rand(1000000)), "\" alt=\"graph\">";
+  }
+} else {
+  print "<p>Error: Figure was not generated.</p>";
 }
 
 # Show reference
