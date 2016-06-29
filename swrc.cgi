@@ -27,6 +27,7 @@ require 'lock.pl';
 require 'setting.pl';
 $lockdir    = "data/lock"; # lock directory
 $fswrc = "data/swrc.txt"; # data file
+$img = "img/swrc.png"; # image file
 
 # Lock
 
@@ -98,7 +99,7 @@ print FILE $swrc;
 close FILE;
 
 # Delete old figure
-unlink img/swrc.png;
+unlink $img;
 
 # Set calculation options
 
@@ -345,7 +346,7 @@ if ($onemodel == "on") {
 }
 
 # Random number is added to refresh the browzer cash
-print "<img src=\"img/swrc.png?", int(rand(1000000)), "\" alt=\"graph\">";
+print "<img src=\"$img?", int(rand(1000000)), "\" alt=\"graph\">";
 }
 
 # Show reference
