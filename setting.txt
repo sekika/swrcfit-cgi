@@ -11,7 +11,6 @@ aic=1;
 
 fig=1;
 figure="img/swrc.png";
-figure2="img/bimodal.png";
 fontsize=9;
 showlabel=1;
 msize=3;
