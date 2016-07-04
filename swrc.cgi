@@ -336,7 +336,7 @@ if (@m[3] eq "on") {
     print "<li>For Kosugi model, ", $q;
   }
 } elsif (@m[6] eq "on") {
-  print "<li>For Seki model,", $q;
+  print "<li>For Seki model, ", $q;
 }
 if (@m[4] eq "on") {
   print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>. For modifying the correction function C(h), please use <a href=\"http://swrcfit.sourceforge.net/\">offline version</a> of SWRC Fit version 3.0 or higher.</li>";
