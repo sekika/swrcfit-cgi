@@ -328,12 +328,12 @@ if ($thetaR eq "on") {
 if ($bimodalerror ne "") {
   print "<li>", $bimodalerror, "</li>";
 }
-$q="Q(x) is the complementary cumulative normal distribution function, defined by Q(x)=1-&Phi;(x), in which &Phi;(x) is a normalized form of the<a href=\"http://mathworld.wolfram.com/NormalDistributionFunction.html\">cumulative normal distribution function</a>.</li>"
+$q="Q(x) is the complementary cumulative normal distribution function, defined by Q(x)=1-&Phi;(x), in which &Phi;(x) is a normalized form of the<a href=\"http://mathworld.wolfram.com/NormalDistributionFunction.html\">cumulative normal distribution function</a>.</li>";
 if (@m[3] eq "on") {
   if (@m[6] eq "on") {
-  print "<li>For Kosugi and Seki models, ", $q
+    print "<li>For Kosugi and Seki models, ", $q
   } else {
-  print "<li>For Kosugi model, ", $q
+    print "<li>For Kosugi model, ", $q
   }
 } else if (@m[6] eq "on") {
   print "<li>For Seki model,", $q
