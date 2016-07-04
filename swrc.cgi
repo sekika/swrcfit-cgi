@@ -323,7 +323,7 @@ print <<"EOF";
 <li>Effective saturation, S<sub>e</sub> = (&theta;-&theta;<sub>r</sub>)/(&theta;<sub>s</sub>-&theta;<sub>r</sub>). Therefore &theta; = &theta;<sub>r</sub> + (&theta;<sub>s</sub>-&theta;<sub>r</sub>)S<sub>e</sub>.</li>
 EOF
 if ($thetaR eq "on") {
-  print "<li>Parameter restriction: &theta;<sub>r</sub> = 0.</li>"
+  print "<li>Parameter restriction: &theta;<sub>r</sub> = 0.</li>";
 }
 if ($bimodalerror ne "") {
   print "<li>", $bimodalerror, "</li>";
@@ -331,15 +331,15 @@ if ($bimodalerror ne "") {
 $q="Q(x) is the complementary cumulative normal distribution function, defined by Q(x)=1-&Phi;(x), in which &Phi;(x) is a normalized form of the<a href=\"http://mathworld.wolfram.com/NormalDistributionFunction.html\">cumulative normal distribution function</a>.</li>";
 if (@m[3] eq "on") {
   if (@m[6] eq "on") {
-    print "<li>For Kosugi and Seki models, ", $q
+    print "<li>For Kosugi and Seki models, ", $q;
   } else {
-    print "<li>For Kosugi model, ", $q
+    print "<li>For Kosugi model, ", $q;
   }
 } else if (@m[6] eq "on") {
-  print "<li>For Seki model,", $q
+  print "<li>For Seki model,", $q;
 }
 if (@m[4] eq "on") {
-  print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>. For modifying the correction function C(h), please use <a href=\"http://swrcfit.sourceforge.net/\">offline version</a> of SWRC Fit version 3.0 or higher.</li>"
+  print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>. For modifying the correction function C(h), please use <a href=\"http://swrcfit.sourceforge.net/\">offline version</a> of SWRC Fit version 3.0 or higher.</li>";
 }
 print "</ul>";
 
