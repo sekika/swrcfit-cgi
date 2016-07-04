@@ -335,7 +335,7 @@ if (@m[3] eq "on") {
   } else {
     print "<li>For Kosugi model, ", $q;
   }
-} else if (@m[6] eq "on") {
+} elsif (@m[6] eq "on") {
   print "<li>For Seki model,", $q;
 }
 if (@m[4] eq "on") {
