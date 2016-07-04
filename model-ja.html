@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;CHARSET=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SWRC Fit</title>
+  <meta name="author" content="Katsutoshi Seki">
+  <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
+  <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body>
+<p>[ <a href="model.html">English</a> | 日本語 ]</p>
+
+<h1>SWRC Fit の土壌水分特性モデル</h1>
+
+<p>SWRC Fit (<a href="index-ja.html">ウェブインターフェイス</a>と<a href="http://swrcfit.sourceforge.net/jp/">オフラインバージョン</a>) では、6つの土壌水分特性モデルが使われている。6個のモデルの中で、BC, VG, LN, FX の4個は間隙径が単峰性分布をすると仮定する単峰性分布モデルであり、DB, BLの2個は間隙径が二峰性分布をすると仮定する二峰性分布モデルである。</p>
+
+<h2>モデル</h2>
+
+<table border="1"><tr><td>モデル<td>文献<td>式<td>パラメータ</tr>
+<tr><td align="center">BC<td>Brooks and Corey (1964)<td>\(S_e = \begin{cases}\left(\dfrac{h}{h_b}\right)^{-\lambda} & (h>h_b) \\ 1 & (h \le h_b)\end{cases}\)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, h<sub>b</sub>, &lambda;
+</tr>
+<tr><td align="center">VG<td>van Genuchten (1980)<td>\(S_e = \biggl[\dfrac{1}{1+(\alpha h)^n}\biggr]^m\) (m=1-1/n)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, &alpha;, n
+</tr>
+<tr><td align="center">LN<td>Kosugi (1996)<td>\(S_e = Q \biggl[\dfrac{\ln(h/h_m)}{\sigma}\biggr]\)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, h<sub>m</sub>, &sigma;
+</tr>
+<tr><td align="center">FX<td>Fredlund and Xing (1994)<td>\(S_e = C(h)\biggl[ \dfrac{1}{\ln \left[e+(h / a)^n \right]} \biggr]^m\)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, a, m, n
+</tr>
+<tr><td align="center">DB<td>Durner (1994)<td>\(S_e = w_1\biggl[\dfrac{1}{1+(\alpha_1 h)^{n_1}}\biggr]^{m_1} + (1-w_1)\biggl[\dfrac{1}{1+(\alpha_2 h)^{n_2}}\biggr]^{m_2}\)<br>(m<sub>i</sub>=1-1/n<sub>i</sub>)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, w<sub>1</sub>, &alpha;<sub>1</sub>, n<sub>1</sub>, &alpha;<sub>2</sub>, n<sub>2</sub></tr>
+<tr><td align="center">BL<td>Seki (2007)<td>\(S_e = w_1 Q \biggl[\dfrac{\ln(h/h_{m_1})}{\sigma_1}\biggr] + (1-w_1) Q \biggl[\dfrac{\ln(h/h_{m_2})}{\sigma_2}\biggr]\)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, w<sub>1</sub>, h<sub>m1</sub>, &sigma;<sub>1</sub>, h<sub>m2</sub>, &sigma;<sub>2</sub></tr>
+</table>
+
+<ul>
+<li>h はサクション</li>
+<li>&theta; は体積含水率</li>
+<li>S<sub>e</sub> は \(S_e = \frac{\theta-\theta_r}{\theta_s-\theta_r}\) にて定義される有効水分、すなわち &theta; = &theta;<sub>r</sub>+(&theta;<sub>s</sub> - &theta;<sub>r</sub>)S<sub>e</sub></li>
+<li>LN と BL モデルにおいて、Q(x)は<a href="http://mathworld.wolfram.com/NormalDistributionFunction.html">標準正規分布関数</a>&Phi;(x)(誤差関数とは異なる)の余関数 Q(x)=1-&Phi;(x), in which &Phi;(x)</li>
+<li>FX モデルにおいて、e は<a href="https://ja.wikipedia.org/wiki/%E3%83%8D%E3%82%A4%E3%83%94%E3%82%A2%E6%95%B0">ネイピア数</a>。FXモデルは SWRC Fit のバージョン 3.0 以上で計算できる。ウェブ版では、修正関数について C(h)=1 としている。オフライン版では修正関数を変えることができる。<a href="https://github.com/sekika/swrcfit/blob/master/doc/ja/setting.md">計算の設定</a>を参照。
+<li>他のパラメータは推定するパラメータである。</li>
+</ul>
+
+<h2>文献</h2>
+
+<ul>
+<li>Brooks, R.H., and A.T. Corey (1964): Hydraulic properties of porous media. Hydrol. Paper 3. Colorado State Univ., Fort Collins, CO, USA.</li>
+<li>van Genuchten, M. (1980): A closed-form equation for predicting the hydraulic conductivity of unsaturated soils. <i>Soil Sci. Soc. Am. J.</i> 44:892-898.</li>
+<li>Kosugi, K. (1996): Lognormal distribution model for unsaturated soil hydraulic properties. <i>Water Resour. Res.</i> 32: 2697-2703. <a href="http://dx.doi.org/10.1029/96WR01776">doi:10.1029/96WR01776</a></li>
+<li>Fredlund, D.G. and Xing, A. (1994): Equations for the soil-water characteristic curve. <i>Can. Geotech. J.</i>, 31: 521-532. <a href="http://dx.doi.org/10.1139/t94-061">doi:10.1139/t94-061</a></li>
+<li>Durner, W. (1994): Hydraulic conductivity estimation for soils with heterogeneous pore structure. <i>Water Resour. Res.</i>, 30(2): 211-223. <a href="http://dx.doi.org/10.1029/93WR02676">doi:10.1029/93WR02676</a></li>
+<li>Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. <i>Hydrol. Earth Syst. Sci. Discuss.</i>, 4: 407-437. <a href="http://dx.doi.org/10.5194/hessd-4-407-2007">doi:10.5194/hessd-4-407-2007</a></li>
+</ul> 
+
+<hr>
+<p>このページのPURLは  <a href="http://purl.org/net/swrc/model-ja.html">http://purl.org/net/swrc/model-ja.html</a> です。
+(<a href="http://purl.org/">PURLとは?</a>)
+</p>
+<p>
+著者: <a href="http://www2.toyo.ac.jp/~seki_k/">関 勝寿</a>
+</p>
+<p style="text-align:right;"><img src="http://seki.webmasters.gr.jp/swrc/npc.cgi?L=http://purl.org/net/swrc/" alt="counter"></p>
+</body>
+</html>
