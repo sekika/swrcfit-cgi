@@ -174,7 +174,7 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[4] eq "on") {
     @index[$model] = 4;
-    @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\(S_e = C(h)\biggl[ \frac{1}{\ln \left[e+(h / a)^n \right]} \biggr]^m, C(h)=1\)";
+    @label[$model] =  "<tr><td>Fredlund and Xing<td>\(S_e = C(h)\biggl[ \frac{1}{\ln \left[e+(h / a)^n \right]} \biggr]^m, C(h)=1\)";
     @p1n[$model] = "a";
     @p2n[$model] = "m";
     @p3n[$model] = "n";
