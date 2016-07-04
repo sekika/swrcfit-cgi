@@ -49,6 +49,7 @@ Content-type: text/html
   <title>SWRC Fit - Result -</title>
   <meta name="author" content="Katsutoshi Seki">
   <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
+  <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 </head>
 <body>
 EOF
@@ -173,7 +174,7 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[4] eq "on") {
     @index[$model] = 4;
-    @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
+    @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\(S_e = C(h)\biggl[ \frac{1}{\ln \left[e+(h / a)^n \right]} \biggr]^m, C(h)=1\)";
     @p1n[$model] = "a";
     @p2n[$model] = "m";
     @p3n[$model] = "n";
