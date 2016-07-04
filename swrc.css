@@ -50,7 +50,22 @@ ul {
 	list-style-image: url("dot.png") 
 }
 
+pre {
+  margin-left: 5%;
+  margin-right: 3%;
+  padding: 1em;
+  border: 1px solid #000;
+  width: auto;
+  overflow: auto;
+  color: #000;
+  background-color: #f6f6f6;
+}
+
 strong {
 	color: red;
 	font-weight: bold;
+}
+
+div.center {
+        text-align: center;
 }

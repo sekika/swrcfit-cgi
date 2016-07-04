@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;CHARSET=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SWRC Fit</title>
+  <meta name="author" content="Katsutoshi Seki">
+  <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
+
+</head>
+<body>
+<p>[ English | <a href="help-ja.html">日本語</a> ]</p>
+
+<h1>How to use SWRC Fit web interface</h1>
+
+<p>The <a href="index.html">Web interface of the SWRC Fit</a> uses SWRC Fit to calculate soil water retention curve. This is the screenshot of the user interface.</p>
+<div class="center">
+<img src="https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png" width="400" height="481" alt="input screen" border="1">
+</div>
+<p>The input data, i.e., the soil water retention curve, should be prepared like this and copied and pasted in the textbox. If you are using Microsoft Excel, you can copy the data from spreadsheet.</p>
+<pre>
+0 0.2628
+20 0.237
+30 0.223
+40 0.211
+50 0.2035
+70 0.1855
+100 0.169
+200 0.151
+430 0.1399
+640 0.131
+1050 0.1159
+</pre>
+<p>
+The first column is the suction head and the second column is the volumetric water content, where space is used as a delimiter. Any unit can be used as the input data, and the calculated data depends on the unit used as the input data.
+</p><p>
+Input data can also be selected from the sample soil water retention data in the UNSODA database (Nemes et al., 2001).
+</p><p>
+In other textboxes, the description of the soil sample, soil texture, and name can be written. The description written here appears in the results screen. The model can be selected from the 6 models shown, where unimodal models are selected by default. The calculation options of θr = 0 can be set by checking the appropriate box. In the Figure option, "Show only one model" is selected, which means that out of all the fitted models, only the best model with the minimum AIC (Akaike's Information Criterion) is shown in the figure. Remove the check if you want to show all the fitted curves.
+</p><p>
+The calculation starts by pressing the "Calculate" button. Please wait for several seconds until the result screen appears.
+</p><p>
+In the result screen, the result of the nonlinear fit is shown like this.
+</p>
+<div class="center">
+<img src="https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig3.png" width="400" height="514" alt="result screen" border="1">
+</div>
+<p>
+The models, equations, parameters, R<sup>2</sup>, and AIC values are shown in tabular form, and the fitting curves with measured data points are also shown in a graph. The accuracy of the fit with different models can be compared in R<sup>2</sup> and AIC values, and also by the fitting curves. For comparing models with different numbers of parameters, AIC is a better indicator than R<sup>2</sup>. The description of the soil sample and the original data is also displayed in the results screen so that the users can print out and store all the necessary information.
+</p><p>
+The image files of the graphs are stored in the server until it will be overwritten by other figures at the next run. If you want to erase your own data from the server, please run the fitting of sample data after you finish your calculation.
+</p><p>
+<a href="http://swrcfit.sourceforge.net/">Offline version of SWRC Fit</a> allows users to set fitting conditions more flexibly than the web version. For example, users can set θs as a constant value. It can also be used from other program so that automatic calculation of datasets is available. For such programming, the source code of this web interface may be of some help. Therefore, for those who might be interested, you can read <a href="https://github.com/sekika/swrcfit-cgi">source code of the web interface</a>.
+</p>
+<h2>Citation of this work</h2>
+<p>
+Please cite this paper when you publish your work using SWRC Fit.
+</p>
+<ul>
+<li>Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4: 407-437. <a href="http://dx.doi.org/10.5194/hessd-4-407-2007">doi:10.5194/hessd-4-407-2007</a>
+</ul>
+<p><a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib">BibTeX</a> and <a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris">EndNote</a> files are also available.</p>
+<h2>Reference</h2>
+<ol>
+<li>Nemes, A., M.G. Shaap, F.J. Leij, and J.H.M. Wosten: Description of the unsaturated soil hydraulic database UNSODA version 2.0. J. Hydrol. (Amsterdam) 251:151--162, 2001.
+</ol>
+<hr>
+<p>
+Author: <a href="http://www2.toyo.ac.jp/~seki_k/en/">Katsutoshi Seki</a>
+</p>
+<p style="text-align:right;"><img src="http://seki.webmasters.gr.jp/swrc/npc.cgi?L=http://purl.org/net/swrc/" alt="counter"></p>
+</body>
+</html>
