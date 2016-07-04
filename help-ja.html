@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;CHARSET=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SWRC Fit</title>
+  <meta name="author" content="Katsutoshi Seki">
+  <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
+
+</head>
+<body>
+<p>[ <a href="help.html">English</a> | 日本語 ]</p>
+
+<h1>SWRC Fit ウェブ版の使い方</h1>
+
+<p><a href="index-ja.html">SWRC Fit のウェブ版</a>は、 <a href="http://swrcfit.sourceforge.net/jp/">SWRC Fit</a> を使って土壌水分特性曲線（水分保持曲線）を回帰する。 これが、入力画面である。</p>
+<div class="center">
+<img src="https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig2.png" width="400" height="481" alt="input screen" border="1">
+</div>
+<p>入力データは、次のような土壌水分特性データをテキストボックスに貼り付ける。 Microsoft Excel のような表計算ソフトのスプレッドシートから、データをコピーしてそのまま貼り付けることができる。</p>
+<pre>
+0 0.2628
+20 0.237
+30 0.223
+40 0.211
+50 0.2035
+70 0.1855
+100 0.169
+200 0.151
+430 0.1399
+640 0.131
+1050 0.1159
+</pre>
+<p>
+1列目はサクションヘッド、すなわち負圧で、2列目は体積含水率で、スペースで区切られている。 入力データの単位は任意で、計算結果の単位は入力データの単位に依存する。
+</p><p>
+入力データは、UNSODA データベース (Nemes et al., 2001) のサンプルデータから選ぶことができる。
+</p><p>
+「説明」からは、土壌試料の名前、土性、あなたの名前を入力することができる。入力した値は結果に表示される。 モデルは表示されている6種類のモデルの中から選ぶことができる。 4つのユニモーダルモデルが、あらかじめ選択されている。 計算オプションから&theta;<sub>r</sub> = 0 を選ぶことで、そのようにパラメータを制限することができる。 グラフオプションからは「最良のモデル１つを表示」が選ばれているため、回帰をしたモデルの中から最良のモデル、 すなわちAIC(赤池情報量規準)が最小のモデルのみグラフが表示される。 すべてのモデルのグラフを表示したい時には、このチェックを外す。
+</p><p>
+「計算する」ボタンを押すと、計算が開始される。結果画面が出るまで、しばらく待つ。
+</p><p>
+結果の画面では、非線形回帰の結果がこのように表示される。
+</p>
+<div class="center">
+<img src="https://raw.githubusercontent.com/sekika/swrcfit-web/master/img/fig3.png" width="400" height="514" alt="result screen" border="1">
+</div>
+<p>
+モデル、式、パラメータ、R<sup>2</sup>とAICの値が一覧表として出力され、非線形回帰の曲線と測定点がグラフに表示される。 モデルによる正確性の比較は決定係数 R<sup>2</sup> の値と AIC の値、そしてグラフを直接見ることによって確認できる。 パラメータの数が異なるモデルを比較してモデルを選択する時には、決定係数よりもAICの方が良い。 土壌試料に関する説明とオリジナルデータも出力されるので、この画面を印刷するかPDFファイルとして保存することで、 必要な情報をすべてまとめて保存することができる。
+</p><p>
+グラフの画像ファイルは次の計算が実行されるまでの間サーバーに保存される。 サーバーから画像ファイルを削除したいのであれば、計算が終了した後に、サンプルデータで計算を実行をすれば上書きされる。
+</p><p>
+<a href="http://swrcfit.sourceforge.net/jp/">SWRC Fit のオフラインバージョン を使えば、</a>ウェブバージョンよりも細かく計算の設定ができる。たとえば、&theta;<sub>s</sub>を固定することもできる。 また、結果を他のプログラムから利用するような使い方もできる。 その時には、<a href="https://github.com/sekika/swrcfit-cgi">このウェブインターフェイスのソースコード</a>は参考になるかもしれない。
+</p>
+<h2>Citation of this work</h2>
+<p>
+この SWRC Fit を使った研究成果を公表する時には、この論文を引用して下さい。
+</p>
+<ul>
+<li>Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils having unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4: 407-437. <a href="http://dx.doi.org/10.5194/hessd-4-407-2007">doi:10.5194/hessd-4-407-2007</a>
+</ul>
+<p><a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib">BibTeX</a> と <a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris">EndNote</a> のファイルもあります。</p>
+<h2>文献</h2>
+<ol>
+<li>Nemes, A., M.G. Shaap, F.J. Leij, and J.H.M. Wosten: Description of the unsaturated soil hydraulic database UNSODA version 2.0. J. Hydrol. (Amsterdam) 251:151--162, 2001.
+</ol>
+<hr>
+<p>
+作者: <a href="http://www2.toyo.ac.jp/~seki_k/">関 勝寿</a>
+</p>
+<p style="text-align:right;"><img src="http://seki.webmasters.gr.jp/swrc/npc.cgi?L=http://purl.org/net/swrc/" alt="counter"></p>
+</body>
+</html>
