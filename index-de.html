@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="de">
 <head>
   <meta http-equiv="Content-Type" content="text/html;CHARSET=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SWRC Fit - 土壌水分特性曲線の非線形回帰プログラム -</title>
+  <title>SWRC Fit</title>
   <meta name="author" content="Katsutoshi Seki">
   <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
 
@@ -13,7 +13,7 @@
         for (var i = 0; i < elements.length; i++) {
              if (elements[i].type == 'submit') {
                  elements[i].disabled = true;
-                 elements[i].value = "お待ち下さい";
+                 elements[i].value = "Please wait";
              }
         }
     }
@@ -85,15 +85,13 @@
 
 </head>
 <body>
+<p>[ <a href="index.html">English</a> | <a href="index-es.html">Español</a>
+ | <a href="index-fr.html">Français</a> | Deutsche | <a href="index-ja.html">日本語</a> ]</p>
 
-<p>[ <a href="index.html">English</a> | <a href="index-es.html">Español</a> | <a href="index-fr.html">Français</a> |  <a href="index-de.html">Deutsche</a> | 日本語 ]</p>
+<h1>SWRC Fit</h1>
 
-<h1>SWRC Fit - 土壌水分特性曲線の非線形回帰プログラム -</h1>
-
-<p>SWRC Fit は、土壌水分特性（水分保持曲線）のデータを、<a href="model-ja.html">いくつかのモデル</a>によって近似し、土壌水分特性パラメータを決定することができます。
-土壌水分特性のデータをテキストボックスに貼り付けて、「計算」ボタンを押して下さい。
-プルダウンメニューからサンプルのデータを選んで、試すことができます。
-<a href="http://seki.webmasters.gr.jp/swrc/help-ja.html">詳しい説明を読む</a>。
+<p>
+SWRC Fit können <a href="model.html">Boden hydraulische Modelle</a> mit gemessen Boden Wasserspannungskurve passen. Kopieren Sie Ihre Bodenwasserspannung Daten in das Textfeld ein und klicken auf "Berechnen" klicken. Sie können Beispieldaten aus Pull-Down-Menü auswählen. <a href="help.html">Lesen Sie mehr (Englisch)</a>.
 </p>
 
 <form action="swrc.cgi" method="post" onsubmit="disableSubmit(this)">
@@ -101,55 +99,55 @@
 <table>
 <tr>
 <td colspan="2" align="center">
-説明 (NS: 不明)<br>
-土壌試料 <input type="text" name="soil" id="soil" size="30" maxlength="100" value="NS"><br>
-土性 <input type="text" name="texture" id="texture" size="30" maxlength="50" value="NS"><br>
-あなたの名前 <input type="text" name="name" id="name" size="30" maxlength="50" value="NS">
+Description (NS: Not Specified)<br>
+Soil sample <input type="text" name="soil" id="soil" size="30" maxlength="100" value="NS"><br>
+Soil texture <input type="text" name="texture" id="texture" size="30" maxlength="50" value="NS"><br>
+Your name <input type="text" name="name" id="name" size="30" maxlength="50" value="NS">
 </td>
 </tr>
 <tr>
 <td width="240">
-  <p>モデル<br>
-  <INPUT TYPE="checkbox" name="BC" value="on" checked>Brooks and Corey<br>
+  <p>Model selection<br>
+  <INPUT TYPE="checkbox" name="BC" value="on" checked>Brooks und Corey<br>
   <INPUT TYPE="checkbox" name="VG" value="on" checked>van Genuchten<br>
   <INPUT TYPE="checkbox" name="LN" value="on" checked>Kosugi<br>
-  <INPUT TYPE="checkbox" name="FX" value="on" checked>Fredlund and Xing <strong>[New!]</strong><br>
+  <INPUT TYPE="checkbox" name="FX" value="on" checked>Fredlund und Xing <strong>[New!]</strong><br>
   <INPUT TYPE="checkbox" name="DB" value="on">Durner<br>
   <INPUT TYPE="checkbox" name="BL" value="on">Seki<br>
-  <p>計算オプション<br>
+  <p>Calculation option<br>
   <input type="checkbox" name="thetaR" value="on">&theta;<sub>r</sub> = 0<br>
-  <p>グラフオプション<br>
-  <input type="checkbox" name="onemodel" value="on" checked>最良のモデル1つを表示<br>
+  <p>Figure option<br>
+  <input type="checkbox" name="onemodel" value="on" checked>Show only one model<br>
   </p>
 </td>
 <td>
-<p>土壌水分特性曲線<br>
+<p>Wasserspannungskurve<br>
 
 <select name="unsoda" id="unsoda" onChange="a()">
-  <option value="">サンプルデータから選ぶ
-  <option value="unsoda1270">凝灰質岩石
-  <option value="unsoda4440">砂
-  <option value="unsoda2243">砂壌土
-  <option value="unsoda1015">壌質砂土
-  <option value="unsoda2760">シルト質ローム
-  <option value="unsoda4800">ローム
-  <option value="unsoda3033">埴壌土
-  <option value="unsoda2362">粘土
+  <option value="">Seleccionar de ejemplo
+  <option value="unsoda1270">Tuffaceous Rock
+  <option value="unsoda4440">Sand
+  <option value="unsoda2243">Sandy loam
+  <option value="unsoda1015">Loamy sand
+  <option value="unsoda2760">Silty loam
+  <option value="unsoda4800">Loam
+  <option value="unsoda3033">Clay loam
+  <option value="unsoda2362">Clay
 </select>
 <p><textarea name="swrc" id="swrc" rows="15" cols="23" wrap="off" onMousedown="eraseTA(this)">
-# ここにデータを貼り付ける
+# Paste your data here
 </textarea></p>
 </td>
 </tr>
 </table>
-<p><input type="submit" value="計算する"></p>
+<p><input type="submit" value="Calcular"></p>
 </div>
 </form>
 
-<h2>引用</h2>
+<h2>Citation</h2>
 
-<p>SWRC Fit を使った研究成果を公表する時には、この論文を引用して下さい。
-<a href="http://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=7295614925292719046">多くの研究で使われています。</a>.</p>
+<p>Please cite this paper when you publish your work using SWRC Fit.
+<a href="http://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=7295614925292719046">Researches conducted with SWRC Fit</a>.</p>
 
 <ul>
 <li>Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils
@@ -158,40 +156,46 @@ having unimodal and bimodal pore structure. Hydrol. Earth Syst. Sci. Discuss., 4
 </ul>
 
 <p><a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.bib">BibTeX</a>
-と <a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris">EndNote</a>
-のファイルもあります。</p>
+and <a href="http://www.hydrol-earth-syst-sci-discuss.net/4/407/2007/hessd-4-407-2007.ris">EndNote</a>
+files are also available.</p>
 
-<h2>出力例</h2>
+<h2>Sample output</h2>
 
 <img src="img/sample1.png" alt="Unimodal model">
 <img src="img/sample2.png" alt="Bimodal model">
 
-<h2>ダウンロード</h2>
+<h2>Download / Document</h2>
 
 <ul>
-<li><a href="http://swrcfit.sourceforge.net/jp/">ダウンロードして使えるプログラムとユーザーマニュアル</a></li>
-<li>sourceforge.net にアクセスできないときには、<a href="download/">代替ダウンロード</a>を使って下さい。イランからは sourceforge.net にアクセスできないと、SWRC Fit のユーザーから報告がありました。</li>
+<li><a href="http://swrcfit.sourceforge.net/">Downloadble program with a user's manual</a> is available.</li>
+<li>If you cannot access sourceforge.net, please use <a href="download/">alternative download</a>.
+Iranian user reported that sourceforge.net is not accessible from Iran.</li>
 </ul>
 
-<h2>謝辞</h2>
+<h2>Acknowledgement</h2>
 <ul>
-<li>サンプルデータはアメリカ農務省塩類研究所が開発した不飽和土壌水分特性の<a href="http://www.ars.usda.gov/Services/docs.htm?docid=8967">UNSODA データベース</a>から取得しました。
+<li>Sample data is from <a href="http://www.ars.usda.gov/Services/docs.htm?docid=8967">UNSODA database</a>
+of unsaturated soil hydraulic properties developed by US Salinity Laboratory.</li>
 </ul>
 
-<h2>質問</h2>
+<h2>Question</h2>
 
-<p>SWRC Fit に関する質問の一覧は<a href="https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion">
-こちら</a>で見ることができます。あなたの質問を投稿するためには、GitHub のアカウントを取得して緑色の
-「New Issue」ボタンを押して下さい。
-Label は「question」を選んで下さい。日本語での質問も可能です。
-質問を公開出来ない場合には、<a href="http://www2.toyo.ac.jp/~seki_k/">作者</a>にメールを送って下さい。</p>
+<p><a href="https://github.com/sekika/swrcfit/issues?q=is%3Aissue+label%3Aquestion">Here</a>
+you can find a list of questions and answers about SWRC Fit.
+You can submit your own question by getting the accout of GitHub (use the green "Sign up" button)
+and pressing the green "New Issue" button. Please select the label of "question".
+It is preferable to send your question publicly this way, because other people having the same question
+can find answer on the web. However, if your question is confidential, please contact me by email.
+You can find my email address in <a href="http://file.scirp.org/Html/2-1660128_33490.htm">this paper</a>.
+Please ask questions in English.
+</p>
 
 <hr>
-<p>恒久的なURL <a href="http://purl.org/net/swrc/index-ja.html">http://purl.org/net/swrc/index-ja.html</a>.
+<p>Persistent URL of this page is <a href="http://purl.org/net/swrc/index-es.html">http://purl.org/net/swrc/index-es.html</a>.
 (<a href="http://purl.org/">What is Persistent URL?</a>)
 </p>
 <p>
-作者: <a href="http://www2.toyo.ac.jp/~seki_k/">関 勝寿</a>
+Author: <a href="http://www2.toyo.ac.jp/~seki_k/en/">Katsutoshi Seki</a>
 </p>
 <p style="text-align:right;"><img src="http://seki.webmasters.gr.jp/swrc/npc.cgi?L=http://purl.org/net/swrc/" alt="counter"></p>
 </body>
