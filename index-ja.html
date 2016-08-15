@@ -17,6 +17,14 @@
              }
         }
     }
+    window.onload = function(){
+        var elements = form.elements;
+        for (var i = 0; i < elements.length; i++) {
+             if (elements[i].type == 'submit') {
+                 elements[i].disabled = false;
+             }
+        }        
+    }
     function eraseTA(obj){
         if (obj.value == obj.defaultValue) obj.value = "";
     }
