@@ -56,7 +56,7 @@ of swrcfit that you are using. Older releases can be obtained from [Releases](ht
 |Version of swrcfit-cgi| Version of swrcfit|
 |--------|-----------|
 |2.0     |2.0, 2.1   |
-|3.0 (HEAD) |3.0 (HEAD) |
+|3.0 (HEAD) |3.0 |
 
 HEAD means that it is not released yet and should be obtained from GitHub as written above.
 
