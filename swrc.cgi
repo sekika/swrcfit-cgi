@@ -117,7 +117,7 @@ if ($onemodel eq "on") { $opt=$opt . " onemodel=1"; }
 ##### Calculation #####
 
 # Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
-# Therefore, the output parameter can directoly be stored to $result.
+# Therefore, the output parameter can be directly stored to $result.
 # Difference in the calculation option is specified by setting files.
 # Error message from octave is discarded to /dev/null.
 # Sometimes learsqr.m output message of "CONVERGENCE NOT ACHIEVED!".
