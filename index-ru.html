@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;CHARSET=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SWRC Fit</title>
+  <title>ОГХ Приближение</title>
   <meta name="author" content="Katsutoshi Seki">
   <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
 
@@ -87,9 +87,9 @@
 <body>
 <p>[ <a href="index.html">English</a> | <a href="index-es.html">Español</a> | <a href="index-fr.html">Français</a> |  <a href="index-de.html">Deutsche</a> | Русский | <a href="index-zh.html">中文</a> | <a href="index-ja.html">日本語</a> ]</p>
 
-<h1>SWRC Fit</h1>
+<h1>ОГХ Приближение (SWRC Fit)</h1>
 
-<p>SWRC Fit может подгонять <a href="model.html">несколько гидравлических моделей почвы</a> к измеренной <a href="https://ru.wikipedia.org/wiki/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D0%B4%D1%80%D0%BE%D1%84%D0%B8%D0%B7%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0">кривая водоудерживания</a>. Скопируйте данные о водоудерживания в текстовом поле ниже и нажмите кнопку «Рассчитать». Прежде чем использовать исходные данные, вы увидите, как они работают, выбрав образец данных из выпадающего меню. <a href="help.html">Подробнее инструкция (на английском)</a>.
+<p>ОГХ Приближение (SWRC Fit) может подгонять <a href="model.html">несколько гидравлических моделей почвы</a> к измеренной <a href="https://ru.wikipedia.org/wiki/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D0%B4%D1%80%D0%BE%D1%84%D0%B8%D0%B7%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0">Основная гидрофизическая характеристика</a> (<strong>ОГХ</strong>, кривая водоудерживания). Скопируйте данные о ОГХ в текстовом поле ниже и нажмите кнопку «Рассчитать». Прежде чем использовать исходные данные, вы увидите, как они работают, выбрав образец данных из выпадающего меню. <a href="help.html">Подробнее инструкция (на английском)</a>.
 </p>
 
 <form action="swrc.cgi" method="post" onsubmit="disableSubmit(this)">
@@ -119,7 +119,7 @@ Your name <input type="text" name="name" id="name" size="30" maxlength="50" valu
   </p>
 </td>
 <td>
-<p>кривая водоудерживания<br>
+<p>ОГХ<br>
 
 <select name="unsoda" id="unsoda" onChange="a()">
   <option value="">ыберите из примеров
@@ -138,7 +138,7 @@ Your name <input type="text" name="name" id="name" size="30" maxlength="50" valu
 </td>
 </tr>
 </table>
-<p><input type="submit" value="计算"></p>
+<p><input type="submit" value="Рассчитать"></p>
 </div>
 </form>
 
