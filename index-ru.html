@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta http-equiv="Content-Type" content="text/html;CHARSET=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,14 +85,11 @@
 
 </head>
 <body>
-<p>[ English | <a href="index-es.html">Español</a> | <a href="index-fr.html">Français</a> | <a href="index-de.html">Deutsche</a> | <a href="index-ru.html">Русский</a> | <a href="index-zh.html">中文</a> | <a href="index-ja.html">日本語</a> ]</p>
+<p>[ <a href="index.html">English</a> | <a href="index-es.html">Español</a> | <a href="index-fr.html">Français</a> |  <a href="index-de.html">Deutsche</a> | Русский | <a href="index-zh.html">中文</a> | <a href="index-ja.html">日本語</a> ]</p>
 
 <h1>SWRC Fit</h1>
 
-<p>SWRC Fit can fit <a href="model.html">several soil hydraulic models</a> to measured <a href="http://www.engr.uconn.edu/environ/envphys/pdf/vadose_pdf/SWC_revised01.pdf">soil water retention</a> data.
-Copy your soil water retention data in the textbox below and press "Calculate" button.
-Before you use your original data you can see how it works by selecting a sample data from the pulldown menu.
-<a href="help.html">Read more instruction</a>.
+<p>SWRC Fit может подгонять <a href="model.html">несколько гидравлических моделей почвы</a> к измеренной <a href="https://ru.wikipedia.org/wiki/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F_%D0%B3%D0%B8%D0%B4%D1%80%D0%BE%D1%84%D0%B8%D0%B7%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0">кривая водоудерживания</a>. Скопируйте данные о водоудерживания в текстовом поле ниже и нажмите кнопку «Рассчитать». Прежде чем использовать исходные данные, вы увидите, как они работают, выбрав образец данных из выпадающего меню. <a href="help.html">Подробнее инструкция (на английском)</a>.
 </p>
 
 <form action="swrc.cgi" method="post" onsubmit="disableSubmit(this)">
@@ -100,7 +97,7 @@ Before you use your original data you can see how it works by selecting a sample
 <table>
 <tr>
 <td colspan="2" align="center">
-Description (NS: Not Specified)<br>
+Объяснение (NS: Not Specified)<br>
 Soil sample <input type="text" name="soil" id="soil" size="30" maxlength="100" value="NS"><br>
 Soil texture <input type="text" name="texture" id="texture" size="30" maxlength="50" value="NS"><br>
 Your name <input type="text" name="name" id="name" size="30" maxlength="50" value="NS">
@@ -109,7 +106,7 @@ Your name <input type="text" name="name" id="name" size="30" maxlength="50" valu
 <tr>
 <td width="240">
   <p>Model selection<br>
-  <INPUT TYPE="checkbox" name="BC" value="on" checked>Brooks and Corey<br>
+  <INPUT TYPE="checkbox" name="BC" value="on" checked>Brooks et Corey<br>
   <INPUT TYPE="checkbox" name="VG" value="on" checked>van Genuchten<br>
   <INPUT TYPE="checkbox" name="LN" value="on" checked>Kosugi<br>
   <INPUT TYPE="checkbox" name="FX" value="on" checked>Fredlund and Xing <strong>[New!]</strong><br>
@@ -122,10 +119,10 @@ Your name <input type="text" name="name" id="name" size="30" maxlength="50" valu
   </p>
 </td>
 <td>
-<p>Soil Water Retention Curve<br>
+<p>кривая водоудерживания<br>
 
 <select name="unsoda" id="unsoda" onChange="a()">
-  <option value="">Select from sample data
+  <option value="">ыберите из примеров
   <option value="unsoda1270">Tuffaceous Rock
   <option value="unsoda4440">Sand
   <option value="unsoda2243">Sandy loam
@@ -141,14 +138,14 @@ Your name <input type="text" name="name" id="name" size="30" maxlength="50" valu
 </td>
 </tr>
 </table>
-<p><input type="submit" value="Calculate"></p>
+<p><input type="submit" value="计算"></p>
 </div>
 </form>
 
 <h2>Citation</h2>
 
-<p>Please cite this paper when you publish your work using this program, SWRC Fit.
-<a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Gs_ABawAAAAJ&citation_for_view=Gs_ABawAAAAJ:9yKSN-GCB0IC">Researches conducted with SWRC Fit</a>.</p>
+<p>Please cite this paper when you publish your work using SWRC Fit.
+<a href="https://scholar.google.com/citations?view_op=view_citation&hl=ru&user=Gs_ABawAAAAJ&citation_for_view=Gs_ABawAAAAJ:9yKSN-GCB0IC">Researches conducted with SWRC Fit</a>.</p>
 
 <ul>
 <li>Seki, K. (2007) SWRC fit - a nonlinear fitting program with a water retention curve for soils
@@ -177,6 +174,7 @@ Iranian user reported that sourceforge.net is not accessible from Iran.</li>
 <ul>
 <li>Sample data is from <a href="http://www.ars.usda.gov/Services/docs.htm?docid=8967">UNSODA database</a>
 of unsaturated soil hydraulic properties developed by US Salinity Laboratory.</li>
+<li>Russian in this page was automatically translated and should be in poor quality. Please help improve it. My email address in <a href="http://www.sciencedirect.com/science/article/pii/S0016706115000622">this paper</a>.
 </ul>
 
 <h2>Question</h2>
@@ -187,10 +185,12 @@ You can submit your own question by getting the accout of GitHub (use the green 
 and pressing the green "New Issue" button. Please select the label of "question".
 It is preferable to send your question publicly this way, because other people having the same question
 can find answer on the web. However, if your question is confidential, please contact me by email.
-Tou can find my email address in <a href="http://file.scirp.org/Html/2-1660128_33490.htm">this paper</a>.</p>
+Tou can find my email address in <a href="http://file.scirp.org/Html/2-1660128_33490.htm">this paper</a>.
+Please ask questions in English.
+</p>
 
 <hr>
-<p>Persistent URL of this page is <a href="http://purl.org/net/swrc/">http://purl.org/net/swrc/</a>.
+<p>Persistent URL of this page is <a href="http://purl.org/net/swrc/index-zh.html">http://purl.org/net/swrc/index-zh.html</a>.
 (<a href="http://purl.org/">What is Persistent URL?</a>)
 </p>
 <p>
