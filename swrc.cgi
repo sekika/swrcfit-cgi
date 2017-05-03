@@ -95,7 +95,7 @@ $figsize = $formdata{'figsize'};
 $showgrid = $formdata{'showgrid'};
 $ax = $formdata{'ax'};
 $minx = $formdata{'minx'};
-$maxx = $formdata{'max'};
+$maxx = $formdata{'maxx'};
 $miny = $formdata{'miny'};
 $maxy = $formdata{'maxy'};
 
