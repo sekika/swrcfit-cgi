@@ -131,7 +131,7 @@ $LNlab  = replacelabelchars($LNlab);
 $FXlab  = replacelabelchars($FXlab);
 $DBlab  = replacelabelchars($DBlab);
 $BLlab  = replacelabelchars($BLlab);
-$col  = replacelabelchars($col);
+$col  = replacelabelchars($col) x 6;
 
 # Output sample information
 
