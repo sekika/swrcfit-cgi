@@ -533,12 +533,12 @@ sub replacelabelchars
         while (chomp($s)) {
                 ;
         }
-        $s =~ s/&/&amp;/g;
-        $s =~ s/</&lt;/g;
-        $s =~ s/>/&gt;/g;
-        $s =~ s/"/&quot;/g;
-        $s =~ s/'/&apos;/g;
-        $s =~ s/\n/<br>/g;
+        $s =~ s/;//g;
+        $s =~ s/|//g;
+        $s =~ s/>//g;
+        $s =~ s/<//g;
+        $s =~ s/"//g;
+        $s =~ s/'//g;
         $s =~ s/ /\\ /g;
         return $s;
 }
