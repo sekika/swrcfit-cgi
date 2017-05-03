@@ -84,6 +84,9 @@ $cqs = $formdata{'cqs'};
 $qsin = $formdata{'qsin'};
 $cqr = $formdata{'cqr'};
 $qrin = $formdata{'qrin'};
+$fxc = $formdata{'fxc'};
+$psir = $formdata{'psir'};
+$psimax = $formdata{'psimax'};
 
 # Escape control characters before output for security
 
@@ -129,6 +132,13 @@ if ( $qrin < 0 ) { $qrin = 0; }
 if ( $qrin > 10 ) { $qrin = 10; }
 if ($cqr eq "fix") { $opt=$opt . " cqr=0 qrin=" . $qrin; }
 
+$psir=$psir + 0;
+if ( $psir < 0 ) { $psir = 0; }
+if ( $psir > 100000000 ) { $psir = 100000000; }
+$psimax=$psimax + 0;
+if ( $psimax < 0 ) { $psimax = 0; }
+if ( $psimax > 10000000000 ) { $psmax = 10000000000; }
+if ($fxc eq "on") { $opt=$opt . " fxc=1 psir=" . $psir . " psimax=" $psimax; }
 
 # Show option (debug) #####
 print ($opt);

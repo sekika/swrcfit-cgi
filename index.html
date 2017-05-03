@@ -121,13 +121,10 @@ Your name <input type="text" name="name" id="name" size="30" maxlength="50" valu
   <INPUT TYPE="checkbox" name="FX" value="on" checked>Fredlund and Xing <strong>[New!]</strong><br>
   <INPUT TYPE="checkbox" name="DB" value="on">Durner<br>
   <INPUT TYPE="checkbox" name="BL" value="on">Seki<br>
-  <p>Calculation option</p>
-   <input type="radio" name="cqr" value="fit" checked="checked">Fit &theta;<sub>r</sub>
-<input type="radio" name="cqr" value="fix">&theta;<sub>r</sub> = <input type="text" name="qrin" id="qrin" size="5" maxlength="10" value="0">
   <p>Figure option<br>
   <input type="checkbox" name="onemodel" value="on" checked>Show only one model<br>
   </p>
-   <p><a href="#detail" onclick="return showMore(this);">Show detailed options</a></p>
+   <p><a href="#detail" onclick="return showMore(this);">Show more options</a></p>
 </td>
 <td>
 <p>Soil Water Retention Curve<br>
@@ -156,10 +153,12 @@ Your name <input type="text" name="name" id="name" size="30" maxlength="50" valu
 <p>Calculation options</p>
 
 <ul>
+<li>   <input type="radio" name="cqr" value="fit" checked="checked">Fit &theta;<sub>r</sub>
+<input type="radio" name="cqr" value="fix">&theta;<sub>r</sub> = <input type="text" name="qrin" id="qrin" size="5" maxlength="10" value="0">
 <li><input type="radio" name="cqs" value="fit" checked="checked">Fit &theta;<sub>s</sub>
 <input type="radio" name="cqs" value="max">&theta;<sub>s</sub> = &theta;<sub>max</sub>
 <input type="radio" name="cqs" value="fix">&theta;<sub>s</sub> = <input type="text" name="qsin" id="qsin" size="5" maxlength="10" value="">
-<li>FX model: <input type="checkbox" name="fxc" value="on">Use correction function<br>with &psi;<sub>r</sub> = <input type="text" name="psir" id="qs" size="7" maxlength="10" value="30000"> and  &psi;<sub>max</sub> = <input type="text" name="psir" id="psin" size="10" maxlength="12" value="10000000">
+<li>FX model: <input type="checkbox" name="fxc" value="on">Use correction function<br>with &psi;<sub>r</sub> = <input type="text" name="psir" id="psir" size="7" maxlength="10" value="30000"> and  &psi;<sub>max</sub> = <input type="text" name="psimax" id="psimax" size="10" maxlength="12" value="10000000">
 </ul>
 
 <p>Figure options</p>
@@ -174,6 +173,8 @@ Your name <input type="text" name="name" id="name" size="30" maxlength="50" valu
 <input type="radio" name="figsize" value="0" checked="checked">Automatic
 <input type="radio" name="figsize" value="1">Normal
 <input type="radio" name="figsize" value="2">Logarithm
+<li>Range of x axis: <input type="text" name="minx" id="minx" size="2" maxlength="5" value="0"> to <input type="text" name="maxx" id="maxx" size="3" maxlength="10" value="0"> (set 0 for automatic)
+<li>Range of y axis: <input type="text" name="miny" id="miny" size="2" maxlength="5" value="0"> to <input type="text" name="maxy" id="maxy" size="3" maxlength="10" value="0"> (set 0 for automatic)
 <li>Font size = <input type="text" name="fontsize" id="fontsize" size="2" maxlength="2" value="18">
 <li><input type="checkbox" name="showlabel" value="on">Show label with <input type="text" name="xlab" id="xlab" size="15" maxlength="30" value="Matric suction"> for x axis<br>and <input type="text" name="ylab" id="ylab" size="25" maxlength="40" value="Volumetric water content"> for y axis
 <li><input type="checkbox" name="showlegend" value="on" checked>Show legend with:
