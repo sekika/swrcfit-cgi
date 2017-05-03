@@ -108,7 +108,6 @@ $showlegend = $formdata{'showlegend'};
 $soil  = replacecontrolchars($soil);
 $texture  = replacecontrolchars($texture);
 $name  = replacecontrolchars($name);
-$xlab  = replacecontrolchars($xlab);
 
 # Output sample information
 
