@@ -103,6 +103,13 @@ $showlabel = $formdata{'showlabel'};
 $xlab = $formdata{'xlab'};
 $ylab = $formdata{'ylab'};
 $showlegend = $formdata{'showlegend'};
+$mlab = $formdata{'mlab'};
+$BClab = $formdata{'BClab'};
+$VGlab = $formdata{'VGlab'};
+$LNlab = $formdata{'LNlab'};
+$FXlab = $formdata{'FXlab'};
+$DBlab = $formdata{'DBlab'};
+$BLlab = $formdata{'BLlab'};
 
 # Escape control characters before output for security
 
@@ -113,6 +120,13 @@ $name  = replacecontrolchars($name);
 # These parameters go directly into shell and replace dangeous characters
 $xlab  = replacelabelchars($xlab);
 $ylab  = replacelabelchars($ylab);
+$mlab  = replacelabelchars($mlab);
+$BClab  = replacelabelchars($BClab);
+$VGlab  = replacelabelchars($VGlab);
+$LNlab  = replacelabelchars($LNlab);
+$FXlab  = replacelabelchars($LNlab);
+$DBlab  = replacelabelchars($DBlab);
+$BLlab  = replacelabelchars($BLlab);
 
 # Output sample information
 
