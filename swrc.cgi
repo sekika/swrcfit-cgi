@@ -159,6 +159,8 @@ if ($ax eq "2") { $opt=$opt . " ax=2"; }
 
 $minx=$minx + 0;
 if ( $minx > 0 ) { $opt = $opt . " minx=" . $minx; }
+$maxx=$maxx + 0;
+if ( $maxx > 0 ) { $opt = $opt . " maxx=" . $maxx; }
 
 # Show option (debug) #####
 print ($opt);
