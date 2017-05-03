@@ -165,7 +165,7 @@ if ($result[0] eq "" or $result[0] == "0") {
   $k=0; $model=1;
   if (@m[1] eq "on") {
     @index[$model] = 1;
-    @label[$model] = "<tr><td>Brooks and Corey<td>[[ S_e = \\begin{cases}\\left(\\dfrac{h}{h_b}\\right)^{-\\lambda} & (h>h_b) \\ 1 & (h \\le h_b)\\end{cases} ]] <img src=\"img/BC.png\" width=146 height=75 alt=BC>";
+    @label[$model] = "<tr><td>Brooks and Corey<td>[[ S_e = \\begin{cases}\\left(\\dfrac{h}{h_b}\\right)^{-\\lambda} & (h>h_b) \\\\ 1 & (h \\le h_b)\\end{cases} ]] <img src=\"img/BC.png\" width=146 height=75 alt=BC>";
     @p1n[$model] = "h<sub>b</sub>";
     @p2n[$model] = "&lambda;";
     @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
@@ -179,7 +179,7 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[2] eq "on") {
     @index[$model] = 2;
-    @label[$model] = "<tr><td>van Genuchten<td>[[ S_e = \\biggl[\\dfrac{1}{1+(\\alpha h)^n}\\biggr]^m ~~ (m=1-1/n) ]] <img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
+    @label[$model] = "<tr><td>van Genuchten<td>[[ S_e = \\biggl[\\dfrac{1}{1+(\\alpha h)^n}\\biggr]^m ~~ (m=1-1/n) ]]";
     @p1n[$model] = "&alpha;";
     @p2n[$model] = "n";
     @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
@@ -193,7 +193,7 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[3] eq "on") {
     @index[$model] = 3;
-    @label[$model] = "<tr><td>Kosugi<td>[[ S_e = Q \\biggl[\\dfrac{\\ln(h/h_m)}{\\sigma}\\biggr] ]] <img src=\"img/LN.png\" width=110 height=42 alt=LN>";
+    @label[$model] = "<tr><td>Kosugi<td>[[ S_e = Q \\biggl[\\dfrac{\\ln(h/h_m)}{\\sigma}\\biggr] ]]";
     @p1n[$model] = "h<sub>m</sub>";
     @p2n[$model] = "&sigma;";
     @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
