@@ -541,12 +541,13 @@ sub replacelabelchars
         $s =~ s/\*//g;
         $s =~ s/\@//g;
         $s =~ s/\&//g;
-        $s =~ s/\^//g;
+#        $s =~ s/\^//g;
         $s =~ s/\%//g;
         $s =~ s/"//g;
         $s =~ s/'//g;
         $s =~ s/ /\\ /g;
         $s =~ s/\(/\\\(/g;
         $s =~ s/\)/\\\)/g;
+        $s =~ s/\_/\\\_/g;
         return $s;
 }
