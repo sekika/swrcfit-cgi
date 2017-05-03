@@ -48,8 +48,10 @@ Content-type: text/html
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SWRC Fit - Result -</title>
   <meta name="author" content="Katsutoshi Seki">
-  <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
-  <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
+  <link rel="stylesheet" TYPE="text/css" HREF="swrc.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
 </head>
 <body>
 EOF
@@ -203,11 +205,11 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[4] eq "on") {
     @index[$model] = 4;
-    @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX><br>";
+    @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX>";
     if ($fcx eq "0") {
        @label[$model] = @label[$model] . "(C(h)=1)";
     } else {
-       @label[$model] = @label[$model] . "C(h) = - [ln (1 + h / " . $psir . ")] / [ln (1 + (" .  $psimax . "/" . $psir . ")' + 1";
+       @label[$model] = @label[$model] . "<br> katex.render("C(h) = \\frac{ln(1+h)}{ln(1+h)}", element); C(h) = - [ln (1 + h / " . $psir . ")] / [ln (1 + (" .  $psimax . "/" . $psir . ")] + 1";
     }
     @p1n[$model] = "a";
     @p2n[$model] = "m";
