@@ -94,6 +94,10 @@ $psimax = $formdata{'psimax'};
 $figsize = $formdata{'figsize'};
 $showgrid = $formdata{'showgrid'};
 $ax = $formdata{'ax'};
+$minx = $formdata{'minx'};
+$maxx = $formdata{'max'};
+$miny = $formdata{'miny'};
+$maxy = $formdata{'maxy'};
 
 # Escape control characters before output for security
 
@@ -153,6 +157,8 @@ if ($showgrid eq "on") { $opt=$opt . " showgrid=1"; }
 if ($ax eq "1") { $opt=$opt . " ax=1"; }
 if ($ax eq "2") { $opt=$opt . " ax=2"; }
 
+$minx=$minx + 0;
+if ( $minx > 0 ) { $opt = $opt . " minx=" . $minx; }
 
 # Show option (debug) #####
 print ($opt);
