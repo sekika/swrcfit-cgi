@@ -213,7 +213,12 @@ $msize=$msize + 0;
 if ( $msize < 1 ) { $msize = 1; }
 if ( $msize > 100 ) { $msize = 100; }
 $opt = $opt . " msize=" . $msize;
+if ( $mcol eq "k" ) { $opt = $opt . " mcol=\\\"k\\\""; }
+if ( $mcol eq "r" ) { $opt = $opt . " mcol=\\\"r\\\""; }
 if ( $mcol eq "b" ) { $opt = $opt . " mcol=\\\"b\\\""; }
+if ( $mcol eq "g" ) { $opt = $opt . " mcol=\\\"g\\\""; }
+if ( $mcol eq "m" ) { $opt = $opt . " mcol=\\\"m\\\""; }
+if ( $mcol eq "c" ) { $opt = $opt . " mcol=\\\"c\\\""; }
 
 # Show option (debug) #####
 print ($opt);
