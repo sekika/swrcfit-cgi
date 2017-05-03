@@ -209,9 +209,9 @@ if ($result[0] eq "" or $result[0] == "0") {
     @index[$model] = 4;
     @label[$model] =  "<tr><td>Fredlund and Xing<td>[[ S_e = C(h) \\biggl[ \\dfrac{1}{\\ln \\left[e+(h / a)^n \\right]} \\biggr]^m ]]";
     if ($fcx eq "0") {
-       @label[$model] = @label[$model] . "C(h)=1";
+       @label[$model] = <tr><td>Fredlund and Xing<td>[[ S_e = \\biggl[ \\dfrac{1}{\\ln \\left[e+(h / a)^n \\right]} \\biggr]^m ]]";
     } else {
-       @label[$model] = @label[$model] . "<br> [[ C(h) = - \\frac{ \\ln (1+ \\frac{h}{" . $psir . "})}{ \\ln (1+ \\frac{" . $psimax . "}{" . $psir . "})} +1 ]]";
+       @label[$model] = "<tr><td>Fredlund and Xing<td>[[ S_e = C(h) \\biggl[ \\dfrac{1}{\\ln \\left[e+(h / a)^n \\right]} \\biggr]^m ]]  [[ C(h) = - \\frac{ \\ln (1+ \\frac{h}{" . $psir . "})}{ \\ln (1+ \\frac{" . $psimax . "}{" . $psir . "})} +1 ]]";
     }
     @p1n[$model] = "a";
     @p2n[$model] = "m";
