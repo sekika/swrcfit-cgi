@@ -111,11 +111,11 @@ $FXlab = $formdata{'FXlab'};
 $DBlab = $formdata{'DBlab'};
 $BLlab = $formdata{'BLlab'};
 $msize = $formdata{'msize'};
+$mcol = $formdata{'mcol'};
 
 # Escape control characters before output for security
 
 $soil  = replacecontrolchars($soil);
-$soil  = replacecontrolchars($msize); ###############
 $texture  = replacecontrolchars($texture);
 $name  = replacecontrolchars($name);
 
@@ -213,6 +213,7 @@ $msize=$msize + 0;
 if ( $msize < 1 ) { $msize = 1; }
 if ( $msize > 100 ) { $msize = 100; }
 $opt = $opt . " msize=" . $msize;
+if ( $mcol eq "b" ) { $opt = $opt . " mcol=\"b\""; }
 
 # Show option (debug) #####
 print ($opt);
