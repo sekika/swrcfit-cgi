@@ -80,6 +80,10 @@ $swrc = $formdata{'swrc'};
 @m[6] = $formdata{'BL'};
 $thetaR = $formdata{'thetaR'};
 $onemodel = $formdata{'onemodel'};
+@cqs = formdata{'cqs'};
+@qsin = formdata{'qsin'};
+@cqr = formdata{'cqr'};
+@qrin = formdata{'qrin'};
 
 # Escape control characters before output for security
 
@@ -113,6 +117,15 @@ if (@m[5] eq "on") { $opt=$opt . " db=1"; } else { $opt=$opt . " db=0"; }
 if (@m[6] eq "on") { $opt=$opt . " bl=1"; } else { $opt=$opt . " bl=0"; }
 if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
 if ($onemodel eq "on") { $opt=$opt . " onemodel=1"; }
+
+if ( $qsin < 0 ) { $qsin = 0; }
+if ( $qsin > 100 ) { $qsin = 100; }
+if ($cqs eq "fix") { $opt=$opt . " cqs=0 qsin=" . $qsin; }
+if ($cqs eq "max") { $opt=$opt . " cqs=0"; }
+
+if ( $qrin < 0 ) { $qrin = 0; }
+if ( $qrin > 10 ) { $qrin = 10; }
+if ($cqr eq "fix") { $opt=$opt . " cqr=0 qrin=" . $qrin; }
 
 ##### Calculation #####
 
