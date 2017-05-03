@@ -53,7 +53,7 @@ Content-type: text/html
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
-  <script>$(document).ready(function(){renderMathInElement(document.body,{delimiters: [{left: "$$", right: "$$", display: true},{left: "$", right: "$", display: false}]})});</script>
+  <script>\$(document).ready(function(){renderMathInElement(document.body,{delimiters: [{left: "\$\$", right: "\$\$", display: true},{left: "\$", right: "\$", display: false}]})});</script>
 </head>
 <body>
 EOF
