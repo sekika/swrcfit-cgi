@@ -101,6 +101,7 @@ $maxy = $formdata{'maxy'};
 $fontsize = $formdata{'fontsize'};
 $showlabel = $formdata{'showlabel'};
 $xlab = $formdata{'xlab'};
+$ylab = $formdata{'ylab'};
 $showlegend = $formdata{'showlegend'};
 
 # Escape control characters before output for security
