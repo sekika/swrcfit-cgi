@@ -69,3 +69,7 @@ strong {
 div.center {
         text-align: center;
 }
+
+.detailed-options {
+   display: none;
+}
