@@ -112,6 +112,7 @@ $DBlab = $formdata{'DBlab'};
 $BLlab = $formdata{'BLlab'};
 $msize = $formdata{'msize'};
 $mcol = $formdata{'mcol'};
+$linewidth = $formdata{'linewidth'};
 
 # Escape control characters before output for security
 
