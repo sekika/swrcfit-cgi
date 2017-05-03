@@ -225,7 +225,7 @@ if ( $mcol eq "c" ) { $opt = $opt . " mcol=\\\"c\\\""; }
 $linewidth=$linewidth + 0;
 if ( $linewidth < 0.1 ) { $msize = 0.1; }
 if ( $linewidth > 10 ) { $linewidth = 10; }
-$opt = $opt . " linewidth=" . $linewidth . " col=" . $col;
+$opt = $opt . " linewidth=" . $linewidth . " col=\\\"" . $col . "\\\"";
 
 # Show option (debug) #####
 print ($opt);
