@@ -540,6 +540,7 @@ sub replacelabelchars
         $s =~ s/\$//g;
         $s =~ s/\*//g;
         $s =~ s/\@//g;
+        $s =~ s/\&//g;
         $s =~ s/\^//g;
         $s =~ s/\%//g;
         $s =~ s/"//g;
@@ -547,6 +548,5 @@ sub replacelabelchars
         $s =~ s/ /\\ /g;
         $s =~ s/\(/\\\(/g;
         $s =~ s/\)/\\\)/g;
-        $s =~ s/\&/\\\&/g;
         return $s;
 }
