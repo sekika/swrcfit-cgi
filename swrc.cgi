@@ -100,6 +100,7 @@ $miny = $formdata{'miny'};
 $maxy = $formdata{'maxy'};
 $fontsize = $formdata{'fontsize'};
 $showlabel = $formdata{'showlabel'};
+$xlab = $formdata{'xlab'};
 $showlegend = $formdata{'showlegend'};
 
 # Escape control characters before output for security
@@ -107,6 +108,7 @@ $showlegend = $formdata{'showlegend'};
 $soil  = replacecontrolchars($soil);
 $texture  = replacecontrolchars($texture);
 $name  = replacecontrolchars($name);
+$xlab  = replacecontrolchars($xlab);
 
 # Output sample information
 
@@ -175,15 +177,15 @@ if ( $fontsize > 30 ) { $fontsize = 30; }
 $opt = $opt . " fonsize=" . $fontsize;
 
 if ( $showlabel eq "on" ) {
-    $opt = $opt . " showlabel=1"
+    $opt = $opt . " showlabel=1 xlab=\"" . $xlab . "\"";
 } else {
-    $opt = $opt . " showlabel=0"
+    $opt = $opt . " showlabel=0";
 }
 
 if ( $showlegend eq "on" ) {
-    $opt = $opt . " showlegend=1"
+    $opt = $opt . " showlegend=1";
 } else {
-    $opt = $opt . " showlegend=0"
+    $opt = $opt . " showlegend=0";
 }
 
 # Show option (debug) #####
