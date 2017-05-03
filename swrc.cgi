@@ -138,7 +138,7 @@ if ( $psir > 100000000 ) { $psir = 100000000; }
 $psimax=$psimax + 0;
 if ( $psimax < 0 ) { $psimax = 0; }
 if ( $psimax > 10000000000 ) { $psmax = 10000000000; }
-if ($fxc eq "on") { $opt=$opt . " fxc=1 psir=" . $psir . " psimax=" $psimax; }
+if ($fxc eq "on") { $opt=$opt . " fxc=1 psir=" . $psir . " psimax=" . $psimax; }
 
 # Show option (debug) #####
 print ($opt);
