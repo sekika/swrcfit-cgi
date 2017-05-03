@@ -127,6 +127,10 @@ if ( $qrin < 0 ) { $qrin = 0; }
 if ( $qrin > 10 ) { $qrin = 10; }
 if ($cqr eq "fix") { $opt=$opt . " cqr=0 qrin=" . $qrin; }
 
+
+# Show option (debug) #####
+print ($opt);
+
 ##### Calculation #####
 
 # Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
