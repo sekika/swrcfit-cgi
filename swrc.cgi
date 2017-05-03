@@ -110,6 +110,7 @@ $LNlab = $formdata{'LNlab'};
 $FXlab = $formdata{'FXlab'};
 $DBlab = $formdata{'DBlab'};
 $BLlab = $formdata{'BLlab'};
+$msize = $formdata{'msize'};
 
 # Escape control characters before output for security
 
@@ -206,6 +207,11 @@ if ( $showlegend eq "on" ) {
 } else {
     $opt = $opt . " showlegend=0";
 }
+
+$msize=$msize + 0;
+if ( $msize < 1 ) { $msize = 1; }
+if ( $msize > 100 ) { $msize = 100; }
+$opt = $opt . " msize=" . $msize
 
 # Show option (debug) #####
 print ($opt);
