@@ -91,6 +91,9 @@ $qrin = $formdata{'qrin'};
 $fxc = $formdata{'fxc'};
 $psir = $formdata{'psir'};
 $psimax = $formdata{'psimax'};
+$figsize = $formdata{'figsize'};
+$showgrid = $formdata{'showgrid'};
+$ax = $formdata{'ax'};
 
 # Escape control characters before output for security
 
@@ -143,6 +146,13 @@ $psimax=$psimax + 0;
 if ( $psimax < 0 ) { $psimax = 0; }
 if ( $psimax > 10000000000 ) { $psmax = 10000000000; }
 if ($fxc eq "on") { $opt=$opt . " fxc=1 psir=" . $psir . " psimax=" . $psimax; }
+
+if ($figsize eq "1") { $opt=$opt . " figsize=1"; }
+if ($figsize eq "2") { $opt=$opt . " figsize=2"; }
+if ($showgrid eq "on") { $opt=$opt . " showgrid=1"; }
+if ($ax eq "1") { $opt=$opt . " ax=1"; }
+if ($ax eq "2") { $opt=$opt . " ax=2"; }
+
 
 # Show option (debug) #####
 print ($opt);
