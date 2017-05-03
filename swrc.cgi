@@ -78,7 +78,7 @@ $swrc = $formdata{'swrc'};
 @m[4] = $formdata{'FX'};
 @m[5] = $formdata{'DB'};
 @m[6] = $formdata{'BL'};
-$thetaR = $formdata{'thetaR'};
+# $thetaR = $formdata{'thetaR'};
 $onemodel = $formdata{'onemodel'};
 $cqs = $formdata{'cqs'};
 $qsin = $formdata{'qsin'};
@@ -115,10 +115,10 @@ if (@m[3] eq "on") { $opt=$opt . " ln=1"; } else { $opt=$opt . " ln=0"; }
 if (@m[4] eq "on") { $opt=$opt . " fx=1"; } else { $opt=$opt . " fx=0"; }
 if (@m[5] eq "on") { $opt=$opt . " db=1"; } else { $opt=$opt . " db=0"; }
 if (@m[6] eq "on") { $opt=$opt . " bl=1"; } else { $opt=$opt . " bl=0"; }
-if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
+# if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
 if ($onemodel eq "on") { $opt=$opt . " onemodel=1"; }
 
-$qsin=$qsin + 0;
+$qsin=$qsin + 0; # Convert to numeric to disallow insecure input
 if ( $qsin < 0 ) { $qsin = 0; }
 if ( $qsin > 100 ) { $qsin = 100; }
 if ($cqs eq "fix") { $opt=$opt . " cqs=0 qsin=" . $qsin; }
