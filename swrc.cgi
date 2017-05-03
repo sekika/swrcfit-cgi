@@ -118,11 +118,13 @@ if (@m[6] eq "on") { $opt=$opt . " bl=1"; } else { $opt=$opt . " bl=0"; }
 if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
 if ($onemodel eq "on") { $opt=$opt . " onemodel=1"; }
 
+$qsin=$qsin + 0;
 if ( $qsin < 0 ) { $qsin = 0; }
 if ( $qsin > 100 ) { $qsin = 100; }
 if ($cqs eq "fix") { $opt=$opt . " cqs=0 qsin=" . $qsin; }
 if ($cqs eq "max") { $opt=$opt . " cqs=0"; }
 
+$qrin=$qrin + 0;
 if ( $qrin < 0 ) { $qrin = 0; }
 if ( $qrin > 10 ) { $qrin = 10; }
 if ($cqr eq "fix") { $opt=$opt . " cqr=0 qrin=" . $qrin; }
