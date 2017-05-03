@@ -108,6 +108,7 @@ $showlegend = $formdata{'showlegend'};
 $soil  = replacecontrolchars($soil);
 $texture  = replacecontrolchars($texture);
 $name  = replacecontrolchars($name);
+$xlab  = replacelabelchars($xlab);
 
 # Output sample information
 
@@ -522,5 +523,22 @@ sub replacecontrolchars
         $s =~ s/"/&quot;/g;
         $s =~ s/'/&apos;/g;
         $s =~ s/\n/<br>/g;
+        return $s;
+}
+
+sub replacelabelchars
+{
+        local $s = $_[0];
+        $s =~ s/\r\n/\n/g;
+        while (chomp($s)) {
+                ;
+        }
+        $s =~ s/&/&amp;/g;
+        $s =~ s/</&lt;/g;
+        $s =~ s/>/&gt;/g;
+        $s =~ s/"/&quot;/g;
+        $s =~ s/'/&apos;/g;
+        $s =~ s/\n/<br>/g;
+        $s =~ s/ /\\ /g;
         return $s;
 }
