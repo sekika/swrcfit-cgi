@@ -539,6 +539,6 @@ sub replacelabelchars
         $s =~ s/"/&quot;/g;
         $s =~ s/'/&apos;/g;
         $s =~ s/\n/<br>/g;
-        $s =~ s/ /\\\\ /g;
+        $s =~ s/ /\\ /g;
         return $s;
 }
