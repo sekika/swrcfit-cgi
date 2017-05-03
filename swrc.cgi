@@ -177,7 +177,7 @@ if ( $fontsize > 30 ) { $fontsize = 30; }
 $opt = $opt . " fonsize=" . $fontsize;
 
 if ( $showlabel eq "on" ) {
-    $opt = $opt . " showlabel=1 xlab=\\\"" . $xlab . "\\\"";
+    $opt = $opt . " showlabel=1 xlab=\"" . $xlab . "\"";
 } else {
     $opt = $opt . " showlabel=0";
 }
