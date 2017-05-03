@@ -161,6 +161,10 @@ $minx=$minx + 0;
 if ( $minx > 0 ) { $opt = $opt . " minx=" . $minx; }
 $maxx=$maxx + 0;
 if ( $maxx > 0 ) { $opt = $opt . " maxx=" . $maxx; }
+$miny=$miny + 0;
+if ( $miny > 0 ) { $opt = $opt . " miny=" . $miny; }
+$maxy=$maxy + 0;
+if ( $maxy > 0 ) { $opt = $opt . " maxy=" . $maxy; }
 
 # Show option (debug) #####
 print ($opt);
