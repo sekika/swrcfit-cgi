@@ -198,7 +198,7 @@ $opt = $opt . " fontsize=" . $fontsize;
 if ( $showlabel eq "on" ) {
     $opt = $opt . " showlabel=1 xlab=\\\"" . $xlab . "\\\" ylab=\\\"" . $ylab . "\\\"";
 } else {
-    $opt = $opt . " showlabel=0";
+    $opt = $opt . " showlabel=0 Mlab=\\\"" . $Mlab . "\\\" BClab=\\\"" . $BClab . "\\\"";
 }
 
 if ( $showlegend eq "on" ) {
