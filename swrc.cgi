@@ -202,7 +202,7 @@ if ( $showlabel eq "on" ) {
 }
 
 if ( $showlegend eq "on" ) {
-    $opt = $opt . " showlegend=1 Mlab=\\\"" . $Mlab . "\\\" BClab=\\\"" . $BClab . "\\\"";
+    $opt = $opt . " showlegend=1 Mlab=\\\"" . $Mlab . "\\\" BClab=\\\"" . $BClab . "\\\"" VGlab=\\\"" . $VGlab . "\\\"";
 } else {
     $opt = $opt . " showlegend=0";
 }
