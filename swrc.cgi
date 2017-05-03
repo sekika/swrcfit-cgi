@@ -51,7 +51,9 @@ Content-type: text/html
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
   <link rel="stylesheet" TYPE="text/css" HREF="swrc.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+  <script>$(document).ready(function(){renderMathInElement(document.body,{delimiters: [{left: "$$", right: "$$", display: true},{left: "$", right: "$", display: false}]})});</script>
 </head>
 <body>
 EOF
@@ -209,7 +211,7 @@ if ($result[0] eq "" or $result[0] == "0") {
     if ($fcx eq "0") {
        @label[$model] = @label[$model] . "(C(h)=1)";
     } else {
-       @label[$model] = @label[$model] . "<br> katex.render(\"C(h) = \\frac{ln(1+h)}{ln(1+h)}\", element); C(h) = - [ln (1 + h / " . $psir . ")] / [ln (1 + (" .  $psimax . "/" . $psir . ")] + 1";
+       @label[$model] = @label[$model] . "<br> $ C(h) = \\frac{ln(1+h)}{ln(1+h)} $ C(h) = - [ln (1 + h / " . $psir . ")] / [ln (1 + (" .  $psimax . "/" . $psir . ")] + 1";
     }
     @p1n[$model] = "a";
     @p2n[$model] = "m";
