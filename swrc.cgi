@@ -115,6 +115,7 @@ $msize = $formdata{'msize'};
 # Escape control characters before output for security
 
 $soil  = replacecontrolchars($soil);
+$soil  = replacecontrolchars($msize); ###############
 $texture  = replacecontrolchars($texture);
 $name  = replacecontrolchars($name);
 
