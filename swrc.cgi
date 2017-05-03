@@ -211,7 +211,7 @@ if ($result[0] eq "" or $result[0] == "0") {
     if ($fcx eq "0") {
        @label[$model] = @label[$model] . "(C(h)=1)";
     } else {
-       @label[$model] = @label[$model] . "<br> $ C(h) = \\frac{ln(1+h)}{ln(1+h)} $ C(h) = - [ln (1 + h / " . $psir . ")] / [ln (1 + (" .  $psimax . "/" . $psir . ")] + 1";
+       @label[$model] = @label[$model] . "<br> \$ C(h) = \\frac{ln(1+h)}{ln(1+h)} \$ C(h) = - [ln (1 + h / " . $psir . ")] / [ln (1 + (" .  $psimax . "/" . $psir . ")] + 1";
     }
     @p1n[$model] = "a";
     @p2n[$model] = "m";
