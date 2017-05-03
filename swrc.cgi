@@ -227,6 +227,8 @@ if ( $linewidth < 0.1 ) { $msize = 0.1; }
 if ( $linewidth > 10 ) { $linewidth = 10; }
 $opt = $opt . " linewidth=" . $linewidth . " col=\\\"" . $col . "\\\"";
 
+print ($opt); ####################
+
 ##### Calculation #####
 
 # Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
