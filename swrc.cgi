@@ -48,8 +48,12 @@ Content-type: text/html
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SWRC Fit - Result -</title>
   <meta name="author" content="Katsutoshi Seki">
-  <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
-  <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
+  <link rel="stylesheet" TYPE="text/css" HREF="swrc.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+  <script>\$(document).ready(function(){renderMathInElement(document.body,{delimiters: [{left: "[[", right: "]]", display: true},{left: "\$", right: "\$", display: false}]})});</script>
 </head>
 <body>
 EOF
@@ -80,12 +84,54 @@ $swrc = $formdata{'swrc'};
 @m[6] = $formdata{'BL'};
 $thetaR = $formdata{'thetaR'};
 $onemodel = $formdata{'onemodel'};
+$cqs = $formdata{'cqs'};
+$qsin = $formdata{'qsin'};
+$cqr = $formdata{'cqr'};
+$qrin = $formdata{'qrin'};
+$fxc = $formdata{'fxc'};
+$psir = $formdata{'psir'};
+$psimax = $formdata{'psimax'};
+$figsize = $formdata{'figsize'};
+$showgrid = $formdata{'showgrid'};
+$ax = $formdata{'ax'};
+$minx = $formdata{'minx'};
+$maxx = $formdata{'maxx'};
+$miny = $formdata{'miny'};
+$maxy = $formdata{'maxy'};
+$fontsize = $formdata{'fontsize'};
+$showlabel = $formdata{'showlabel'};
+$xlab = $formdata{'xlab'};
+$ylab = $formdata{'ylab'};
+$showlegend = $formdata{'showlegend'};
+$Mlab = $formdata{'Mlab'};
+$BClab = $formdata{'BClab'};
+$VGlab = $formdata{'VGlab'};
+$LNlab = $formdata{'LNlab'};
+$FXlab = $formdata{'FXlab'};
+$DBlab = $formdata{'DBlab'};
+$BLlab = $formdata{'BLlab'};
+$msize = $formdata{'msize'};
+$mcol = $formdata{'mcol'};
+$linewidth = $formdata{'linewidth'};
+$col = $formdata{'col'};
 
 # Escape control characters before output for security
 
 $soil  = replacecontrolchars($soil);
 $texture  = replacecontrolchars($texture);
 $name  = replacecontrolchars($name);
+
+# These parameters go directly into shell and replace dangeous characters
+$xlab  = replacelabelchars($xlab);
+$ylab  = replacelabelchars($ylab);
+$Mlab  = replacelabelchars($Mlab);
+$BClab  = replacelabelchars($BClab);
+$VGlab  = replacelabelchars($VGlab);
+$LNlab  = replacelabelchars($LNlab);
+$FXlab  = replacelabelchars($FXlab);
+$DBlab  = replacelabelchars($DBlab);
+$BLlab  = replacelabelchars($BLlab);
+$col  = replacelabelchars($col) x 5 . "krbgmc";
 
 # Output sample information
 
@@ -114,6 +160,73 @@ if (@m[6] eq "on") { $opt=$opt . " bl=1"; } else { $opt=$opt . " bl=0"; }
 if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
 if ($onemodel eq "on") { $opt=$opt . " onemodel=1"; }
 
+$qsin=$qsin + 0; # Convert to numeric to disallow insecure input
+if ( $qsin < 0 ) { $qsin = 0; }
+if ( $qsin > 100 ) { $qsin = 100; }
+if ($cqs eq "fix") { $opt=$opt . " cqs=0 qsin=" . $qsin; }
+if ($cqs eq "max") { $opt=$opt . " cqs=0"; }
+
+$qrin=$qrin + 0;
+if ( $qrin < 0 ) { $qrin = 0; }
+if ( $qrin > 10 ) { $qrin = 10; }
+if ($cqr eq "fix") { $opt=$opt . " cqr=0 qrin=" . $qrin; }
+
+$psir=$psir + 0;
+if ( $psir < 0 ) { $psir = 0; }
+if ( $psir > 100000000 ) { $psir = 100000000; }
+$psimax=$psimax + 0;
+if ( $psimax < 0 ) { $psimax = 0; }
+if ( $psimax > 10000000000 ) { $psmax = 10000000000; }
+if ($fxc eq "on") { $opt=$opt . " fxc=1 psir=" . $psir . " psimax=" . $psimax; }
+
+if ($figsize eq "1") { $opt=$opt . " figsize=1"; }
+if ($figsize eq "2") { $opt=$opt . " figsize=2"; }
+if ($figsize eq "3") { $opt=$opt . " figsize=3"; }
+if ($showgrid eq "on") { $opt=$opt . " showgrid=1"; }
+if ($ax eq "1") { $opt=$opt . " ax=1"; }
+if ($ax eq "2") { $opt=$opt . " ax=2"; }
+
+$minx=$minx + 0;
+if ( $minx > 0 ) { $opt = $opt . " minx=" . $minx; }
+$maxx=$maxx + 0;
+if ( $maxx > 0 ) { $opt = $opt . " maxx=" . $maxx; }
+$miny=$miny + 0;
+if ( $miny > 0 ) { $opt = $opt . " miny=" . $miny; }
+$maxy=$maxy + 0;
+if ( $maxy > 0 ) { $opt = $opt . " maxy=" . $maxy; }
+
+$fontsize=$fontsize + 0;
+if ( $fontsize < 5 ) { $fontsize = 5; }
+if ( $fontsize > 50 ) { $fontsize = 30; }
+$opt = $opt . " fontsize=" . $fontsize;
+
+if ( $showlabel eq "on" ) {
+    $opt = $opt . " showlabel=1 xlab=\\\"" . $xlab . "\\\" ylab=\\\"" . $ylab . "\\\"";
+} else {
+    $opt = $opt . " showlabel=0";
+}
+
+if ( $showlegend eq "on" ) {
+    $opt = $opt . " showlegend=1 Mlab=\\\"" . $Mlab . "\\\" BClab=\\\"" . $BClab . "\\\" VGlab=\\\"" . $VGlab . "\\\" LNlab=\\\"" . $LNlab . "\\\" FXlab=\\\"" . $FXlab . "\\\" DBlab=\\\"" . $DBlab . "\\\" BLlab=\\\"" . $BLlab . "\\\"";
+} else {
+    $opt = $opt . " showlegend=0";
+}
+
+$msize=$msize + 0;
+if ( $msize < 1 ) { $msize = 1; }
+if ( $msize > 100 ) { $msize = 100; }
+$opt = $opt . " msize=" . $msize;
+if ( $mcol eq "k" ) { $opt = $opt . " mcol=\\\"k\\\""; }
+if ( $mcol eq "r" ) { $opt = $opt . " mcol=\\\"r\\\""; }
+if ( $mcol eq "b" ) { $opt = $opt . " mcol=\\\"b\\\""; }
+if ( $mcol eq "g" ) { $opt = $opt . " mcol=\\\"g\\\""; }
+if ( $mcol eq "m" ) { $opt = $opt . " mcol=\\\"m\\\""; }
+if ( $mcol eq "c" ) { $opt = $opt . " mcol=\\\"c\\\""; }
+$linewidth=$linewidth + 0;
+if ( $linewidth < 0.1 ) { $msize = 0.1; }
+if ( $linewidth > 10 ) { $linewidth = 10; }
+$opt = $opt . " linewidth=" . $linewidth . " col=\\\"" . $col . "\\\"";
+
 ##### Calculation #####
 
 # Here, swrcfit is called. setting.txt is automatically read and simple mode is selected.
@@ -132,7 +245,7 @@ if ($result[0] eq "" or $result[0] == "0") {
   $k=0; $model=1;
   if (@m[1] eq "on") {
     @index[$model] = 1;
-    @label[$model] = "<tr><td>Brooks and Corey<td><img src=\"img/BC.png\" width=146 height=75 alt=BC>";
+    @label[$model] = "<tr><td>Brooks and Corey<td>[[ S_e = \\begin{cases}\\left(\\dfrac{h}{h_b}\\right)^{-\\lambda} & (h>h_b) \\\\ 1 & (h \\le h_b)\\end{cases} ]]";
     @p1n[$model] = "h<sub>b</sub>";
     @p2n[$model] = "&lambda;";
     @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
@@ -146,7 +259,7 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[2] eq "on") {
     @index[$model] = 2;
-    @label[$model] = "<tr><td>van Genuchten<td><img src=\"img/VG.png\" width=108 height=48 alt=VG> (m=1-1/n)";
+    @label[$model] = "<tr><td>van Genuchten<td>[[ S_e = \\biggl[\\dfrac{1}{1+(\\alpha h)^n}\\biggr]^m ~~ (m=1-1/n) ]]";
     @p1n[$model] = "&alpha;";
     @p2n[$model] = "n";
     @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
@@ -160,7 +273,7 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[3] eq "on") {
     @index[$model] = 3;
-    @label[$model] = "<tr><td>Kosugi<td><img src=\"img/LN.png\" width=110 height=42 alt=LN>";
+    @label[$model] = "<tr><td>Kosugi<td>[[ S_e = Q \\biggl[\\dfrac{\\ln(h/h_m)}{\\sigma}\\biggr] ]]";
     @p1n[$model] = "h<sub>m</sub>";
     @p2n[$model] = "&sigma;";
     @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
@@ -174,7 +287,11 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[4] eq "on") {
     @index[$model] = 4;
-    @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
+    if ($fxc eq "on") {
+       @label[$model] = "<tr><td>Fredlund and Xing<td>[[ S_e = C(h) \\biggl[ \\dfrac{1}{\\ln \\left[e+(h / a)^n \\right]} \\biggr]^m ]]  [[ C(h) = - \\frac{ \\ln (1+ \\frac{h}{" . $psir . "})}{ \\ln (1+ \\frac{" . $psimax . "}{" . $psir . "})} +1 ]]";
+    } else {
+       @label[$model] = "<tr><td>Fredlund and Xing<td>[[ S_e = \\biggl[ \\dfrac{1}{\\ln \\left[e+(h / a)^n \\right]} \\biggr]^m ]]";
+    }
     @p1n[$model] = "a";
     @p2n[$model] = "m";
     @p3n[$model] = "n";
@@ -256,7 +373,7 @@ print << "EOF";
 EOF
 } else {
 print << "EOF";
-<h2>Invalid input data</h2>
+<h2>Invalid input data or options</h2>
 
 <p>The input data, i.e., the soil water retention curve, should be numbers with two columns.
 The first column is the suction head and the second column is the volumetric water content,
@@ -320,7 +437,7 @@ print <<"EOF";
 </tr>
 </table>
 <ul>
-<li>AIC (<a href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike's Information Criterion</a>) = n ln(RSS/n)+2k, where n is sample size, RSS is residual sum of squares and k is the number of estimated parameters.</li>
+<li>AIC (<a href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion</a>) = n ln(RSS/n)+2k, where n is sample size, RSS is residual sum of squares and k is the number of estimated parameters.</li>
 <li>Effective saturation, S<sub>e</sub> = (&theta;-&theta;<sub>r</sub>)/(&theta;<sub>s</sub>-&theta;<sub>r</sub>). Therefore &theta; = &theta;<sub>r</sub> + (&theta;<sub>s</sub>-&theta;<sub>r</sub>)S<sub>e</sub>.</li>
 EOF
 if ($thetaR eq "on") {
@@ -340,7 +457,7 @@ if (@m[3] eq "on") {
   print "<li>For Seki model, ", $q;
 }
 if (@m[4] eq "on") {
-  print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>. For modifying the correction function C(h), please use <a href=\"http://swrcfit.sourceforge.net/\">offline version</a> of SWRC Fit version 3.0 or higher.</li>";
+  print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>.</li>";
 }
 print "</ul>";
 
@@ -442,5 +559,33 @@ sub replacecontrolchars
         $s =~ s/"/&quot;/g;
         $s =~ s/'/&apos;/g;
         $s =~ s/\n/<br>/g;
+        return $s;
+}
+
+# Function to replace label characters to process into shell. Removing dangeous chars.
+
+sub replacelabelchars
+{
+        local $s = $_[0];
+        $s =~ s/\r\n/\n/g;
+        while (chomp($s)) {
+                ;
+        }
+        $s =~ s/[^[:print:]]+//g;
+        $s =~ s/\\//g;
+        $s =~ s/;//g;
+        $s =~ s/\|//g;
+        $s =~ s/>//g;
+        $s =~ s/<//g;
+        $s =~ s/\$//g;
+        $s =~ s/\*//g;
+        $s =~ s/\@//g;
+        $s =~ s/\&//g;
+        $s =~ s/"//g;
+        $s =~ s/'//g;
+        $s =~ s/ /\\ /g;
+        $s =~ s/\(/\\\(/g;
+        $s =~ s/\)/\\\)/g;
+        $s =~ s/\_/\\\_/g;
         return $s;
 }

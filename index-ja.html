@@ -28,6 +28,12 @@
     function eraseTA(obj){
         if (obj.value == obj.defaultValue) obj.value = "";
     }
+    function showMore(btn) {
+        var targetId = btn.getAttribute("href").slice(1);
+        document.getElementById(targetId).style.display = "block";
+        btn.parentNode.style.display = "none";
+        return false;
+    }
     function a(){
         if(document.getElementById("unsoda").value == "unsoda1270"){
             document.getElementById("soil").value = "Superior, AZ, USA (UNSODA 1270)";
@@ -124,11 +130,10 @@
   <INPUT TYPE="checkbox" name="FX" value="on" checked>Fredlund and Xing <strong>[New!]</strong><br>
   <INPUT TYPE="checkbox" name="DB" value="on">Durner<br>
   <INPUT TYPE="checkbox" name="BL" value="on">Seki<br>
-  <p>計算オプション<br>
-  <input type="checkbox" name="thetaR" value="on">&theta;<sub>r</sub> = 0<br>
   <p>グラフオプション<br>
   <input type="checkbox" name="onemodel" value="on" checked>最良のモデル1つを表示<br>
   </p>
+   <p><a href="#detail" onclick="return showMore(this);">さらにオプションを見る</p>
 </td>
 <td>
 <p>土壌水分特性曲線<br>
@@ -147,6 +152,61 @@
 <p><textarea name="swrc" id="swrc" rows="15" cols="23" wrap="off" onMousedown="eraseTA(this)">
 # ここにデータを貼り付ける
 </textarea></p>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<div id="detail" class="detailed-options">
+
+<p>計算オプション</p>
+
+<ul>
+<li>   <input type="radio" name="cqr" value="fit" checked="checked">&theta;<sub>r</sub> を最適化
+<input type="radio" name="cqr" value="fix">&theta;<sub>r</sub> = <input type="text" name="qrin" id="qrin" size="5" maxlength="10" value="0">
+<li><input type="radio" name="cqs" value="fit" checked="checked">&theta;<sub>s</sub> を最適化
+<input type="radio" name="cqs" value="max">&theta;<sub>s</sub> = &theta;<sub>max</sub>
+<input type="radio" name="cqs" value="fix">&theta;<sub>s</sub> = <input type="text" name="qsin" id="qsin" size="5" maxlength="10" value="">
+<li>FX モデル: <input type="checkbox" name="fxc" value="on">修正関数を使う<br> &psi;<sub>r</sub> = <input type="text" name="psir" id="psir" size="7" maxlength="10" value="30000">,  &psi;<sub>max</sub> = <input type="text" name="psimax" id="psimax" size="10" maxlength="12" value="10000000">
+</ul>
+
+<p>グラフオプション</p>
+
+<ul>
+<li>大きさ:
+<input type="radio" name="figsize" value="3" checked="checked">大
+<input type="radio" name="figsize" value="2">中
+<input type="radio" name="figsize" value="1">小
+<li><input type="checkbox" name="showgrid" value="on">グリッドを表示
+<li>横軸の種類:
+<input type="radio" name="ax" value="0" checked="checked">自動
+<input type="radio" name="ax" value="1">通常
+<input type="radio" name="ax" value="2">対数
+<li>横軸の範囲: <input type="text" name="minx" id="minx" size="5" maxlength="8" value="0"> から <input type="text" name="maxx" id="maxx" size="5" maxlength="10" value="0"> (0 は自動)
+<li>縦軸の範囲: <input type="text" name="miny" id="miny" size="5" maxlength="8" value="0"> から <input type="text" name="maxy" id="maxy" size="5" maxlength="10" value="0"> (0 は自動)
+<li>フォントサイズ <input type="text" name="fontsize" id="fontsize" size="2" maxlength="2" value="18">
+<li><input type="checkbox" name="showlabel" value="on" checked>ラベルを表示する。横軸ラベル <input type="text" name="xlab" id="xlab" size="15" maxlength="30" value="Matric suction"><br>縦軸ラベル <input type="text" name="ylab" id="ylab" size="25" maxlength="40" value="Volumetric water content">
+<li><input type="checkbox" name="showlegend" value="on" checked>凡例を表示する
+<ul>
+<li><input type="text" name="Mlab" id="Mlab" size="12" maxlength="20" value="Measured"> (測定値)
+<li><input type="text" name="BClab" id="BClab" size="23" maxlength="40" value="Brooks and Corey (1964)"> (BC モデル)
+<li><input type="text" name="VGlab" id="VGlab" size="23" maxlength="40" value="van Genuchten (1980)"> (VG モデル)
+<li><input type="text" name="LNlab" id="LNlab" size="23" maxlength="40" value="Kosugi (1996)"> (LN モデル)
+<li><input type="text" name="FXlab" id="FXlab" size="23" maxlength="40" value="Fredlund and Xing (1994)"> (FX モデル)
+<li><input type="text" name="DBlab" id="DBlab" size="23" maxlength="40" value="Durner (1994)"> (DB モデル)
+<li><input type="text" name="BLlab" id="BLlab" size="23" maxlength="40" value="Seki (2007)"> (BL モデル)
+</ul>
+<li>測定値のプロット: マーカーの大きさ <input type="text" name="msize" id="msize" size="2" maxlength="2" value="5"> 色 <select name="mcol" id="mcol">
+  <option value="k">黒
+  <option value="r">赤
+  <option value="b" selected>青
+  <option value="g">緑
+  <option value="m">マゼンタ
+  <option value="c">シアン
+</select>
+<li>回帰曲線: 線の太さ <input type="text" name="linewidth" id="linewidth" size="3" maxlength="4" value="1.5"> 色の順番 <input type="text" name="col" id="col" size="6" maxlength="6" value="krbgmc"><br>
+(K = 黒, R = 赤, B = 青, G = 緑, M = マゼンタ, C = シアン)
+</ul>
+</div>
 </td>
 </tr>
 </table>
