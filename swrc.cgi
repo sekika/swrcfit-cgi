@@ -98,6 +98,9 @@ $minx = $formdata{'minx'};
 $maxx = $formdata{'maxx'};
 $miny = $formdata{'miny'};
 $maxy = $formdata{'maxy'};
+$fontsize = $formdata{'fontsize'};
+$showlabel = $formdata{'showlabel'};
+$showlegend = $formdata{'showlegend'};
 
 # Escape control characters before output for security
 
@@ -165,6 +168,23 @@ $miny=$miny + 0;
 if ( $miny > 0 ) { $opt = $opt . " miny=" . $miny; }
 $maxy=$maxy + 0;
 if ( $maxy > 0 ) { $opt = $opt . " maxy=" . $maxy; }
+
+$fontsize=$fontsize + 0;
+if ( $fontsize < 5 ) { $fontsize = 5; }
+if ( $fontsize > 30 ) { $fontsize = 30; }
+$opt = $opt . " fonsize=" . $fontsize;
+
+if ( $showlabel eq "on" ) {
+    $opt = $opt . " showlabel=1"
+} else {
+    $opt = $opt . " showlabel=0"
+}
+
+if ( $showlegend eq "on" ) {
+    $opt = $opt . " showlegend=1"
+} else {
+    $opt = $opt . " showlegend=0"
+}
 
 # Show option (debug) #####
 print ($opt);
