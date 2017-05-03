@@ -165,7 +165,7 @@ if ($result[0] eq "" or $result[0] == "0") {
   $k=0; $model=1;
   if (@m[1] eq "on") {
     @index[$model] = 1;
-    @label[$model] = "<tr><td>Brooks and Corey<td>[[ S_e = \\begin{cases}\\left(\\dfrac{h}{h_b}\\right)^{-\\lambda} & (h>h_b) \\\\ 1 & (h \\le h_b)\\end{cases} ]] <img src=\"img/BC.png\" width=146 height=75 alt=BC>";
+    @label[$model] = "<tr><td>Brooks and Corey<td>[[ S_e = \\begin{cases}\\left(\\dfrac{h}{h_b}\\right)^{-\\lambda} & (h>h_b) \\\\ 1 & (h \\le h_b)\\end{cases} ]]";
     @p1n[$model] = "h<sub>b</sub>";
     @p2n[$model] = "&lambda;";
     @p3n[$model] = ""; @p4n[$model] = ""; @p5n[$model] = "";
