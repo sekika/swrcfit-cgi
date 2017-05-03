@@ -211,7 +211,7 @@ if ( $showlegend eq "on" ) {
 $msize=$msize + 0;
 if ( $msize < 1 ) { $msize = 1; }
 if ( $msize > 100 ) { $msize = 100; }
-$opt = $opt . " msize=" . $msize
+$opt = $opt . " msize=" . $msize;
 
 # Show option (debug) #####
 print ($opt);
