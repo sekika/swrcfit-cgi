@@ -203,7 +203,8 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[4] eq "on") {
     @index[$model] = 4;
-    @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX> (C(h)=1)";
+    @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX>";
+    if ($fcx eq "0") { @label[$model] = @label[$model] . "(C(h)=1)"; }
     @p1n[$model] = "a";
     @p2n[$model] = "m";
     @p3n[$model] = "n";
@@ -285,7 +286,7 @@ print << "EOF";
 EOF
 } else {
 print << "EOF";
-<h2>Invalid input data</h2>
+<h2>Invalid input data or options</h2>
 
 <p>The input data, i.e., the soil water retention curve, should be numbers with two columns.
 The first column is the suction head and the second column is the volumetric water content,
@@ -369,7 +370,7 @@ if (@m[3] eq "on") {
   print "<li>For Seki model, ", $q;
 }
 if (@m[4] eq "on") {
-  print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>. For modifying the correction function C(h), please use <a href=\"http://swrcfit.sourceforge.net/\">offline version</a> of SWRC Fit version 3.0 or higher.</li>";
+  print "<li>For Fredlund and Xing model, e is <a href=\"https://en.wikipedia.org/wiki/E_(mathematical_constant)\">Napier's constant</a>.</li>";
 }
 print "</ul>";
 
