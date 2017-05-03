@@ -131,7 +131,7 @@ $LNlab  = replacelabelchars($LNlab);
 $FXlab  = replacelabelchars($FXlab);
 $DBlab  = replacelabelchars($DBlab);
 $BLlab  = replacelabelchars($BLlab);
-$col  = replacelabelchars($col) x 6;
+$col  = replacelabelchars($col) x 5 . "krbgmc";
 
 # Output sample information
 
