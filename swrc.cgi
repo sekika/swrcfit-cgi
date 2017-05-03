@@ -113,6 +113,7 @@ $BLlab = $formdata{'BLlab'};
 $msize = $formdata{'msize'};
 $mcol = $formdata{'mcol'};
 $linewidth = $formdata{'linewidth'};
+$col = $formdata{'col'};
 
 # Escape control characters before output for security
 
@@ -130,6 +131,7 @@ $LNlab  = replacelabelchars($LNlab);
 $FXlab  = replacelabelchars($LNlab);
 $DBlab  = replacelabelchars($DBlab);
 $BLlab  = replacelabelchars($BLlab);
+$col  = replacelabelchars($col);
 
 # Output sample information
 
@@ -223,7 +225,7 @@ if ( $mcol eq "c" ) { $opt = $opt . " mcol=\\\"c\\\""; }
 $linewidth=$linewidth + 0;
 if ( $linewidth < 0.1 ) { $msize = 0.1; }
 if ( $linewidth > 10 ) { $linewidth = 10; }
-$opt = $opt . " linewidth=" . $linewidth;
+$opt = $opt . " linewidth=" . $linewidth . " col=" . $col;
 
 # Show option (debug) #####
 print ($opt);
