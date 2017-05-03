@@ -53,7 +53,7 @@ Content-type: text/html
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
-  <script>\$(document).ready(function(){renderMathInElement(document.body,{delimiters: [{left: "\$\$", right: "\$\$", display: true},{left: "\$", right: "\$", display: false}]})});</script>
+  <script>\$(document).ready(function(){renderMathInElement(document.body,{delimiters: [{left: "[[", right: "]]", display: true},{left: "\$", right: "\$", display: false}]})});</script>
 </head>
 <body>
 EOF
@@ -207,11 +207,11 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[4] eq "on") {
     @index[$model] = 4;
-    @label[$model] =  "<tr><td>Fredlund and Xing<td><img src=\"img/FX.png\" width=190 height=53 alt=FX>";
+    @label[$model] =  "<tr><td>Fredlund and Xing<td>[[ S_e = C(h)\biggl[ \\dfrac{1}{\\ln \\left[e+(h / a)^n \\right]} \\biggr]^m ]]<img src=\"img/FX.png\" width=190 height=53 alt=FX>";
     if ($fcx eq "0") {
-       @label[$model] = @label[$model] . "(C(h)=1)";
+       @label[$model] = @label[$model] . "C(h)=1";
     } else {
-       @label[$model] = @label[$model] . "<br> \$\$ C(h) = - \\frac{ \\ln (1+ \\frac{h}{" . $psir . "})}{ \\ln (1+ \\frac{" . $psimax . "}{" . $psir . "})} +1 \$\$ C(h) = - [ln (1 + h / " . $psir . ")] / [ln (1 + (" .  $psimax . "/" . $psir . ")] + 1";
+       @label[$model] = @label[$model] . "<br> [[ C(h) = - \\frac{ \\ln (1+ \\frac{h}{" . $psir . "})}{ \\ln (1+ \\frac{" . $psimax . "}{" . $psir . "})} +1 ]]";
     }
     @p1n[$model] = "a";
     @p2n[$model] = "m";
