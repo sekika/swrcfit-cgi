@@ -80,10 +80,10 @@ $swrc = $formdata{'swrc'};
 @m[6] = $formdata{'BL'};
 $thetaR = $formdata{'thetaR'};
 $onemodel = $formdata{'onemodel'};
-@cqs = formdata{'cqs'};
-@qsin = formdata{'qsin'};
-@cqr = formdata{'cqr'};
-@qrin = formdata{'qrin'};
+@cqs = $formdata{'cqs'};
+@qsin = $formdata{'qsin'};
+@cqr = $formdata{'cqr'};
+@qrin = $formdata{'qrin'};
 
 # Escape control characters before output for security
 
