@@ -108,7 +108,10 @@ $showlegend = $formdata{'showlegend'};
 $soil  = replacecontrolchars($soil);
 $texture  = replacecontrolchars($texture);
 $name  = replacecontrolchars($name);
+
+# These parameters go directly into shell and replace dangeous characters
 $xlab  = replacelabelchars($xlab);
+$ylab  = replacelabelchars($ylab);
 
 # Output sample information
 
@@ -177,7 +180,7 @@ if ( $fontsize > 30 ) { $fontsize = 30; }
 $opt = $opt . " fonsize=" . $fontsize;
 
 if ( $showlabel eq "on" ) {
-    $opt = $opt . " showlabel=1 xlab=\\\"" . $xlab . "\\\"";
+    $opt = $opt . " showlabel=1 xlab=\\\"" . $xlab . "\\\" ylab=\\\"" . $ylab . "\"";
 } else {
     $opt = $opt . " showlabel=0";
 }
@@ -526,6 +529,8 @@ sub replacecontrolchars
         return $s;
 }
 
+# Function to replace label characters to process into shell. Removing dangeous chars.
+
 sub replacelabelchars
 {
         local $s = $_[0];
@@ -543,7 +548,6 @@ sub replacelabelchars
         $s =~ s/\*//g;
         $s =~ s/\@//g;
         $s =~ s/\&//g;
-#        $s =~ s/\%//g;
         $s =~ s/"//g;
         $s =~ s/'//g;
         $s =~ s/ /\\ /g;
