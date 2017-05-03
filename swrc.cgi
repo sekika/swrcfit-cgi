@@ -178,7 +178,7 @@ if ( $maxy > 0 ) { $opt = $opt . " maxy=" . $maxy; }
 
 $fontsize=$fontsize + 0;
 if ( $fontsize < 5 ) { $fontsize = 5; }
-if ( $fontsize > 30 ) { $fontsize = 30; }
+if ( $fontsize > 50 ) { $fontsize = 30; }
 $opt = $opt . " fontsize=" . $fontsize;
 
 if ( $showlabel eq "on" ) {
