@@ -534,7 +534,7 @@ sub replacelabelchars
                 ;
         }
         $s =~ s/;//g;
-        $s =~ s/|//g;
+        $s =~ s/\|//g;
         $s =~ s/>//g;
         $s =~ s/<//g;
         $s =~ s/"//g;
