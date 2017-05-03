@@ -162,6 +162,7 @@ if ($fxc eq "on") { $opt=$opt . " fxc=1 psir=" . $psir . " psimax=" . $psimax; }
 
 if ($figsize eq "1") { $opt=$opt . " figsize=1"; }
 if ($figsize eq "2") { $opt=$opt . " figsize=2"; }
+if ($figsize eq "3") { $opt=$opt . " figsize=3"; }
 if ($showgrid eq "on") { $opt=$opt . " showgrid=1"; }
 if ($ax eq "1") { $opt=$opt . " ax=1"; }
 if ($ax eq "2") { $opt=$opt . " ax=2"; }
