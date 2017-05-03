@@ -533,7 +533,7 @@ sub replacelabelchars
         while (chomp($s)) {
                 ;
         }
-        $s =~ s/[^[:print:]]+//g
+        $s =~ s/[^[:print:]]+//g;
         $s =~ s/\\//g;
         $s =~ s/;//g;
         $s =~ s/\|//g;
