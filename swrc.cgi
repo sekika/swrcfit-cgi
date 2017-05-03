@@ -207,7 +207,7 @@ if ($result[0] eq "" or $result[0] == "0") {
   }
   if (@m[4] eq "on") {
     @index[$model] = 4;
-    if ($fcx eq "on") {
+    if ($fxc eq "on") {
        @label[$model] = "<tr><td>Fredlund and Xing<td>[[ S_e = C(h) \\biggl[ \\dfrac{1}{\\ln \\left[e+(h / a)^n \\right]} \\biggr]^m ]]  [[ C(h) = - \\frac{ \\ln (1+ \\frac{h}{" . $psir . "})}{ \\ln (1+ \\frac{" . $psimax . "}{" . $psir . "})} +1 ]]";
     } else {
        @label[$model] = "<tr><td>Fredlund and Xing<td>[[ S_e = \\biggl[ \\dfrac{1}{\\ln \\left[e+(h / a)^n \\right]} \\biggr]^m ]]";
