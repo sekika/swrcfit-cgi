@@ -103,7 +103,7 @@ $showlabel = $formdata{'showlabel'};
 $xlab = $formdata{'xlab'};
 $ylab = $formdata{'ylab'};
 $showlegend = $formdata{'showlegend'};
-$mlab = $formdata{'mlab'};
+$Mlab = $formdata{'Mlab'};
 $BClab = $formdata{'BClab'};
 $VGlab = $formdata{'VGlab'};
 $LNlab = $formdata{'LNlab'};
@@ -120,7 +120,7 @@ $name  = replacecontrolchars($name);
 # These parameters go directly into shell and replace dangeous characters
 $xlab  = replacelabelchars($xlab);
 $ylab  = replacelabelchars($ylab);
-$mlab  = replacelabelchars($mlab);
+$Mlab  = replacelabelchars($Mlab);
 $BClab  = replacelabelchars($BClab);
 $VGlab  = replacelabelchars($VGlab);
 $LNlab  = replacelabelchars($LNlab);
