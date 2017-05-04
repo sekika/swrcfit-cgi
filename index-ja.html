@@ -158,53 +158,53 @@
 <td colspan="2">
 <div id="detail" class="detailed-options">
 
-<p>Calculation options</p>
+<p>計算オプション</p>
 
 <ul>
-<li>   <input type="radio" name="cqr" value="fit" checked="checked">Fit &theta;<sub>r</sub>
+<li>   <input type="radio" name="cqr" value="fit" checked="checked">&theta;<sub>r</sub> を最適化
 <input type="radio" name="cqr" value="fix">&theta;<sub>r</sub> = <input type="text" name="qrin" id="qrin" size="5" maxlength="10" value="0">
-<li><input type="radio" name="cqs" value="fit" checked="checked">Fit &theta;<sub>s</sub>
+<li><input type="radio" name="cqs" value="fit" checked="checked">&theta;<sub>s</sub> を最適化
 <input type="radio" name="cqs" value="max">&theta;<sub>s</sub> = &theta;<sub>max</sub>
 <input type="radio" name="cqs" value="fix">&theta;<sub>s</sub> = <input type="text" name="qsin" id="qsin" size="5" maxlength="10" value="">
-<li>FX model: <input type="checkbox" name="fxc" value="on">Use correction function<br>with &psi;<sub>r</sub> = <input type="text" name="psir" id="psir" size="7" maxlength="10" value="30000"> and  &psi;<sub>max</sub> = <input type="text" name="psimax" id="psimax" size="10" maxlength="12" value="10000000">
+<li>FX モデル: <input type="checkbox" name="fxc" value="on">修正関数を使う<br> &psi;<sub>r</sub> = <input type="text" name="psir" id="psir" size="7" maxlength="10" value="30000">,  &psi;<sub>max</sub> = <input type="text" name="psimax" id="psimax" size="10" maxlength="12" value="10000000">
 </ul>
 
-<p>Figure options</p>
+<p>グラフオプション</p>
 
 <ul>
-<li>Figure size:
-<input type="radio" name="figsize" value="3" checked="checked">Large
-<input type="radio" name="figsize" value="2">Medium
-<input type="radio" name="figsize" value="1">Small
-<li><input type="checkbox" name="showgrid" value="on">Show grid
-<li>Type of x axis:
-<input type="radio" name="ax" value="0" checked="checked">Automatic
-<input type="radio" name="ax" value="1">Normal
-<input type="radio" name="ax" value="2">Logarithm
-<li>Range of x axis: <input type="text" name="minx" id="minx" size="5" maxlength="8" value="0"> to <input type="text" name="maxx" id="maxx" size="5" maxlength="10" value="0"> (0 for automatic)
-<li>Range of y axis: <input type="text" name="miny" id="miny" size="5" maxlength="8" value="0"> to <input type="text" name="maxy" id="maxy" size="5" maxlength="10" value="0"> (0 for automatic)
-<li>Font size = <input type="text" name="fontsize" id="fontsize" size="2" maxlength="2" value="18">
-<li><input type="checkbox" name="showlabel" value="on" checked>Show label with <input type="text" name="xlab" id="xlab" size="15" maxlength="30" value="Matric suction"> for x axis<br>and <input type="text" name="ylab" id="ylab" size="25" maxlength="40" value="Volumetric water content"> for y axis
-<li><input type="checkbox" name="showlegend" value="on" checked>Show legend with:
+<li>大きさ:
+<input type="radio" name="figsize" value="3" checked="checked">大
+<input type="radio" name="figsize" value="2">中
+<input type="radio" name="figsize" value="1">小
+<li><input type="checkbox" name="showgrid" value="on">グリッドを表示
+<li>軸:
+<input type="radio" name="ax" value="0" checked="checked">自動
+<input type="radio" name="ax" value="1">通常
+<input type="radio" name="ax" value="2">対数
+<li>横軸の範囲: <input type="text" name="minx" id="minx" size="5" maxlength="8" value="0"> から <input type="text" name="maxx" id="maxx" size="5" maxlength="10" value="0"> (0 は自動)
+<li>縦軸の範囲: <input type="text" name="miny" id="miny" size="5" maxlength="8" value="0"> から <input type="text" name="maxy" id="maxy" size="5" maxlength="10" value="0"> (0 は自動)
+<li>フォントサイズ <input type="text" name="fontsize" id="fontsize" size="2" maxlength="2" value="18">
+<li><input type="checkbox" name="showlabel" value="on" checked>ラベルを表示する。横軸ラベル <input type="text" name="xlab" id="xlab" size="15" maxlength="30" value="Matric suction"><br>縦軸ラベル <input type="text" name="ylab" id="ylab" size="25" maxlength="40" value="Volumetric water content">
+<li><input type="checkbox" name="showlegend" value="on" checked>凡例を表示する
 <ul>
-<li><input type="text" name="Mlab" id="Mlab" size="12" maxlength="20" value="Measured"> for measured
-<li><input type="text" name="BClab" id="BClab" size="23" maxlength="40" value="Brooks and Corey (1964)"> for BC model
-<li><input type="text" name="VGlab" id="VGlab" size="23" maxlength="40" value="van Genuchten (1980)"> for VG model
-<li><input type="text" name="LNlab" id="LNlab" size="23" maxlength="40" value="Kosugi (1996)"> for LN model
-<li><input type="text" name="FXlab" id="FXlab" size="23" maxlength="40" value="Fredlund and Xing (1994)"> for FX model
-<li><input type="text" name="DBlab" id="DBlab" size="23" maxlength="40" value="Durner (1994)"> for DB model
-<li><input type="text" name="BLlab" id="BLlab" size="23" maxlength="40" value="Seki (2007)"> for BL model
+<li><input type="text" name="Mlab" id="Mlab" size="12" maxlength="20" value="Measured"> (測定値)
+<li><input type="text" name="BClab" id="BClab" size="23" maxlength="40" value="Brooks and Corey (1964)"> (BC モデル)
+<li><input type="text" name="VGlab" id="VGlab" size="23" maxlength="40" value="van Genuchten (1980)"> (VG モデル)
+<li><input type="text" name="LNlab" id="LNlab" size="23" maxlength="40" value="Kosugi (1996)"> (LN モデル)
+<li><input type="text" name="FXlab" id="FXlab" size="23" maxlength="40" value="Fredlund and Xing (1994)"> (FX モデル)
+<li><input type="text" name="DBlab" id="DBlab" size="23" maxlength="40" value="Durner (1994)"> (DB モデル)
+<li><input type="text" name="BLlab" id="BLlab" size="23" maxlength="40" value="Seki (2007)"> (BL モデル)
 </ul>
-<li>Measured plot: Marker size = <input type="text" name="msize" id="msize" size="2" maxlength="2" value="5"> and color = <select name="mcol" id="mcol">
-  <option value="k">black
-  <option value="r">red
-  <option value="b" selected>blue
-  <option value="g">green
-  <option value="m">magenta
-  <option value="c">cyan
+<li>測定値のプロット: マーカーの大きさ <input type="text" name="msize" id="msize" size="2" maxlength="2" value="5"> 色 <select name="mcol" id="mcol">
+  <option value="k">黒
+  <option value="r">赤
+  <option value="b" selected>青
+  <option value="g">緑
+  <option value="m">マゼンタ
+  <option value="c">シアン
 </select>
-<li>Fitting curves: Line width = <input type="text" name="linewidth" id="linewidth" size="3" maxlength="4" value="1.5">  and color order = <input type="text" name="col" id="col" size="6" maxlength="6" value="krbgmc"><br>
-(blacK, Red, Blue, Green, Magenta and Cyan)
+<li>回気曲線: 線の太さ <input type="text" name="linewidth" id="linewidth" size="3" maxlength="4" value="1.5"> 色の順番 <input type="text" name="col" id="col" size="6" maxlength="6" value="krbgmc"><br>
+(K = 黒, R = 赤, B = 青, G = 緑, M = マゼンタ, C = シアン)
 </ul>
 </div>
 </td>

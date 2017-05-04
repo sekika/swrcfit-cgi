@@ -20,6 +20,12 @@
     function eraseTA(obj){
         if (obj.value == obj.defaultValue) obj.value = "";
     }
+    function showMore(btn) {
+        var targetId = btn.getAttribute("href").slice(1);
+        document.getElementById(targetId).style.display = "block";
+        btn.parentNode.style.display = "none";
+        return false;
+    }
     function a(){
         if(document.getElementById("unsoda").value == "unsoda1270"){
             document.getElementById("soil").value = "Superior, AZ, USA (UNSODA 1270)";
@@ -114,11 +120,10 @@ Your name <input type="text" name="name" id="name" size="30" maxlength="50" valu
   <INPUT TYPE="checkbox" name="FX" value="on" checked>Fredlund und Xing <strong>[New!]</strong><br>
   <INPUT TYPE="checkbox" name="DB" value="on">Durner<br>
   <INPUT TYPE="checkbox" name="BL" value="on">Seki<br>
-  <p>Calculation option<br>
-  <input type="checkbox" name="thetaR" value="on">&theta;<sub>r</sub> = 0<br>
   <p>Figure option<br>
   <input type="checkbox" name="onemodel" value="on" checked>Show only one model<br>
   </p>
+   <p><a href="#detail" onclick="return showMore(this);">Show more options</p>
 </td>
 <td>
 <p>Wasserspannungskurve<br>
@@ -137,6 +142,61 @@ Your name <input type="text" name="name" id="name" size="30" maxlength="50" valu
 <p><textarea name="swrc" id="swrc" rows="15" cols="23" wrap="off" onMousedown="eraseTA(this)">
 # Paste your data here
 </textarea></p>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<div id="detail" class="detailed-options">
+
+<p>Calculation options</p>
+
+<ul>
+<li>   <input type="radio" name="cqr" value="fit" checked="checked">Fit &theta;<sub>r</sub>
+<input type="radio" name="cqr" value="fix">&theta;<sub>r</sub> = <input type="text" name="qrin" id="qrin" size="5" maxlength="10" value="0">
+<li><input type="radio" name="cqs" value="fit" checked="checked">Fit &theta;<sub>s</sub>
+<input type="radio" name="cqs" value="max">&theta;<sub>s</sub> = &theta;<sub>max</sub>
+<input type="radio" name="cqs" value="fix">&theta;<sub>s</sub> = <input type="text" name="qsin" id="qsin" size="5" maxlength="10" value="">
+<li>FX model: <input type="checkbox" name="fxc" value="on">Use correction function<br>with &psi;<sub>r</sub> = <input type="text" name="psir" id="psir" size="7" maxlength="10" value="30000"> and  &psi;<sub>max</sub> = <input type="text" name="psimax" id="psimax" size="10" maxlength="12" value="10000000">
+</ul>
+
+<p>Figure options</p>
+
+<ul>
+<li>Figure size:
+<input type="radio" name="figsize" value="3" checked="checked">Large
+<input type="radio" name="figsize" value="2">Medium
+<input type="radio" name="figsize" value="1">Small
+<li><input type="checkbox" name="showgrid" value="on">Show grid
+<li>Type of x axis:
+<input type="radio" name="ax" value="0" checked="checked">Automatic
+<input type="radio" name="ax" value="1">Normal
+<input type="radio" name="ax" value="2">Logarithm
+<li>Range of x axis: <input type="text" name="minx" id="minx" size="5" maxlength="8" value="0"> to <input type="text" name="maxx" id="maxx" size="5" maxlength="10" value="0"> (0 for automatic)
+<li>Range of y axis: <input type="text" name="miny" id="miny" size="5" maxlength="8" value="0"> to <input type="text" name="maxy" id="maxy" size="5" maxlength="10" value="0"> (0 for automatic)
+<li>Font size = <input type="text" name="fontsize" id="fontsize" size="2" maxlength="2" value="18">
+<li><input type="checkbox" name="showlabel" value="on" checked>Show label with <input type="text" name="xlab" id="xlab" size="15" maxlength="30" value="Matric suction"> for x axis<br>and <input type="text" name="ylab" id="ylab" size="25" maxlength="40" value="Volumetric water content"> for y axis
+<li><input type="checkbox" name="showlegend" value="on" checked>Show legend with:
+<ul>
+<li><input type="text" name="Mlab" id="Mlab" size="12" maxlength="20" value="Measured"> for measured
+<li><input type="text" name="BClab" id="BClab" size="23" maxlength="40" value="Brooks and Corey (1964)"> for BC model
+<li><input type="text" name="VGlab" id="VGlab" size="23" maxlength="40" value="van Genuchten (1980)"> for VG model
+<li><input type="text" name="LNlab" id="LNlab" size="23" maxlength="40" value="Kosugi (1996)"> for LN model
+<li><input type="text" name="FXlab" id="FXlab" size="23" maxlength="40" value="Fredlund and Xing (1994)"> for FX model
+<li><input type="text" name="DBlab" id="DBlab" size="23" maxlength="40" value="Durner (1994)"> for DB model
+<li><input type="text" name="BLlab" id="BLlab" size="23" maxlength="40" value="Seki (2007)"> for BL model
+</ul>
+<li>Measured plot: Marker size = <input type="text" name="msize" id="msize" size="2" maxlength="2" value="5"> and color = <select name="mcol" id="mcol">
+  <option value="k">black
+  <option value="r">red
+  <option value="b" selected>blue
+  <option value="g">green
+  <option value="m">magenta
+  <option value="c">cyan
+</select>
+<li>Fitting curves: Line width = <input type="text" name="linewidth" id="linewidth" size="3" maxlength="4" value="1.5">  and color order = <input type="text" name="col" id="col" size="6" maxlength="6" value="krbgmc"><br>
+(blacK, Red, Blue, Green, Magenta and Cyan)
+</ul>
+</div>
 </td>
 </tr>
 </table>
