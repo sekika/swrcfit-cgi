@@ -437,7 +437,7 @@ print <<"EOF";
 </tr>
 </table>
 <ul>
-<li>AIC (<a href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike's Information Criterion</a>) = n ln(RSS/n)+2k, where n is sample size, RSS is residual sum of squares and k is the number of estimated parameters.</li>
+<li>AIC (<a href="https://en.wikipedia.org/wiki/Akaike_information_criterion">Akaike Information Criterion</a>) = n ln(RSS/n)+2k, where n is sample size, RSS is residual sum of squares and k is the number of estimated parameters.</li>
 <li>Effective saturation, S<sub>e</sub> = (&theta;-&theta;<sub>r</sub>)/(&theta;<sub>s</sub>-&theta;<sub>r</sub>). Therefore &theta; = &theta;<sub>r</sub> + (&theta;<sub>s</sub>-&theta;<sub>r</sub>)S<sub>e</sub>.</li>
 EOF
 if ($thetaR eq "on") {
