@@ -82,7 +82,7 @@ $swrc = $formdata{'swrc'};
 @m[4] = $formdata{'FX'};
 @m[5] = $formdata{'DB'};
 @m[6] = $formdata{'BL'};
-# $thetaR = $formdata{'thetaR'};
+$thetaR = $formdata{'thetaR'};
 $onemodel = $formdata{'onemodel'};
 $cqs = $formdata{'cqs'};
 $qsin = $formdata{'qsin'};
@@ -131,7 +131,7 @@ $LNlab  = replacelabelchars($LNlab);
 $FXlab  = replacelabelchars($FXlab);
 $DBlab  = replacelabelchars($DBlab);
 $BLlab  = replacelabelchars($BLlab);
-$col  = replacelabelchars($col) x 6;
+$col  = replacelabelchars($col) x 5 . "krbgmc";
 
 # Output sample information
 
@@ -157,7 +157,7 @@ if (@m[3] eq "on") { $opt=$opt . " ln=1"; } else { $opt=$opt . " ln=0"; }
 if (@m[4] eq "on") { $opt=$opt . " fx=1"; } else { $opt=$opt . " fx=0"; }
 if (@m[5] eq "on") { $opt=$opt . " db=1"; } else { $opt=$opt . " db=0"; }
 if (@m[6] eq "on") { $opt=$opt . " bl=1"; } else { $opt=$opt . " bl=0"; }
-# if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
+if ($thetaR eq "on") { $opt=$opt . " qrin=0 cqr=0"; }
 if ($onemodel eq "on") { $opt=$opt . " onemodel=1"; }
 
 $qsin=$qsin + 0; # Convert to numeric to disallow insecure input
