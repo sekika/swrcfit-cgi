@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SWRC Fit</title>
   <meta name="author" content="Katsutoshi Seki">
-  <LINK REL="stylesheet" TYPE="text/css" HREF="swrc.css">
-  <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
+  <link rel="stylesheet" TYPE="text/css" HREF="swrc.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>$(document).ready(function(){renderMathInElement(document.body,{delimiters: [{left: "[[", right: "]]", display: true},{left: "$", right: "$", display: false}]})});</script>
 </head>
 <body>
 <p>[ English | <a href="model-ja.html">日本語</a> ]</p>
@@ -16,22 +20,22 @@
 <p>In SWRC Fit (<a href="index.html">Web interface</a> and <a href="http://swrcfit.sourceforge.net/">offline version</a>), 6 hydraulic models are used. Out of the 6 models, 4 models (BC, VG, LN, FX) assume unimodal pore structure (unimodal model) and 2 models (DB, BL) assume bimodal pore structure (bimodal model).</p>
 
 <table border="1"><tr><td>Model<td>Reference<td>Equation<td>Parameters</tr>
-<tr><td align="center">BC<td>Brooks and Corey (1964)<td>\(S_e = \begin{cases}\left(\dfrac{h}{h_b}\right)^{-\lambda} & (h>h_b) \\ 1 & (h \le h_b)\end{cases}\)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, h<sub>b</sub>, &lambda;
-</tr>
-<tr><td align="center">VG<td>van Genuchten (1980)<td>\(S_e = \biggl[\dfrac{1}{1+(\alpha h)^n}\biggr]^m\) (m=1-1/n)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, &alpha;, n
-</tr>
-<tr><td align="center">LN<td>Kosugi (1996)<td>\(S_e = Q \biggl[\dfrac{\ln(h/h_m)}{\sigma}\biggr]\)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, h<sub>m</sub>, &sigma;
-</tr>
-<tr><td align="center">FX<td>Fredlund and Xing (1994)<td>\(S_e = C(h)\biggl[ \dfrac{1}{\ln \left[e+(h / a)^n \right]} \biggr]^m\)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, a, m, n
-</tr>
-<tr><td align="center">DB<td>Durner (1994)<td>\(S_e = w_1\biggl[\dfrac{1}{1+(\alpha_1 h)^{n_1}}\biggr]^{m_1} + (1-w_1)\biggl[\dfrac{1}{1+(\alpha_2 h)^{n_2}}\biggr]^{m_2}\)<br>(m<sub>i</sub>=1-1/n<sub>i</sub>)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, w<sub>1</sub>, &alpha;<sub>1</sub>, n<sub>1</sub>, &alpha;<sub>2</sub>, n<sub>2</sub></tr>
-<tr><td align="center">BL<td>Seki (2007)<td>\(S_e = w_1 Q \biggl[\dfrac{\ln(h/h_{m_1})}{\sigma_1}\biggr] + (1-w_1) Q \biggl[\dfrac{\ln(h/h_{m_2})}{\sigma_2}\biggr]\)<td>&theta;<sub>s</sub>, &theta;<sub>r</sub>, w<sub>1</sub>, h<sub>m1</sub>, &sigma;<sub>1</sub>, h<sub>m2</sub>, &sigma;<sub>2</sub></tr>
+<tr><td align="center">BC<td>Brooks and Corey (1964)<td>[[ S_e = \begin{cases}\left(\dfrac{h}{h_b}\right)^{-\lambda} & (h>h_b) \\ 1 & (h \le h_b)\end{cases} ]]<td>$\theta_s, \theta_r, h_b, \lambda$</tr>
+<tr><td align="center">VG<td>van Genuchten (1980)<td>[[ S_e = \biggl[\dfrac{1}{1+(\alpha h)^n}\biggr]^m ~~ (m=1-1/n) ]]<td>$\theta_s, \theta_r, \alpha, n$</tr>
+<tr><td align="center">LN<td>Kosugi (1996)<td>[[ S_e = Q \biggl[\dfrac{\ln(h/h_m)}{\sigma}\biggr] ]]
+<td>$\theta_s, \theta_r, h, \sigma$</tr>
+<tr><td align="center">FX<td>Fredlund and Xing (1994)<td>[[ S_e = C(h)\biggl[ \dfrac{1}{\ln \left[e+(h / a)^n \right]} \biggr]^m ]]
+<td>$\theta_s, \theta_r, a, m, n$</tr>
+<tr><td align="center">DB<td>Durner (1994)<td>[[ S_e = w_1\biggl[\dfrac{1}{1+(\alpha_1 h)^{n_1}}\biggr]^{m_1} + (1-w_1)\biggl[\dfrac{1}{1+(\alpha_2 h)^{n_2}}\biggr]^{m_2} ]] $(m_i=1-1/n_i)$
+<td>$\theta_s, \theta_r, w_1, \alpha_1, n_1, \alpha_2, n_2$</tr>
+<tr><td align="center">BL<td>Seki (2007)<td>[[ S_e = w_1 Q \biggl[\dfrac{\ln(h/h_{m_1})}{\sigma_1}\biggr] + (1-w_1) Q \biggl[\dfrac{\ln(h/h_{m_2})}{\sigma_2}\biggr] ]]
+<td>$\theta_s, \theta_r, w_1, h_{m_1}, \sigma_1, h_{m_2}, \sigma_2$</tr>
 </table>
 
 <ul>
 <li>h is the suction head</li>
 <li>&theta; is the volumetric water content</li>
-<li>S<sub>e</sub> is the effective water content defined by \(S_e = \frac{\theta-\theta_r}{\theta_s-\theta_r}\). Therefore, &theta; = &theta;<sub>r</sub>+(&theta;<sub>s</sub> - &theta;<sub>r</sub>)S<sub>e</sub></li>
+<li>S<sub>e</sub> is the effective water content defined by $S_e = \frac{\theta-\theta_r}{\theta_s-\theta_r}$. Therefore, &theta; = &theta;<sub>r</sub>+(&theta;<sub>s</sub> - &theta;<sub>r</sub>)S<sub>e</sub></li>
 <li>In LN and BL models, Q(x) is the complementary cumulative normal distribution function, defined by Q(x)=1-&Phi;(x), in which &Phi;(x) is a normalized form of the <a href="http://mathworld.wolfram.com/NormalDistributionFunction.html">cumulative normal distribution function</a>. Please note that Q(x) is different from error function.</li>
 <li>In FX model, e is <a href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Napier's constant</a>. FX model is implemented in SWRC Fit version 3.0 and higher. In the web interface, correction function, C(h)=1. In the offline version, the correction function can be changed. See <a href="https://github.com/sekika/swrcfit/blob/master/doc/en/setting.md">calculation options</a>.
 <li>Other parameters are soil hydraulic parameters to be estimated.</li>
