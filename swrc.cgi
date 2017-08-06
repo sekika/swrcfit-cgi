@@ -20,11 +20,11 @@
 
 # Include 2 perl codes obtained from PERL-LABO
 # http://www.perl-labo.org/
-require 'getformdata.pl';
-require 'lock.pl';
+require './getformdata.pl';
+require './lock.pl';
 
 # Load setting
-require 'setting.pl';
+require './setting.pl';
 $lockdir    = "data/lock"; # lock directory
 $fswrc = "data/swrc.txt"; # data file
 $img = "img/swrc.png"; # image file
