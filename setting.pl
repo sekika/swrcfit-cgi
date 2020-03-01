@@ -4,5 +4,5 @@
 $swrcfit = "/usr/local/bin/swrcfit";
 
 # URL of this program without file name (swrc.cgi) to check for valid referrer
-$validreferrer = "http://seki.webmasters.gr.jp/swrc/";
+$validreferrer = "https://seki.webmasters.gr.jp/swrc/";
 

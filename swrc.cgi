@@ -2,7 +2,7 @@
 #
 # swrc.cgi - SWRC Fit web interface
 #
-# Web: http://seki.webmasters.gr.jp/swrc/
+# Web: https://seki.webmasters.gr.jp/swrc/
 # Purl: http://purl.org/net/swrc/
 # Source: https://github.com/sekika/swrcfit-cgi
 # Author: Katsutoshi Seki
