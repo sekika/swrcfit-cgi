@@ -10,6 +10,9 @@ This is a source code of web interface of [SWRC Fit](http://swrcfit.sourceforge.
 
 This document can be read here. https://github.com/sekika/swrcfit-cgi/blob/master/README.md
 
+## Note
+SWRC Fit is now working with a new [Python code](https://github.com/sekika/unsatfit/tree/main/swrcfit) which uses [unsatfit](https://sekika.github.io/unsatfit/) as a library. This Perl version is no longer used and maintained officially and it is kept for archive purpose.
+
 ## How to use the web interface
 
 It is documented in [user's manual of SWRC Fit](https://github.com/sekika/swrcfit/blob/master/README.md#web-interface-of-the-swrc-fit).
